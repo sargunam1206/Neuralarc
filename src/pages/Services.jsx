@@ -13,12 +13,12 @@ const services = [
     description: "Connect devices seamlessly and optimize operations.",
     link: "/services/iot",
   },
-  {
-    icon: <FaPhoneAlt className="text-[#2A6EBB] w-12 h-12" />,
-    title: "Telecom",
-    description: "Advanced telecommunication solutions for modern businesses.",
-    link: "/services/telecom",
-  },
+  // {
+  //   icon: <FaPhoneAlt className="text-[#2A6EBB] w-12 h-12" />,
+  //   title: "Telecom",
+  //   description: "Advanced telecommunication solutions for modern businesses.",
+  //   link: "/services/telecom",
+  // },
   {
     icon: <FaLaptopCode className="text-[#E31C24] w-12 h-12" />,
     title: "Software Development",

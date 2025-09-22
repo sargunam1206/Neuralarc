@@ -10,7 +10,7 @@ const CallToAction = () => {
           for your needs.
         </p>
         <a
-          href="#contact"
+          href="/contact"
           className="px-8 py-4 bg-white text-[#2A6EBB] font-semibold rounded-lg shadow hover:bg-gray-100 transition"
         >
           Contact Us
