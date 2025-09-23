@@ -98,7 +98,7 @@ const Products = () => {
                 href="#request-quote"
                 className="mt-auto px-4 py-2 bg-[#E31C24] text-white rounded-md font-semibold text-center hover:bg-red-700 transition"
               >
-                Request Quote
+                Know More
               </a>
             </div>
           ))}
