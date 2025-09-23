@@ -29,6 +29,7 @@ const programs = [
 
 const Training = () => {
   return (
+    <>
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Heading */}
@@ -81,6 +82,14 @@ const Training = () => {
         </div>
       </div>
     </section>
+    <div className="flex justify-center">
+  <a href="/TrainingList">
+    <button className="px-8 py-3 rounded-lg border-2 border-[#E31C24] text-[#E31C24] font-semibold transition duration-300 ease-in-out hover:bg-[#E31C24] hover:text-white shadow-md hover:shadow-lg">
+      Know More
+    </button>
+  </a>
+</div>
+    </>
   );
 };
 

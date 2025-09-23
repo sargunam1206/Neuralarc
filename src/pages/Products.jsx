@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// Sample product data
 const productsData = [
   {
     id: 1,
@@ -50,7 +49,8 @@ const Products = () => {
       : productsData.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <>
+    <section className="py-20 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12">
@@ -74,37 +74,47 @@ const Products = () => {
           ))}
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-xl shadow-lg p-6 flex flex-col"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {product.name}
-              </h3>
-              <ul className="text-gray-600 list-disc list-inside mb-4">
-                {product.specs.map((spec, i) => (
-                  <li key={i}>{spec}</li>
-                ))}
-              </ul>
-              <a
-                href="#request-quote"
-                className="mt-auto px-4 py-2 bg-[#E31C24] text-white rounded-md font-semibold text-center hover:bg-red-700 transition"
+        {/* Auto-moving Horizontal Scroll */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex gap-6 animate-scroll whitespace-nowrap">
+            {[...filteredProducts, ...filteredProducts].map((product, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-lg p-6 w-72 flex-shrink-0"
               >
-                Know More
-              </a>
-            </div>
-          ))}
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-40 object-cover rounded-md mb-4"
+                />
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {product.name}
+                </h3>
+                <ul className="text-gray-600 text-sm list-disc list-inside mb-3">
+                  {product.specs.map((spec, i) => (
+                    <li key={i}>{spec}</li>
+                  ))}
+                </ul>
+                <a
+                  href="#request-quote"
+                  className="mt-auto block px-4 py-2 bg-[#E31C24] text-white rounded-md font-semibold text-center hover:bg-red-700 transition"
+                >
+                  Know More
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
+          <div className="flex justify-center">
+  <a href="/ProducteList">
+    <button className="px-8 py-3 rounded-lg border-2 border-[#E31C24] text-[#E31C24] font-semibold transition duration-300 ease-in-out hover:bg-[#E31C24] hover:text-white shadow-md hover:shadow-lg">
+      Know More
+    </button>
+  </a>
+</div>
+    </>
   );
 };
 
