@@ -5,17 +5,17 @@ import Header from "./Header/Header";
 const productsData = [
   {
     id: 1,
-    name: "Smart Sensor X1",
+    name: "T-Remo",
     category: "IoT",
-    specs: ["Wireless connectivity", "Low power consumption", "Compact size"],
-    image: "/assets/images/product-iot1.jpg",
+    specs: ["Designed for negative temperature operation", "Customizable Wireless Access module", "Dimension : (LxBxH) 50 x 50 x 36 mm"],
+    image: "./src/assets/images/product-iot1.jpg",
     description:
-      "Smart Sensor X1 is a next-gen IoT sensor designed for smart homes and industries. It features advanced wireless connectivity, ultra-low power consumption, and a compact form factor to fit anywhere seamlessly.",
+      "T-Remo is a smart temperature monitoring solution for Vaccine/Medicine transport with GPS coordinates. All sensed parameters are sent through SMS or it can be uploaded directly to the web server.",
   },
   {
     id: 2,
     name: "Data Analyzer Pro",
-    category: "Data Science",
+    category: "AI & ML",
     specs: ["AI-powered", "Real-time analytics", "Cloud integration"],
     image: "/assets/images/product-ds1.jpg",
     description:
@@ -23,34 +23,52 @@ const productsData = [
   },
   {
     id: 3,
-    name: "Software Suite 2025",
+    name: "Blood Bank Software",
     category: "Software",
-    specs: ["Customizable modules", "Cross-platform", "Secure"],
-    image: "/assets/images/product-software1.jpg",
+    specs: ["Purchase bill management",
+    "Donor information management",
+    "Blood bag stock tracking"],
+    image: "./src/assets/images/bloodbank.jpeg",
     description:
-      "Software Suite 2025 is an all-in-one enterprise software solution. It comes with customizable modules, cross-platform compatibility, and high-level security.",
+      "Blood Bank Software provides comprehensive management of blood bank operations. It includes empty bag stock monitoring, screening reports, blood request information, and branch-wise tracking of empty and available blood bags.",
   },
   {
     id: 4,
-    name: "Web Builder 360",
+    name: "Purchase Software",
     category: "Software",
-    specs: ["Drag & Drop", "Responsive templates", "SEO ready"],
-    image: "/assets/images/product-web1.jpg",
+    specs: ["Purchase order management",
+    "Supplier list management",
+    "Product list management"],
+    image: "./src/assets/images/purchase.jpeg",
     description:
-      "Web Builder 360 is a no-code website builder with drag-and-drop functionality, responsive templates, and SEO optimization for faster online presence.",
+      "This software streamlines purchase department operations, including project site tracking, invoice management, and overall procurement workflow. It helps maintain supplier records, product inventory, and purchase orders efficiently.",
   },
   {
     id: 5,
-    name: "IoT Gateway Pro",
+    name: "Tracker",
     category: "IoT",
-    specs: ["Edge processing", "Multi-protocol support", "High security"],
-    image: "/assets/images/product-iot2.jpg",
+     specs: [
+    "Admin control",
+    "Device onboarding",
+    "Report generation and display"
+  ],
+    image: "./src/assets/images/tracker.jpg",
     description:
-      "IoT Gateway Pro acts as a central hub for IoT devices with edge processing, multi-protocol support, and enterprise-grade security.",
-  },
-];
+      "Tracker provides centralized monitoring and control of IoT devices. It includes alert messages and logs, continuous temperature measurement and aggregation, secured data transfer to the cloud, optional GPS location tracking, periodic message transfer, and LED device status indication."
+},
+ {
+    id: 6,
+    name: "Billing Software",
+    category: "Software",
+    specs: ["Customer information management",
+    "Product and stock management",
+    "Invoice and quotation generation"],
+    image: "./src/assets/images/billing.jpeg",
+    description:
+      "Billing Software simplifies business operations by managing customer details, product stocks, quotations, invoices, and tracking expenses efficiently.",
+  }];
 
-const categories = ["All", "IoT", "Data Science", "Software"];
+const categories = ["All", "IoT", "AI & ML", "Software"];
 
 const ProducteList = () => {
   const [activeCategory, setActiveCategory] = useState("All");
