@@ -45,12 +45,32 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50">
       {/* Top Banner - Hidden on mobile */}
-      <div className="hidden sm:flex bg-[#2A6EBB] text-white text-sm py-2 px-4 sm:px-6 justify-between items-center">
-        <span className="truncate">📞 +91 98765 43210</span>
-        <button className="bg-[#E31C24] px-3 py-1 rounded-md text-sm hover:bg-red-700 transition whitespace-nowrap">
-          Request a Callback
-        </button>
-      </div>
+     <div className="hidden sm:flex bg-[#2A6EBB] text-white text-sm py-2 px-4 sm:px-6 justify-between items-center shadow-md">
+  {/* Contact Info */}
+  <div className="flex items-center gap-6">
+    {/* Phone */}
+    <span className="flex items-center gap-2 truncate">
+      {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h2l3.6 7.59-1.35 2.45a1 1 0 00.27 1.21l7.14 7.14a1 1 0 001.21.27l2.45-1.35L19 19v2a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+      </svg> */}
+      📞 +91 98765 43210
+    </span>
+
+    {/* Email */}
+    <span className="flex items-center gap-2 truncate">
+      {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12h.01M12 12h.01M8 12h.01M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z" />
+      </svg> */}
+      ✉️ neuralarc@gmail.com
+    </span>
+  </div>
+
+  {/* Action Button */}
+  {/* <button className="bg-[#E31C24] px-4 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition transform hover:scale-105 shadow-md whitespace-nowrap">
+    Contact Us
+  </button> */}
+</div>
+
 
       {/* Main Navbar */}
       <nav className="bg-white shadow-md py-2 sm:py-3">
@@ -65,7 +85,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop & Tablet Menu - Hidden on mobile */}
-          <ul className="hidden md:flex space-x-4 lg:space-x-8 font-medium text-[#1E1E1E] relative items-center">
+          <ul className="hidden md:flex text-lg space-x-4 lg:space-x-8 font-medium text-[#1E1E1E] relative items-center">
             <li>
               <NavLink to="/" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
                 Home

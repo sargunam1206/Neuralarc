@@ -19,12 +19,6 @@ const services = [
     description: "Connect devices seamlessly and optimize operations.",
     link: "/services/iot",
   },
-  // {
-  //   icon: <FaPhoneAlt className="text-[#2A6EBB] w-12 h-12" />,
-  //   title: "Telecom",
-  //   description: "Advanced telecommunication solutions for modern businesses.",
-  //   link: "/services/telecom",
-  // },
   {
     icon: <FaLaptopCode className="text-[#E31C24] w-12 h-12" />,
     title: "Software Development",
@@ -45,7 +39,7 @@ const Services = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section Heading */}
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12" data-aos="fade-down">
             Our Services
           </h2>
 
@@ -55,6 +49,7 @@ const Services = () => {
               <div
                 key={index}
                 className="bg-gray-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition"
+                data-aos="fade-up"
               >
                 <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -72,7 +67,7 @@ const Services = () => {
           </div>
         </div>
       </section>
-   <div className="flex justify-center">
+   <div className="flex justify-center" data-aos="fade-right">
   <a href="/serviceList">
     <button className="px-8 py-3 rounded-lg border-2 border-[#E31C24] text-[#E31C24] font-semibold transition duration-300 ease-in-out hover:bg-[#E31C24] hover:text-white shadow-md hover:shadow-lg">
       Know More

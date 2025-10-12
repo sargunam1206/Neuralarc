@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl px-6 space-y-6">
+      <div className="relative z-10 max-w-3xl px-6 space-y-6" data-aos="zoom-in">
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
           Powering the Future with Smart IoT & Data Science Solutions
@@ -32,7 +32,7 @@ const Hero = () => {
             Get Started
           </a>
           <a
-            href="#products"
+            href="/ProducteList"
             className="border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition"
           >
             See Products

@@ -53,12 +53,12 @@ const Products = () => {
     <section className="py-20 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Heading */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12" data-aos="fade-down">
           Products
         </h2>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-6 mb-10 flex-wrap">
+        <div className="flex justify-center gap-6 mb-10 flex-wrap" data-aos="fade-right">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -98,6 +98,7 @@ const Products = () => {
                 <a
                   href="#request-quote"
                   className="mt-auto block px-4 py-2 bg-[#E31C24] text-white rounded-md font-semibold text-center hover:bg-red-700 transition"
+                
                 >
                   Know More
                 </a>
@@ -107,7 +108,7 @@ const Products = () => {
         </div>
       </div>
     </section>
-          <div className="flex justify-center">
+          <div className="flex justify-center" data-aos="fade-right">
   <a href="/ProducteList">
     <button className="px-8 py-3 rounded-lg border-2 border-[#E31C24] text-[#E31C24] font-semibold transition duration-300 ease-in-out hover:bg-[#E31C24] hover:text-white shadow-md hover:shadow-lg">
       Know More

@@ -34,7 +34,7 @@ const Testimonials = () => {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-2">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-2" data-aos="fade-up">
           What Our Clients Say
         </h2>
         <p className="text-center text-gray-600 mb-12">
@@ -47,6 +47,7 @@ const Testimonials = () => {
             <div
               key={idx}
               className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition"
+            data-aos="fade-up"
             >
               <FaQuoteLeft className="text-[#E31C24] text-2xl mb-4" />
               <p className="text-gray-700 mb-4">"{t.quote}"</p>

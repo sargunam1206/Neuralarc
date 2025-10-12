@@ -26,7 +26,7 @@ const Process = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Heading */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12" data-aos="fade-down">
           How It Works
         </h2>
 
@@ -36,6 +36,7 @@ const Process = () => {
             <div
               key={index}
               className="flex flex-col items-center text-center bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition"
+            data-aos="fade-up"
             >
               {/* Icon */}
               <div className="mb-4">{step.icon}</div>

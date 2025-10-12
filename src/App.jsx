@@ -1,4 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import ServiceList from "./components/ServiceList";
@@ -9,6 +14,13 @@ import Contact from "./pages/Contact";
 import Gallery from "./components/Gallery";
 
 function App() {
+
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      once: true,     // whether animation should happen only once
+    });
+  }, []);
   return (
     <Router>
         <Routes>

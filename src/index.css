@@ -1,4 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 @import "tailwindcss";
+@import "aos/dist/aos.css";
+
 @keyframes scroll {
   0% {
     transform: translateX(0%);
@@ -10,4 +15,8 @@
 
 .animate-scroll {
   animation: scroll 30s linear infinite;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
 }

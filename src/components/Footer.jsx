@@ -24,7 +24,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-100 py-10 relative">
+    <footer className="bg-gray-100 py-10 relative" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-4 gap-10">
         {/* 🔹 Logo + Slogan */}
         <div>
