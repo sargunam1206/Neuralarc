@@ -15,7 +15,7 @@ const services = [
   },
   {
     icon: <FaMicrochip className="text-[#E31C24] w-12 h-12" />,
-    title: "IoT",
+    title: "IoT Products development",
     description: "Connect devices seamlessly and optimize operations.",
     link: "/services/iot",
   },
@@ -36,7 +36,7 @@ const services = [
 const Services = () => {
   return (
     <>
-      <section className="py-20 bg-white">
+      <section className="py-15 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section Heading */}
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12" data-aos="fade-down">
@@ -56,24 +56,29 @@ const Services = () => {
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <a
+                {/* <a
                   href={service.link}
                   className="text-[#E31C24] font-semibold hover:underline"
                 >
                   Learn More
-                </a>
+                </a> */}
               </div>
             ))}
           </div>
         </div>
       </section>
-   <div className="flex justify-center" data-aos="fade-right">
-  <a href="/serviceList">
-    <button className="px-8 py-3 rounded-lg border-2 border-[#E31C24] text-[#E31C24] font-semibold transition duration-300 ease-in-out hover:bg-[#E31C24] hover:text-white shadow-md hover:shadow-lg">
-      Know More
-    </button>
+  <div className="flex justify-center mb-15" data-aos="fade-right">
+  <a
+    href="/serviceList"
+    className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold transition-all duration-300 hover:gap-3"
+  >
+    <span>Know More</span>
+    <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+      →
+    </span>
   </a>
 </div>
+
 
 
     </>

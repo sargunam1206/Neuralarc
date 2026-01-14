@@ -1,6 +1,6 @@
 import Header from "./Header/Header"; 
 import { Link } from "react-router-dom";
-import { FaDatabase, FaMicrochip, FaLaptopCode, FaGlobe, FaChalkboardTeacher } from "react-icons/fa";
+import { FaDatabase, FaMicrochip, FaLaptopCode, FaGlobe, FaChalkboardTeacher, FaMobileAlt,FaUserTie  } from "react-icons/fa";
 import Footer from "./Footer";
 
 const services = [
@@ -27,13 +27,25 @@ const services = [
     title: "Web Development",
     description: "Modern, responsive, and high-performance websites.",
     link: "/services/web-development",
+  }
+  ,{
+   icon: <FaMobileAlt className="text-[#2A6EBB] w-12 h-12" />,
+    title: "App Development",
+    description: "User-friendly, scalable, and high-performance Android & iOS applications.",
+    link: "/services/web-development",
   },
   {
-    icon: <FaChalkboardTeacher className="text-[#2A6EBB] w-12 h-12" />,
+    icon: <FaChalkboardTeacher className="text-[#E31C24] w-12 h-12" />,
     title: "Training",
     description: "Hands-on learning programs for students and professionals.",
     link: "/services/training",
   },
+  {
+  icon: <FaUserTie className="text-[#2A6EBB] w-12 h-12" />,
+  title: "IT Consultancy",
+  description: "Expert guidance to plan, optimize, and scale your digital solutions.",
+}
+
 ];
 
 const ServiceList = () => {
@@ -44,7 +56,7 @@ const ServiceList = () => {
      {/* Hero Section */}
 <section className="bg-[#2A6EBB] text-white py-16" data-aos="fade-down">
   <div className="max-w-7xl mx-auto px-6 text-center">
-    <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
+    <h1 className="text-4xl md:text-4xl font-bold mb-4">Our Services</h1>
     <p className="text-lg md:text-xl max-w-3xl mx-auto">
       Explore our range of technology solutions crafted to help businesses grow smarter and faster.
     </p>
@@ -73,10 +85,10 @@ const ServiceList = () => {
         >
           <div className="mb-4">{service.icon}</div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-          <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
+          <p className="text-gray-600 mb-4 text-base">{service.description}</p>
           <Link
             to={service.link}
-            className="text-[#E31C24] font-semibold hover:underline"
+            className="text-[#E31C24] font-semibold hover:underline text-base"
           >
             Learn More →
           </Link>

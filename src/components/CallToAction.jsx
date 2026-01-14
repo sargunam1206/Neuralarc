@@ -12,7 +12,7 @@ const CallToAction = () => {
         </p>
         <a
           href="/contact"
-          className="px-8 py-4 bg-white text-[#2A6EBB] font-semibold rounded-lg shadow hover:bg-gray-100 transition"
+          className="px-4 py-2 bg-white text-[#2A6EBB] font-semibold rounded-lg shadow hover:bg-gray-100 transition"
         >
           Contact Us
         </a>

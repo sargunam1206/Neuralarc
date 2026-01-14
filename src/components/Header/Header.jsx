@@ -73,7 +73,7 @@ const Header = () => {
 
 
       {/* Main Navbar */}
-      <nav className="bg-white shadow-md py-2 sm:py-3">
+      <nav className="bg-white shadow-md py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           {/* Logo - Smaller on mobile */}
           <Link to="/">

@@ -35,7 +35,7 @@ const Gallery = () => {
 
       {/* Hero Section */}
       <section className="relative bg-[#2A6EBB] text-white text-center py-20">
-        <h1 className="text-4xl md:text-5xl font-bold">Our Gallery</h1>
+        <h1 className="text-4xl md:text-4xl font-bold">Our Gallery</h1>
         <p className="mt-4 text-lg md:text-xl">
           Explore our IoT innovations, software solutions, achievements, and resources
         </p>

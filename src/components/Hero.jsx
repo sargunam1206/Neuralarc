@@ -13,27 +13,26 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6 space-y-6" data-aos="zoom-in">
         {/* Headline */}
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
           Powering the Future with Smart IoT & Data Science Solutions
         </h1>
 
         {/* Subheading */}
-        <p className="text-lg md:text-xl text-gray-200">
-          NeuralArc delivers innovative technology that connects devices,
-          transforms data, and accelerates your business growth.
+        <p className="text-xl md:text-xl text-gray-200">
+          The digital journey of businesses through a comprehensive and Customizable digital ecosystem.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="#get-started"
-            className="bg-[#E31C24] text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition"
+            className="bg-[#E31C24] text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-red-700 transition"
           >
             Get Started
           </a>
           <a
             href="/ProducteList"
-            className="border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition"
+            className="border-2 border-white text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition"
           >
             See Products
           </a>

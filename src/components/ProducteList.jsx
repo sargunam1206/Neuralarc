@@ -2,24 +2,21 @@ import { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 
+import product1 from "../assets/images/product-iot1.jpg";
+import bloodbank from "../assets/images/bloodbank.jpeg";
+import purchase from "../assets/images/purchase.jpeg";
+import tracker from "../assets/images/tracker.jpg";
+import billing from "../assets/images/billing.jpeg";
+
 const productsData = [
   {
     id: 1,
     name: "T-Remo",
     category: "IoT",
     specs: ["Designed for negative temperature operation", "Customizable Wireless Access module", "Dimension : (LxBxH) 50 x 50 x 36 mm"],
-    image: "./src/assets/images/product-iot1.jpg",
+    image: product1,
     description:
       "T-Remo is a smart temperature monitoring solution for Vaccine/Medicine transport with GPS coordinates. All sensed parameters are sent through SMS or it can be uploaded directly to the web server.",
-  },
-  {
-    id: 2,
-    name: "Data Analyzer Pro",
-    category: "AI & ML",
-    specs: ["AI-powered", "Real-time analytics", "Cloud integration"],
-    image: "/assets/images/product-ds1.jpg",
-    description:
-      "Data Analyzer Pro enables businesses to gain insights in real time. With AI-driven analytics and cloud integration, it helps organizations make data-backed decisions effortlessly.",
   },
   {
     id: 3,
@@ -28,7 +25,7 @@ const productsData = [
     specs: ["Purchase bill management",
     "Donor information management",
     "Blood bag stock tracking"],
-    image: "./src/assets/images/bloodbank.jpeg",
+    image: bloodbank,
     description:
       "Blood Bank Software provides comprehensive management of blood bank operations. It includes empty bag stock monitoring, screening reports, blood request information, and branch-wise tracking of empty and available blood bags.",
   },
@@ -39,7 +36,7 @@ const productsData = [
     specs: ["Purchase order management",
     "Supplier list management",
     "Product list management"],
-    image: "./src/assets/images/purchase.jpeg",
+    image: purchase,
     description:
       "This software streamlines purchase department operations, including project site tracking, invoice management, and overall procurement workflow. It helps maintain supplier records, product inventory, and purchase orders efficiently.",
   },
@@ -52,7 +49,7 @@ const productsData = [
     "Device onboarding",
     "Report generation and display"
   ],
-    image: "./src/assets/images/tracker.jpg",
+    image: tracker,
     description:
       "Tracker provides centralized monitoring and control of IoT devices. It includes alert messages and logs, continuous temperature measurement and aggregation, secured data transfer to the cloud, optional GPS location tracking, periodic message transfer, and LED device status indication."
 },
@@ -63,7 +60,7 @@ const productsData = [
     specs: ["Customer information management",
     "Product and stock management",
     "Invoice and quotation generation"],
-    image: "./src/assets/images/billing.jpeg",
+    image: billing,
     description:
       "Billing Software simplifies business operations by managing customer details, product stocks, quotations, invoices, and tracking expenses efficiently.",
   }];
@@ -85,7 +82,7 @@ const ProducteList = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section Heading */}
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12">
+          <h2 className="text-4xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-12">
             Our Products
           </h2>
 

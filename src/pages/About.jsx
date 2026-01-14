@@ -4,7 +4,7 @@ import "aos/dist/aos.css"; // Import AOS styles
 import { FaEye, FaBullseye, FaHandshake, FaUsers, FaTrophy, FaLightbulb } from "react-icons/fa";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
-import aboutImage from "../assets/images/about-hero.jpg";
+import aboutImage from "../assets/images/about-hero.png";
 
 const About = () => {
   useEffect(() => {
@@ -22,7 +22,7 @@ const About = () => {
       <section className="relative bg-[#2A6EBB] text-white py-12">
         <div className="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-1/2" data-aos="fade-right">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            <h1 className="text-4xl md:text-4xl font-extrabold mb-4">
               About <span className="text-[#fff2f2]">NeuralArc</span>
             </h1>
             <p className="text-lg md:text-xl text-justify leading-relaxed">
