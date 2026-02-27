@@ -1,4 +1,6 @@
 import { FaSearch, FaDraftingCompass, FaCode, FaHandsHelping } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+
 
 const steps = [
   {
@@ -25,6 +27,16 @@ const steps = [
 
 const Process = () => {
   return (
+    <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
     <section className="py-15 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
@@ -72,6 +84,7 @@ const Process = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

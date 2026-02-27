@@ -15,9 +15,13 @@ import {
   FaCheckCircle,
   FaMobileAlt,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+
 
 import Header from "./Header/Header";
 import Footer from "./Footer";
+import TrainingEnrollModal from "../components/TrainingEnrollModal";
+
 
 const trainings = [
   {
@@ -97,6 +101,7 @@ const TrainingList = () => {
   const [faqOpenIndex, setFaqOpenIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState(null);
+  
 
   useEffect(() => {
     AOS.init({ duration: 900, once: true });
@@ -104,6 +109,15 @@ const TrainingList = () => {
 
   return (
     <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
       <Header />
 
       <section className="py-15 bg-gray-50">
@@ -148,19 +162,29 @@ const TrainingList = () => {
                   ))}
                 </div>
 
-                <button
-                  onClick={() => {
-                    setSelectedProgram(t);
-                    setIsModalOpen(true);
-                  }}
-                  className={`mt-auto py-2 rounded-md font-semibold text-white transition ${
-                    t.highlight
-                      ? "bg-[#E31C24] hover:bg-red-700"
-                      : "bg-[#2A6EBB] hover:bg-blue-700"
-                  }`}
-                >
-                  Enroll Now →
-                </button>
+               <div className="mt-auto ml-25">
+  <button
+    onClick={() => {
+      setSelectedProgram(t);
+      setIsModalOpen(true);
+    }}
+    className={`group inline-flex items-center gap-2 text-sm font-semibold transition ${
+      t.highlight
+        ? "text-[#E31C24] hover:text-red-700"
+        : "text-[#2A6EBB] hover:text-blue-700"
+    }`}
+  >
+    <span>Enroll Now</span>
+
+    {/* Arrow */}
+    <span
+      className="transform transition-transform duration-300 group-hover:translate-x-1"
+    >
+      →
+    </span>
+  </button>
+</div>
+
               </div>
             ))}
           </div>
@@ -215,6 +239,16 @@ const TrainingList = () => {
       </section>
 
       <Footer />
+      {isModalOpen && (
+  <TrainingEnrollModal
+    program={selectedProgram}
+    onClose={() => {
+      setIsModalOpen(false);
+      setSelectedProgram(null);
+    }}
+  />
+)}
+
     </>
   );
 };

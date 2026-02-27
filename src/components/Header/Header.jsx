@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/Logo.jpg";
 
 const Header = () => {
@@ -9,6 +9,12 @@ const Header = () => {
 
   const activeClass = "text-[#E31C24] border-b-2 border-[#E31C24] pb-1 transition";
   const inactiveClass = "hover:text-[#E31C24] transition";
+
+  const location = useLocation();
+
+const isServicesActive =
+  location.pathname === "/Services" ||
+  location.pathname.startsWith("/services");
 
   // Handle responsiveness
   useEffect(() => {
@@ -92,9 +98,14 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/ServiceList" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
-                Services
-              </NavLink>
+            <NavLink
+  to="/Services"
+  className={isServicesActive ? activeClass : inactiveClass}
+>
+  Services
+</NavLink>
+
+
             </li>
 
             {/* Enhanced Dropdown for Products */}
@@ -126,16 +137,16 @@ const Header = () => {
               )}
             </li> */}
              <li>
-              <NavLink to="/ProducteList" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
-                Product
+              <NavLink to="/Productes" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
+                Products
               </NavLink>
             </li>
 
-            <li>
+            {/* <li>
               <NavLink to="/gallery" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
                 Gallery
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/TrainingList" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
                 Trainings
@@ -179,51 +190,28 @@ const Header = () => {
               Home
             </NavLink>
             
-            <NavLink 
-              to="/ServiceList" 
+ <NavLink
+  to="/Services"
+  className={`block py-2 ${isServicesActive ? activeClass : inactiveClass}`}
+  onClick={() => setIsOpen(false)}
+>
+  Services
+</NavLink>
+<NavLink 
+              to="/Productes" 
               className={({ isActive }) => `block py-2 ${isActive ? activeClass : inactiveClass}`} 
               onClick={() => setIsOpen(false)}
             >
-              Services
+              Products
             </NavLink>
-
-            {/* Mobile Products Dropdown */}
-            <div>
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="w-full text-left py-2 hover:text-[#E31C24] flex items-center justify-between"
-              >
-                <span>Products</span>
-                <span>{isDropdownOpen ? "▴" : "▾"}</span>
-              </button>
-              {isDropdownOpen && (
-                <div className="ml-4 space-y-2 mt-2 border-l-2 border-gray-200 pl-4">
-                  {products.map((item, idx) => (
-                    <NavLink
-                      key={idx}
-                      to={item.path}
-                      className={({ isActive }) => 
-                        `block py-2 ${isActive ? "text-[#E31C24] font-medium" : "hover:text-[#E31C24]"}`
-                      }
-                      onClick={() => {
-                        setIsOpen(false);
-                        setIsDropdownOpen(false);
-                      }}
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))}
-                </div>
-              )}
-            </div>
-
+{/* 
             <NavLink 
               to="/gallery" 
               className={({ isActive }) => `block py-2 ${isActive ? activeClass : inactiveClass}`} 
               onClick={() => setIsOpen(false)}
             >
               Gallery
-            </NavLink>
+            </NavLink> */}
             
             <NavLink 
               to="/TrainingList" 

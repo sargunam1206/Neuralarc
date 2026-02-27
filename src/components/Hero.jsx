@@ -1,8 +1,20 @@
 import React from "react";
 import heroImg from "../assets/images/Hero-image.jpg";
+import { Helmet } from "react-helmet-async";
+
 
 const Hero = () => {
   return (
+    <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
     <section
       className="relative bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center text-center"
       style={{ backgroundImage: `url(${heroImg})` }}
@@ -31,7 +43,7 @@ const Hero = () => {
             Get Started
           </a>
           <a
-            href="/ProducteList"
+            href="/Productes"
             className="border-2 border-white text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition"
           >
             See Products
@@ -39,6 +51,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

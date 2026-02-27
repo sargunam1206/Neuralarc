@@ -3,6 +3,7 @@ import client1 from "../assets/logos/client1.png";
 import client2 from "../assets/logos/client2.png";
 import client3 from "../assets/logos/client3.png";
 
+
 const testimonials = [
   {
     quote:

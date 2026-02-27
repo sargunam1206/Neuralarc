@@ -3,6 +3,8 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaArrowUp } from "react-icons/f
 import { Link } from "react-router-dom";
 import logo from "../assets/images/Logo.jpg";
 
+import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
+
 const Footer = () => {
   const [showTop, setShowTop] = useState(false);
 
@@ -20,13 +22,47 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-100 py-10 relative" data-aos="fade-up">
+    <footer className="bg-[#ffffff] py-10 relative" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-4 gap-10">
 
         {/* 🔹 Logo + Slogan */}
         <div>
           <img src={logo} alt="NeuralArc Logo" className="h-12 mb-3" />
           <p className="">Innovating Technology for a Smarter Tomorrow.</p>
+          {/* Social Media */}
+<div>
+ 
+
+  <div className="flex gap-4 mt-3">
+    <a
+      href="https://www.linkedin.com/company/neuralarc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#2A6EBB] text-white hover:bg-[#1f5aa0] transition"
+    >
+      <FaLinkedinIn />
+    </a>
+
+    <a
+      href="https://www.facebook.com/neuralarc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1877F2] text-white hover:bg-blue-700 transition"
+    >
+      <FaFacebookF />
+    </a>
+
+    <a
+      href="https://www.instagram.com/neuralarc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 text-white hover:opacity-90 transition"
+    >
+      <FaInstagram />
+    </a>
+  </div>
+</div>
+
         </div>
 
         {/* 🔹 Services */}

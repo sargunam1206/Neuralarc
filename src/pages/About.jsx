@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 import { FaEye, FaBullseye, FaHandshake, FaUsers, FaTrophy, FaLightbulb } from "react-icons/fa";
@@ -16,6 +18,15 @@ const About = () => {
 
   return (
     <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
       <Header />
 
       {/* Hero Section */}
@@ -32,7 +43,7 @@ const About = () => {
               results.
             </p>
           </div>
-          <div className="md:w-1/2" data-aos="fade-left">
+          <div className="md:w-2/5" data-aos="fade-left">
             <img
               src={aboutImage}
               alt="About NeuralArc"
@@ -43,7 +54,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-15 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2
             className="text-3xl md:text-4xl font-extrabold text-[#2A6EBB] mb-6"
@@ -52,7 +63,7 @@ const About = () => {
             Our Story
           </h2>
           <p
-            className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto mb-12"
+            className="text-gray-600 text-lg md:text-lg max-w-3xl mx-auto mb-12"
             data-aos="fade-up"
           >
             Founded in 2020, NeuralArc has grown into a trusted technology partner for
@@ -84,7 +95,7 @@ const About = () => {
       </section>
 
       {/* Vision, Mission, Values */}
-      <section className="py-20 bg-white">
+      <section className="py-15 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           <div
             className="p-8 rounded-xl shadow-lg hover:shadow-2xl transition"
@@ -131,7 +142,7 @@ const About = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-15 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2
             className="text-3xl md:text-4xl font-extrabold text-[#2A6EBB] mb-12"
@@ -173,17 +184,17 @@ const About = () => {
 
       {/* CTA */}
       <section
-        className="py-20 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center"
+        className="py-15 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center"
         data-aos="zoom-in-up"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Journey</h2>
-        <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
+        <p className="text-lg md:text-lg mb-6 max-w-2xl mx-auto">
           Be part of an innovative team shaping the future of technology. Let&apos;s build
           something amazing together.
         </p>
         <a
           href="/contact"
-          className="px-8 py-3 bg-white text-[#E31C24] rounded-md font-semibold hover:bg-gray-100 transition"
+          className="px-4 py-2 bg-white text-[#E31C24] rounded-md font-semibold hover:bg-gray-100 transition"
         >
           Contact Us
         </a>

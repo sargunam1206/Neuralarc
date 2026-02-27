@@ -6,12 +6,19 @@ import "aos/dist/aos.css";
 
 // import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
-import ServiceList from "./components/ServiceList";
-import ProducteList from "./components/ProducteList";
+import Services from "./components/Services";
+import Productes from "./components/Productes";
 import TrainingList from "./components/TrainingList";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Gallery from "./components/Gallery";
+
+import WhatsAppFloat from "./components/WhatsAppFloat";
+import ScrollToTop from "./components/ScrollToTop";
+import ServiceDetail from "./components/service-pages/ServiceDetail";
+
+
+
 
 function App() {
 
@@ -23,11 +30,16 @@ function App() {
   }, []);
   return (
     <Router>
+       {/* WhatsApp Floating Icon – shows on all pages */}
+      <ScrollToTop />
+      <WhatsAppFloat />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
-          <Route path="/ServiceList" element={<ServiceList />} />
-          <Route path="/ProducteList" element={<ProducteList/>} />
+          <Route path="/Services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
+
+          <Route path="/Productes" element={<Productes/>} />
           <Route path="/Gallery" element={<Gallery/>} />
           <Route path="/TrainingList" element={<TrainingList />} />
           <Route path="/contact" element={<Contact />} />

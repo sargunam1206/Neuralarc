@@ -6,6 +6,8 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 
+import { Helmet } from "react-helmet-async";
+
 const services = [
   {
     icon: <FaDatabase className="text-[#2A6EBB] w-12 h-12" />,
@@ -36,6 +38,15 @@ const services = [
 const Services = () => {
   return (
     <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
       <section className="py-15 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section Heading */}

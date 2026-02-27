@@ -2,6 +2,8 @@ import Header from "./Header/Header";
 import { Link } from "react-router-dom";
 import { FaDatabase, FaMicrochip, FaLaptopCode, FaGlobe, FaChalkboardTeacher, FaMobileAlt,FaUserTie  } from "react-icons/fa";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet-async";
+
 
 const services = [
   {
@@ -51,6 +53,15 @@ const services = [
 const ServiceList = () => {
   return (
     <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
       <Header />
 
      {/* Hero Section */}
@@ -101,7 +112,7 @@ const ServiceList = () => {
   <div className="text-center mt-16" data-aos="flip-up">
     <Link
       to="/contact"
-      className="bg-[#E31C24] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-red-700 transition"
+      className="bg-[#E31C24] text-white px-4 py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition"
     >
       Get in Touch
     </Link>

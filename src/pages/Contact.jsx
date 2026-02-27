@@ -1,16 +1,29 @@
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+
+
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 
 const Contact = () => {
   return (
     <>
+    
+<Helmet>
+  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <meta
+    name="description"
+    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+  />
+  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+</Helmet>
       <Header />
 
       {/* Hero Section */}
       <section className="bg-[#2A6EBB] text-white py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto">
             Reach out to us for any inquiries, projects, or collaboration opportunities. We're here to help.
           </p>
@@ -42,6 +55,42 @@ const Contact = () => {
                 <span>info@neuralarc.com</span>
               </li>
             </ul>
+            {/* Social Media */}
+<div>
+  <h3 className="text-xl font-semibold text-[#2A6EBB] mb-4">
+    Follow Us
+  </h3>
+
+  <div className="flex gap-4">
+    <a
+      href="https://www.linkedin.com/company/neuralarc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#2A6EBB] text-white hover:bg-[#1f5aa0] transition"
+    >
+      <FaLinkedinIn />
+    </a>
+
+    <a
+      href="https://www.facebook.com/neuralarc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1877F2] text-white hover:bg-blue-700 transition"
+    >
+      <FaFacebookF />
+    </a>
+
+    <a
+      href="https://www.instagram.com/neuralarc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 text-white hover:opacity-90 transition"
+    >
+      <FaInstagram />
+    </a>
+  </div>
+</div>
+
           </div>
 
           {/* Contact Form */}
