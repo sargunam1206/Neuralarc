@@ -85,8 +85,8 @@ longDescription:
   ],
 },
 {
-  slug: "software-development",
-  title: "Software Development",
+  slug: "Embedded Software Development",
+  title: "Embedded Software Development",
   shortDescription: "Robust and scalable custom software solutions.",
 longDescription:
   "We design and develop robust, scalable, and secure software tailored to your business goals. Our team follows modern development practices to build high-performance applications that grow with your needs. From custom enterprise systems to API-driven platforms, we ensure clean architecture and maintainability. We prioritize security, reliability, and seamless user experience in every solution. Our software helps businesses streamline operations and accelerate digital transformation.",

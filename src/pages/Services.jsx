@@ -17,7 +17,7 @@ const services = [
   },
   {
     icon: <FaMicrochip className="text-[#E31C24] w-12 h-12" />,
-    title: "IoT Products Development",
+    title: "IoT Product Development",
     description: "Connect devices seamlessly and optimize operations.",
     link: "/services/iot",
   },

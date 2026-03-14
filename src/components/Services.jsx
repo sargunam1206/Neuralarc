@@ -20,9 +20,9 @@ const services = [
   },
   {
     icon: <FaLaptopCode className="text-[#2A6EBB] w-12 h-12" />,
-    title: "Software Development",
+    title: "Embedded Software Development",
     description: "Robust and scalable web & mobile applications.",
-    link: "/services/software-development",
+    link: "/services/Embedded Software Development",
   },
   {
     icon: <FaGlobe className="text-[#E31C24] w-12 h-12" />,
