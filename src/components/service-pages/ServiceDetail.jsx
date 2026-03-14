@@ -40,7 +40,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Technologies */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 ">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">
             Technologies We Use
@@ -59,18 +59,37 @@ const ServiceDetail = () => {
       </section>
 
       {/* Features */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">
-            Key Features
-          </h2>
-          <ul className="list-disc list-inside space-y-3 text-gray-700">
-            {service.features.map((f, i) => (
-              <li key={i}>{f}</li>
-            ))}
-          </ul>
+    <section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">
+      Key Features
+    </h2>
+
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {service.features.map((feature, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition"
+        >
+          {/* Icon circle (optional but recommended) */}
+         <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-[#2A6EBB]/10 flex items-center justify-center text-3xl">
+  {feature.icon}
+</div>
+
+          {/* Title */}
+          <h3 className="font-bold text-gray-900 mb-3 uppercase tracking-wide">
+            {feature.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {feature.description}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       <Footer />
     </>

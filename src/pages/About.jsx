@@ -66,14 +66,14 @@ const About = () => {
             className="text-gray-600 text-lg md:text-lg max-w-3xl mx-auto mb-12"
             data-aos="fade-up"
           >
-            Founded in 2020, NeuralArc has grown into a trusted technology partner for
+            Founded in 2018, NeuralArc has grown into a trusted technology partner for
             businesses worldwide. From startups to enterprises, we create smart, efficient
             solutions that combine creativity, innovation, and cutting-edge technology.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md" data-aos="flip-left">
-              <h3 className="text-xl font-bold text-[#E31C24] mb-2">2020</h3>
+              <h3 className="text-xl font-bold text-[#E31C24] mb-2">2018</h3>
               <p className="text-gray-600">
                 Founded with a mission to transform businesses through technology.
               </p>

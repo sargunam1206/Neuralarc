@@ -21,14 +21,18 @@ const TrainingEnrollModal = ({ program, onClose }) => {
     e.preventDefault();
 
     const templateParams = {
-      user_name: formData.name,
-      user_email: formData.email,
-      user_phone: formData.phone,
-      user_message: formData.message,
-      program_title: program.title,
-      program_hours: program.duration || program.hours,
-      key_topics: program.bullets.join(", "),
-    };
+  user_name: formData.name,
+  user_email: formData.email,
+  user_phone: formData.phone,
+  user_message: formData.message,
+  program_title: program.title,
+  program_hours: program.duration || program.hours,
+
+  // ✅ format with bullets
+  key_topics: program.bullets
+    .map(topic => `• ${topic}`)
+    .join("\n"),
+};
 
     emailjs
       .send(
@@ -65,15 +69,23 @@ useEffect(() => {
 
 
   return (
-    <div
-  className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-  onClick={onClose}   // 👈 click outside closes modal
->
+ 
   <div
-    className="bg-white rounded-2xl w-full max-w-4xl p-6 md:p-10"
-    onClick={(e) => e.stopPropagation()}  // 👈 prevents close inside
+    className="fixed inset-0 bg-black/50 z-50 flex justify-end"
+    onClick={onClose}
   >
-
+    {/* Sliding Panel */}
+    <div
+      className="
+        bg-white h-full w-full max-w-4xl
+        shadow-2xl
+        transform transition-transform duration-500 ease-out
+        animate-slideInRight
+        overflow-y-auto
+      "
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="p-6 md:p-10">
         {/* Header */}
         <div className="flex justify-between items-center border-b pb-3 mb-6">
           <h2 className="text-2xl font-bold text-[#2A6EBB]">
@@ -143,7 +155,10 @@ useEffect(() => {
               onChange={handleChange}
             />
 
-            <button className="w-full bg-[#2A6EBB] text-white py-3 rounded-lg font-semibold">
+            <button
+              type="submit"
+              className="w-full bg-[#2A6EBB] text-white py-3 rounded-lg font-semibold hover:bg-[#1f5aa0] transition"
+            >
               Submit Enrollment
             </button>
 
@@ -154,7 +169,8 @@ useEffect(() => {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default TrainingEnrollModal;

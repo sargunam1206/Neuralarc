@@ -11,7 +11,7 @@ description: "Decades of hands-on industry expertise."
 },
   {
     icon: <FaCogs className="text-[#E31C24] w-10 h-10" />,
-    number: 25,
+    number: 25 ,
     text: "Products",
     suffix: "+",
     description: "Innovative IoT, software, and data science products.",
@@ -57,16 +57,18 @@ const Highlights = () => {
 <div className="mb-4">
   {item.icon}
 </div>
-             <h3 className="text-xl font-semibold text-gray-900 mb-3 min-h-[3.5rem] flex items-center justify-center">
+           <h3 className="text-xl font-semibold text-gray-900 mb-3 min-h-[3.5rem] flex items-center justify-center gap-2">
   {item.number !== null && (
-    <CountUp
-      start={0}
-      end={inView ? item.number : 0}
-      duration={2}
-      suffix={item.suffix}
-    />
-  )}{" "}
-  {item.text}
+    <span>
+      <CountUp
+        start={0}
+        end={inView ? item.number : 0}
+        duration={2}
+        suffix={item.suffix}
+      />
+    </span>
+  )}
+  <span>{item.text}</span>
 </h3>
 
 <p className="text-gray-600 mt-auto text-base">

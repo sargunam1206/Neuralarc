@@ -153,12 +153,9 @@ const Training = () => {
                 </div>
 
                 {/* CTA */}
-                <button
-                  onClick={() => openModal(p)}
-                  className="mt-auto text-sm font-semibold text-[#2A6EBB] hover:underline text-center"
-                >
-                  Enroll Now →
-                </button>
+                <div className="flex justify-center mb-15" data-aos="fade-right">
+  
+</div>
               </div>
             ))}
           </div>
@@ -183,6 +180,18 @@ const Training = () => {
           {status}
         </div>
       )}
+
+       <div className="flex justify-center mb-10" data-aos="fade-right">
+  <a
+    href="/TrainingList"
+    className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold transition-all duration-300 hover:gap-3"
+  >
+    <span>Know More</span>
+    <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+      →
+    </span>
+  </a>
+</div>
     </>
   );
 };

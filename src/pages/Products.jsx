@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 import product1 from "../assets/images/product-iot1.jpg";
 import bloodbank from "../assets/images/bloodbank.jpeg";
 import purchase from "../assets/images/purchase.jpeg";
-import tracker from "../assets/images/tracker.jpg";
+import tracker from "../assets/Products/product1.png";
 
 const productsData = [
   {
@@ -33,6 +33,17 @@ const productsData = [
   },
   {
     id: 4,
+    name: "Tracker",
+    category: "IoT",
+    specs: [
+      "Battery Operated Device",
+      "Device onboarding",
+      "Report generation",
+    ],
+    image: tracker,
+  },
+  {
+    id: 5,
     name: "Purchase Software",
     category: "Software",
     specs: [
@@ -42,22 +53,14 @@ const productsData = [
     ],
     image: purchase,
   },
-  {
-    id: 5,
-    name: "Tracker",
-    category: "IoT",
-    specs: [
-      "Admin control panel",
-      "Device onboarding",
-      "Report generation",
-    ],
-    image: tracker,
-  },
+  
 ];
 
 
 const Products = () => {
   const [activeCategory] = useState("All");
+
+const [isPaused, setIsPaused] = useState(false);
 
   const filteredProducts =
     activeCategory === "All"
@@ -87,13 +90,15 @@ const Products = () => {
 
           {/* Auto-moving Horizontal Scroll */}
           <div className="relative w-full overflow-hidden">
-            <div className="flex gap-6 animate-scroll whitespace-nowrap">
-              {[...filteredProducts, ...filteredProducts].map(
+<div className="flex gap-6 animate-scroll whitespace-nowrap hover:[animation-play-state:paused]">    
+            {[...filteredProducts, ...filteredProducts].map(
                 (product, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl shadow-lg p-6 w-72 flex-shrink-0 flex flex-col justify-between hover:shadow-xl transition"
-                  >
+                 <div
+  key={index}
+  onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}
+  className="bg-white rounded-xl shadow-lg p-6 w-72 flex-shrink-0 flex flex-col justify-between hover:shadow-xl transition"
+>
                     {/* Image */}
                     <img
                       src={product.image}
@@ -122,12 +127,7 @@ const Products = () => {
                     </div>
 
                     {/* CTA */}
-                    <a
-                      href="/Productes"
-                      className="mt-auto block text-sm font-semibold text-[#E31C24] text-center hover:underline"
-                    >
-                      Know More →
-                    </a>
+                    
                   </div>
                 )
               )}
@@ -136,7 +136,7 @@ const Products = () => {
         </div>
          <div className="flex justify-center mt-10" data-aos="fade-right">
   <a
-    href="/ProducteList"
+    href="/Productes"
     className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold transition-all duration-300 hover:gap-3"
   >
     <span>View All Products</span>

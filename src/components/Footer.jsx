@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaArrowUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/Logo.jpg";
+import logo from "../assets/images/Logo.png";
 
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 
@@ -43,15 +43,7 @@ const Footer = () => {
       <FaLinkedinIn />
     </a>
 
-    <a
-      href="https://www.facebook.com/neuralarc"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1877F2] text-white hover:bg-blue-700 transition"
-    >
-      <FaFacebookF />
-    </a>
-
+  
     <a
       href="https://www.instagram.com/neuralarc"
       target="_blank"
@@ -69,10 +61,9 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4 text-[#2A6EBB]">Services</h3>
           <ul className="space-y-2 ">
-            <li><Link to="/services" className="hover:text-[#2A6EBB]">Consulting</Link></li>
-            <li><Link to="/trainings" className="hover:text-[#2A6EBB]">Training & Certification</Link></li>
-            <li><Link to="/research" className="hover:text-[#2A6EBB]">Research & Development</Link></li>
-            <li><Link to="/products" className="hover:text-[#2A6EBB]">Products & Solutions</Link></li>
+            <li>Training & Certification</li>
+            <li>Research & Development</li>
+            <li>Products & Solutions</li>
           </ul>
         </div>
 
@@ -82,29 +73,49 @@ const Footer = () => {
           <ul className="space-y-2">
             <li><Link to="/about" className="hover:text-[#2A6EBB]">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-[#2A6EBB]">Contact</Link></li>
-            <li><Link to="/privacy" className="hover:text-[#2A6EBB]">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-[#2A6EBB]">Terms & Conditions</Link></li>
+            <li><Link to="/Productes" className="hover:text-[#2A6EBB]">Products</Link></li>
+            <li><Link to="/TrainingList" className="hover:text-[#2A6EBB]">Trainings</Link></li>
           </ul>
         </div>
 
         {/* 🔹 Contact Info */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4 text-[#2A6EBB]">Contact Us</h3>
-          <ul className="space-y-3 ">
-            <li className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-[#2A6EBB]" />
-              <span>Coimbatore, Tamil Nadu, India</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <FaPhoneAlt className="text-[#2A6EBB]" />
-              <span>+91 98765 43210</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <FaEnvelope className="text-[#2A6EBB]" />
-              <span>info@neuralarc.com</span>
-            </li>
-          </ul>
-        </div>
+    <div>
+  <h3 className="text-xl font-semibold mb-4 text-[#2A6EBB]">
+    Contact Us
+  </h3>
+
+  <ul className="space-y-4">
+    {/* Address */}
+    <li className="flex items-start gap-3">
+      <FaMapMarkerAlt className="text-[#2A6EBB] mt-1 shrink-0" />
+      <span className="leading-relaxed">
+        T15, Arjun IT Park,<br />
+        Arjun College of Technology,<br/>
+                Thamaraikulam,<br />
+
+        Chettikkapalayam,<br />
+        Coimbatore 642 120.
+      </span>
+    </li>
+
+    {/* Phone */}
+    <li className="flex items-start gap-3">
+      <FaPhoneAlt className="text-[#2A6EBB] mt-1 shrink-0" />
+      <span>+91 95978 42418</span>
+    </li>
+
+    {/* Email */}
+    <li className="flex items-start gap-3">
+  <FaEnvelope className="text-[#2A6EBB] mt-1 shrink-0" />
+  <a
+    href="mailto:neuralarcteam@gmail.com"
+    className="no-underline hover:no-underline hover:text-[#2A6EBB]"
+  >
+    neuralarcteam@gmail.com
+  </a>
+</li>
+  </ul>
+</div>
 
       </div>
 

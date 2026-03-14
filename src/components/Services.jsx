@@ -14,9 +14,9 @@ const services = [
   },
   {
     icon: <FaDatabase className="text-[#E31C24] w-12 h-12" />,
-    title: "Data Science",
+    title: "AI, ML & Data Science",
     description: "Transform your data into business-driven decisions.",
-    link: "/services/data-science",
+    link: "/services/AI, ML & Data Science",
   },
   {
     icon: <FaLaptopCode className="text-[#2A6EBB] w-12 h-12" />,
@@ -26,28 +26,22 @@ const services = [
   },
   {
     icon: <FaGlobe className="text-[#E31C24] w-12 h-12" />,
-    title: "Web Development",
+    title: "Full Stack Development",
     description: "Modern, responsive, and high-performance websites.",
-    link: "/services/web-development",
+    link: "/services/Full Stack Development",
   }
   ,{
    icon: <FaMobileAlt className="text-[#2A6EBB] w-12 h-12" />,
     title: "App Development",
     description: "User-friendly, scalable, and high-performance Android & iOS applications.",
-    link: "/services/web-development",
+    link: "/services/app-development",
   },
   {
     icon: <FaChalkboardTeacher className="text-[#E31C24] w-12 h-12" />,
     title: "Training",
     description: "Hands-on learning programs for students and professionals.",
     link: "/services/training",
-  },
-  {
-  icon: <FaUserTie className="text-[#2A6EBB] w-12 h-12" />,
-  title: "IT Consultancy",
-  description: "Expert guidance to plan, optimize, and scale your digital solutions.",
-}
-
+  }
 ];
 
 const ServiceList = () => {
@@ -108,15 +102,7 @@ const ServiceList = () => {
     </div>
   </div>
 
-  {/* Call to Action */}
-  <div className="text-center mt-16" data-aos="flip-up">
-    <Link
-      to="/contact"
-      className="bg-[#E31C24] text-white px-4 py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition"
-    >
-      Get in Touch
-    </Link>
-  </div>
+ 
 </section>
 
       <Footer/>

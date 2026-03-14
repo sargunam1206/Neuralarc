@@ -17,6 +17,23 @@
   animation: scroll 30s linear infinite;
 }
 
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
 body {
   font-family: "Open Sans", Arial, sans-serif;
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.45s ease-out;
 }

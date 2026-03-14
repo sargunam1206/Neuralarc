@@ -8,20 +8,20 @@ const testimonials = [
   {
     quote:
       "NeuralArc delivered outstanding IoT solutions that transformed our operations. Their expertise and support were top-notch.",
-    name: "John Smith",
-    role: "CTO, TechCorp",
+    name: "Gowri",
+    role: "MicroLab Team",
   },
   {
     quote:
       "The Data Science team at NeuralArc helped us unlock hidden insights. We saw measurable growth within months.",
     name: "Sarah Johnson",
-    role: "Head of Analytics, FinPro",
+    role: " GVG College Students",
   },
   {
     quote:
       "From development to deployment, NeuralArc exceeded our expectations. Truly a reliable tech partner.",
-    name: "Michael Lee",
-    role: "CEO, InnovateX",
+    name: "Bala",
+    role: "Maven Yanim",
   },
 ];
 

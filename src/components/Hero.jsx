@@ -31,16 +31,16 @@ const Hero = () => {
 
         {/* Subheading */}
         <p className="text-xl md:text-xl text-gray-200">
-          The digital journey of businesses through a comprehensive and Customizable digital ecosystem.
+          The digital journey of businesses through a comprehensive and customizable digital ecosystem.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="#get-started"
+            href="/about"
             className="bg-[#E31C24] text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-red-700 transition"
           >
-            Get Started
+            Learn More
           </a>
           <a
             href="/Productes"

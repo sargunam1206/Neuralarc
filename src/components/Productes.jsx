@@ -2,13 +2,17 @@ import { useState,useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+
 
 
 import product1 from "../assets/images/product-iot1.jpg";
 import bloodbank from "../assets/images/bloodbank.jpeg";
 import purchase from "../assets/images/purchase.jpeg";
-import tracker from "../assets/images/tracker.jpg";
+import tracker from "../assets/Products/product1.png";
 import billing from "../assets/images/billing.jpeg";
+import inventory from "../assets/images/inventory-app.png"
+import expanseTracker from "../assets/images/expanse_app.png"
 
 const productsData = [
   {
@@ -21,7 +25,7 @@ const productsData = [
       "T-Remo is a smart temperature monitoring solution for Vaccine/Medicine transport with GPS coordinates. All sensed parameters are sent through SMS or it can be uploaded directly to the web server.",
   },
   {
-    id: 3,
+    id: 2,
     name: "Blood Bank Software",
     category: "Software",
     specs: ["Purchase bill management",
@@ -32,7 +36,7 @@ const productsData = [
       "Blood Bank Software provides comprehensive management of blood bank operations. It includes empty bag stock monitoring, screening reports, blood request information, and branch-wise tracking of empty and available blood bags.",
   },
   {
-    id: 4,
+    id: 3,
     name: "Purchase Software",
     category: "Software",
     specs: ["Purchase order management",
@@ -43,17 +47,30 @@ const productsData = [
       "This software streamlines purchase department operations, including project site tracking, invoice management, and overall procurement workflow. It helps maintain supplier records, product inventory, and purchase orders efficiently.",
   },
   {
-    id: 5,
+    id: 4,
     name: "Tracker",
     category: "IoT",
      specs: [
-    "Admin control",
+    "Battery Operated Device",
     "Device onboarding",
     "Report generation and display"
   ],
     image: tracker,
     description:
       "Tracker provides centralized monitoring and control of IoT devices. It includes alert messages and logs, continuous temperature measurement and aggregation, secured data transfer to the cloud, optional GPS location tracking, periodic message transfer, and LED device status indication."
+},
+ {
+  id: 5,
+  name: "Inventory App",
+  category: "Mobile App",
+  specs: [
+    "Admin dashboard & user roles",
+    "Stock management & alerts",
+    "Report generation & analytics"
+  ],
+  image: inventory, // 👉 rename to inventoryApp image if available
+  description:
+    "Inventory App is a centralized stock management system designed to track products, monitor inventory levels in real time, and generate detailed reports. It provides secure role-based access, low-stock alerts, and seamless data synchronization to help businesses maintain accurate and efficient inventory operations."
 },
  {
     id: 6,
@@ -65,10 +82,24 @@ const productsData = [
     image: billing,
     description:
       "Billing Software simplifies business operations by managing customer details, product stocks, quotations, invoices, and tracking expenses efficiently.",
-  }];
+  },
+  {
+  id: 7,
+  name: "Expense Tracker App",
+  category: "Mobile App",
+  specs: [
+    "Income & expense tracking",
+    "Category-wise spending insights",
+    "Monthly reports & analytics"
+  ],
+  image: expanseTracker, // 👉 use your expense tracker image variable
+  description:
+    "Expense Tracker App is a smart financial management solution designed to monitor daily income and expenses in real time. It offers category-based tracking, visual spending insights, and detailed monthly reports. With a user-friendly interface and secure data handling, the app helps individuals and businesses maintain better financial control and make informed budgeting decisions."
+}
+];
 
 
-const categories = ["All", "IoT", "AI & ML", "Software"];
+const categories = ["All", "IoT", "Mobile App","Software"];
 
 const ProducteList = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -179,6 +210,7 @@ useEffect(() => {
 
 
         </div>
+    
       </section>
 
       {/* Modal */}
@@ -231,7 +263,10 @@ useEffect(() => {
       </div>
     </div>
   </div>
+  
 )}
+
+
 
       <Footer />
     </>

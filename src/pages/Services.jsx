@@ -11,25 +11,25 @@ import { Helmet } from "react-helmet-async";
 const services = [
   {
     icon: <FaDatabase className="text-[#2A6EBB] w-12 h-12" />,
-    title: "Data Science",
+    title: "AI, ML & Data Science",
     description: "Analyze and transform your data to actionable insights.",
     link: "/services/data-science",
   },
   {
     icon: <FaMicrochip className="text-[#E31C24] w-12 h-12" />,
-    title: "IoT Products development",
+    title: "IoT Products Development",
     description: "Connect devices seamlessly and optimize operations.",
     link: "/services/iot",
   },
   {
     icon: <FaLaptopCode className="text-[#E31C24] w-12 h-12" />,
-    title: "Software Development",
+    title: " Embedded Software Development",
     description: "Custom software solutions tailored to your business needs.",
     link: "/services/software-development",
   },
   {
     icon: <FaGlobe className="text-[#2A6EBB] w-12 h-12" />,
-    title: "Web Development",
+    title: "Full Stack Development",
     description: "Responsive and high-performance web applications.",
     link: "/services/web-development",
   },
@@ -80,7 +80,7 @@ const Services = () => {
       </section>
   <div className="flex justify-center mb-15" data-aos="fade-right">
   <a
-    href="/serviceList"
+    href="/Services"
     className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold transition-all duration-300 hover:gap-3"
   >
     <span>Know More</span>
