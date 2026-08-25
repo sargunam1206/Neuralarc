@@ -20,18 +20,19 @@ const TrainingEnrollModal = ({ program, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const templateParams = {
+  
+
+const templateParams = {
+  form_title: "🎓 New Course Enrollment",
   user_name: formData.name,
   user_email: formData.email,
   user_phone: formData.phone,
   user_message: formData.message,
   program_title: program.title,
   program_hours: program.duration || program.hours,
+  key_topics: program.bullets.map(t => `• ${t}`).join("\n"),
 
-  // ✅ format with bullets
-  key_topics: program.bullets
-    .map(topic => `• ${topic}`)
-    .join("\n"),
+  subject: "", // optional
 };
 
     emailjs

@@ -35,7 +35,7 @@ const Footer = () => {
 
   <div className="flex gap-4 mt-3">
     <a
-      href="https://www.linkedin.com/company/neuralarc"
+     href="https://www.linkedin.com/company/neuralarc-global-private-limited/"
       target="_blank"
       rel="noopener noreferrer"
       className="w-10 h-10 flex items-center justify-center rounded-full bg-[#2A6EBB] text-white hover:bg-[#1f5aa0] transition"
@@ -45,7 +45,7 @@ const Footer = () => {
 
   
     <a
-      href="https://www.instagram.com/neuralarc"
+      href="https://www.instagram.com/neuralarc_global?utm_source=qr&igsh=aTVrOXRpeDR0bDlh"
       target="_blank"
       rel="noopener noreferrer"
       className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 text-white hover:opacity-90 transition"

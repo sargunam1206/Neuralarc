@@ -1,7 +1,8 @@
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
-
+import emailjs from "emailjs-com";
+import { useState } from "react";
 
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
@@ -18,8 +19,65 @@ const center = {
   lng: 77.0050,
 };
 
+
+
 const GOOGLE_MAPS_URL = `https://www.google.com/maps?q=${center.lat},${center.lng}`;
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  // ✅ Handle Change
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // ✅ Handle Submit (EmailJS)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  const templateParams = {
+  form_title: "📩 New Contact Message",
+  user_name: formData.name,
+  user_email: formData.email,
+  subject: formData.subject,
+  user_message: formData.message,
+
+  // Leave these EMPTY for contact form
+  program_title: "",
+  program_hours: "",
+  key_topics: "",
+  user_phone: "",
+};
+
+    emailjs
+      .send(
+        "service_ysq8lvn",      // your service ID
+        "template_ip6o30n",     // your template ID
+        templateParams,
+        "7cHgRBfbN3nmtOlHv"     // your public key
+      )
+      .then(() => {
+        setStatus("✅ Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch(() => {
+        setStatus("❌ Failed to send message");
+      });
+  };
   return (
     <>
     
@@ -102,7 +160,7 @@ const Contact = () => {
    
 
     <a
-      href="https://www.instagram.com/neuralarc_global?igsh=aTVrOXRpeDR0bDlh"
+      href="https://www.instagram.com/neuralarc_global?utm_source=qr&igsh=aTVrOXRpeDR0bDlh"
       target="_blank"
       rel="noopener noreferrer"
       className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 text-white hover:opacity-90 transition"
@@ -116,38 +174,64 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-xl shadow-lg">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Name</label>
-                <input
+                {/* <input
                   type="text"
                   placeholder="Your Name"
                   className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A6EBB]"
-                />
+                /> */}
+                 <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                className="w-full border p-3 rounded-md"
+                required
+              />
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Email</label>
-                <input
+                {/* <input
                   type="email"
                   placeholder="Your Email"
                   className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A6EBB]"
-                />
+                /> */}
+                 <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email"
+                className="w-full border p-3 rounded-md"
+                required
+              />
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Subject</label>
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A6EBB]"
-                />
+                 <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Subject"
+                className="w-full border p-3 rounded-md"
+                required
+              />
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Message</label>
                 <textarea
-                  placeholder="Your Message"
-                  rows="5"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A6EBB]"
-                ></textarea>
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Your Message"
+                rows="5"
+                className="w-full border p-3 rounded-md"
+                required
+              />
               </div>
               <button
                 type="submit"
@@ -155,6 +239,12 @@ const Contact = () => {
               >
                 Send Message
               </button>
+              {status && (
+                <p className="text-center text-sm text-green-600">
+                  {status}
+                </p>
+              )}
+
             </form>
           </div>
 
