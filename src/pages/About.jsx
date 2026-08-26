@@ -20,7 +20,7 @@ const About = () => {
     <>
     
 <Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <title>NeuralArc | IoT, Software & Machine Learning Solutions</title>
   <meta
     name="description"
     content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
