@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaArrowUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/Logo.png";
+import servicesData from "../data/servicesData";
 
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 
@@ -23,7 +24,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#ffffff] py-10 relative" data-aos="fade-up">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
 
         {/* 🔹 Logo + Slogan */}
         <div>
@@ -57,13 +58,26 @@ const Footer = () => {
 
         </div>
 
-        {/* 🔹 Services */}
+        {/* 🔹 Solutions */}
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-[#2A6EBB]">Services</h3>
-          <ul className="space-y-2 ">
-            <li>Training & Certification</li>
-            <li>Research & Development</li>
-            <li>Products & Solutions</li>
+          <h3 className="text-xl font-semibold mb-4 text-[#2A6EBB]">Solutions</h3>
+          <ul className="space-y-2">
+            {servicesData.map((service) => (
+              <li key={service.slug}>
+                <Link to={`/services/${service.slug}`} className="hover:text-[#2A6EBB]">
+                  {service.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 🔹 Resources */}
+        <div>
+          <h3 className="text-xl font-semibold mb-4 text-[#2A6EBB]">Resources</h3>
+          <ul className="space-y-2">
+            <li><Link to="/blog" className="hover:text-[#2A6EBB]">Blog</Link></li>
+            <li><Link to="/case-studies" className="hover:text-[#2A6EBB]">Case Studies</Link></li>
           </ul>
         </div>
 
@@ -74,7 +88,7 @@ const Footer = () => {
             <li><Link to="/about" className="hover:text-[#2A6EBB]">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-[#2A6EBB]">Contact</Link></li>
             <li><Link to="/Productes" className="hover:text-[#2A6EBB]">Products</Link></li>
-            <li><Link to="/TrainingList" className="hover:text-[#2A6EBB]">Trainings</Link></li>
+            <li><Link to="/TrainingList" className="hover:text-[#2A6EBB]">Training</Link></li>
           </ul>
         </div>
 
@@ -101,7 +115,11 @@ const Footer = () => {
     {/* Phone */}
     <li className="flex items-start gap-3">
       <FaPhoneAlt className="text-[#2A6EBB] mt-1 shrink-0" />
-      <span>+91 95978 42418</span>
+      <span>
+        <a href="tel:+919597842418" className="hover:text-[#2A6EBB]">+91 95978 42418</a>
+        {" "}/{" "}
+        <a href="tel:+919876543210" className="hover:text-[#2A6EBB]">+91 98765 43210</a>
+      </span>
     </li>
 
     {/* Email */}

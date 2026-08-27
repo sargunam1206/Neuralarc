@@ -4,10 +4,10 @@ import { useInView } from "react-intersection-observer"; // Optional: trigger co
 const highlights = [
  {
   icon: <FaUserTie className="text-[#2A6EBB] w-10 h-10" />,
-  number: 15,
+  number: 8,
   text: "Years Experience",
   suffix: "+",
-description: "Decades of hands-on industry expertise."
+description: "Hands-on industry expertise since 2018."
 },
   {
     icon: <FaCogs className="text-[#E31C24] w-10 h-10" />,

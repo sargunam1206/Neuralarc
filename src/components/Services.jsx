@@ -16,19 +16,19 @@ const services = [
     icon: <FaDatabase className="text-[#E31C24] w-12 h-12" />,
     title: "AI, ML & Data Science",
     description: "Transform your data into business-driven decisions.",
-    link: "/services/AI, ML & Data Science",
+    link: "/services/ai-ml-data-science",
   },
   {
     icon: <FaLaptopCode className="text-[#2A6EBB] w-12 h-12" />,
     title: "Embedded Software Development",
     description: "Robust and scalable web & mobile applications.",
-    link: "/services/Embedded Software Development",
+    link: "/services/embedded-software-development",
   },
   {
     icon: <FaGlobe className="text-[#E31C24] w-12 h-12" />,
     title: "Full Stack Development",
     description: "Modern, responsive, and high-performance websites.",
-    link: "/services/Full Stack Development",
+    link: "/services/full-stack-development",
   }
   ,{
    icon: <FaMobileAlt className="text-[#2A6EBB] w-12 h-12" />,
@@ -49,12 +49,12 @@ const ServiceList = () => {
     <>
     
 <Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <title>Our Services | IoT, AI, Software & App Development – NeuralArc</title>
   <meta
     name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+    content="Explore NeuralArc's services: IoT product development, AI/ML & data science, embedded and full-stack software, and mobile app development from Coimbatore."
   />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+  <link rel="canonical" href="https://www.neuralarc.com/Services" />
 </Helmet>
       <Header />
 

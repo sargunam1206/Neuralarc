@@ -1,14 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa";
 import logo from "../../assets/images/Logo.png";
+import servicesData from "../../data/servicesData";
+
+const resourcesItems = [
+  { title: "Blog", to: "/blog" },
+  { title: "Case Studies", to: "/case-studies" },
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [openDropdown, setOpenDropdown] = useState(null); // 'solutions' | 'resources' | null
+  const [openAccordion, setOpenAccordion] = useState(null); // mobile: 'solutions' | 'resources' | null
+  const navRef = useRef(null);
 
   const location = useLocation();
 
-  // 🔥 Animated underline classes
   const baseLinkClass =
     "relative pb-1 transition-colors duration-300 " +
     "after:content-[''] after:absolute after:left-0 after:-bottom-1 " +
@@ -18,27 +26,58 @@ const Header = () => {
 
   const activeLinkClass = "text-[#E31C24] after:scale-x-100";
 
-  // ✅ Special active check for Services
-  const isServicesActive =
-    location.pathname === "/Services" ||
-    location.pathname.startsWith("/services");
+  const isSolutionsActive =
+    location.pathname === "/Services" || location.pathname.startsWith("/services");
+  const isResourcesActive =
+    location.pathname.startsWith("/blog") || location.pathname.startsWith("/case-studies");
 
-  // Handle responsiveness
+  // Close desktop dropdown on outside click or Escape
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenDropdown(null);
       }
     };
+    const handleEscape = (e) => {
+      if (e.key === "Escape") setOpenDropdown(null);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
+  // Close menus on route change
+  useEffect(() => {
+    setOpenDropdown(null);
+    setIsOpen(false);
+    setOpenAccordion(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+        setOpenAccordion(null);
+      }
+    };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const toggleDropdown = (name) => {
+    setOpenDropdown((current) => (current === name ? null : name));
+  };
+
+  const toggleAccordion = (name) => {
+    setOpenAccordion((current) => (current === name ? null : name));
+  };
+
   return (
     <header className="sticky top-0 z-50">
-      <nav className="bg-white shadow-md py-2">
+      <nav className="bg-white shadow-md py-2" ref={navRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           {/* Logo */}
           <Link to="/">
@@ -62,15 +101,37 @@ const Header = () => {
               </NavLink>
             </li>
 
-            <li>
-              <NavLink
-                to="/Services"
-                className={`${baseLinkClass} ${
-                  isServicesActive ? activeLinkClass : ""
+            {/* Solutions dropdown */}
+            <li className="relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === "solutions"}
+                onClick={() => toggleDropdown("solutions")}
+                className={`flex items-center gap-1.5 ${baseLinkClass} ${
+                  isSolutionsActive ? activeLinkClass : ""
                 }`}
               >
-                Services
-              </NavLink>
+                Solutions
+                <FaChevronDown
+                  className={`w-2.5 h-2.5 transition-transform ${
+                    openDropdown === "solutions" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openDropdown === "solutions" && (
+                <div className="absolute left-0 top-full mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
+                  {servicesData.map((service) => (
+                    <Link
+                      key={service.slug}
+                      to={`/services/${service.slug}`}
+                      className="block px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-[#E31C24] transition"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </li>
 
             <li>
@@ -84,6 +145,39 @@ const Header = () => {
               </NavLink>
             </li>
 
+            {/* Resources dropdown */}
+            <li className="relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === "resources"}
+                onClick={() => toggleDropdown("resources")}
+                className={`flex items-center gap-1.5 ${baseLinkClass} ${
+                  isResourcesActive ? activeLinkClass : ""
+                }`}
+              >
+                Resources
+                <FaChevronDown
+                  className={`w-2.5 h-2.5 transition-transform ${
+                    openDropdown === "resources" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openDropdown === "resources" && (
+                <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
+                  {resourcesItems.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="block px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-[#E31C24] transition"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </li>
+
             <li>
               <NavLink
                 to="/TrainingList"
@@ -91,7 +185,7 @@ const Header = () => {
                   `${baseLinkClass} ${isActive ? activeLinkClass : ""}`
                 }
               >
-                Trainings
+                Training
               </NavLink>
             </li>
 
@@ -122,6 +216,7 @@ const Header = () => {
             className="md:hidden text-[#2A6EBB] text-2xl"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? "✖" : "☰"}
           </button>
@@ -129,59 +224,117 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white px-4 pb-4 space-y-3 text-[#1E1E1E] border-t">
+          <div className="md:hidden bg-white px-4 pb-4 space-y-1 text-[#1E1E1E] border-t">
             <NavLink
-  to="/"
-  className={({ isActive }) =>
-    `block py-2 ${
-      isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
-    }`
-  }
-  onClick={() => setIsOpen(false)}
->
+              to="/"
+              className={({ isActive }) =>
+                `block py-2 ${
+                  isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
+                }`
+              }
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </NavLink>
 
-            <NavLink
-              to="/Services"
- className={({ isActive }) =>
-    `block py-2 ${
-      isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
-    }`
-  }              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </NavLink>
+            {/* Solutions accordion */}
+            <div>
+              <button
+                type="button"
+                className={`w-full flex items-center justify-between py-2 ${
+                  isSolutionsActive ? "text-[#E31C24] font-semibold" : ""
+                }`}
+                aria-expanded={openAccordion === "solutions"}
+                onClick={() => toggleAccordion("solutions")}
+              >
+                <span>Solutions</span>
+                <FaChevronDown
+                  className={`w-3 h-3 transition-transform ${
+                    openAccordion === "solutions" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openAccordion === "solutions" && (
+                <div className="pl-4 pb-2 space-y-1">
+                  {servicesData.map((service) => (
+                    <Link
+                      key={service.slug}
+                      to={`/services/${service.slug}`}
+                      className="block py-1.5 text-sm text-gray-600 hover:text-[#E31C24]"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <NavLink
               to="/Productes"
- className={({ isActive }) =>
-    `block py-2 ${
-      isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
-    }`
-  }              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block py-2 ${
+                  isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
+                }`
+              }
+              onClick={() => setIsOpen(false)}
             >
               Products
             </NavLink>
 
+            {/* Resources accordion */}
+            <div>
+              <button
+                type="button"
+                className={`w-full flex items-center justify-between py-2 ${
+                  isResourcesActive ? "text-[#E31C24] font-semibold" : ""
+                }`}
+                aria-expanded={openAccordion === "resources"}
+                onClick={() => toggleAccordion("resources")}
+              >
+                <span>Resources</span>
+                <FaChevronDown
+                  className={`w-3 h-3 transition-transform ${
+                    openAccordion === "resources" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openAccordion === "resources" && (
+                <div className="pl-4 pb-2 space-y-1">
+                  {resourcesItems.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="block py-1.5 text-sm text-gray-600 hover:text-[#E31C24]"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <NavLink
               to="/TrainingList"
- className={({ isActive }) =>
-    `block py-2 ${
-      isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
-    }`
-  }              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block py-2 ${
+                  isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
+                }`
+              }
+              onClick={() => setIsOpen(false)}
             >
-              Trainings
+              Training
             </NavLink>
 
             <NavLink
               to="/about"
- className={({ isActive }) =>
-    `block py-2 ${
-      isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
-    }`
-  }              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block py-2 ${
+                  isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
+                }`
+              }
+              onClick={() => setIsOpen(false)}
             >
               About
             </NavLink>

@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
-
 
 import product1 from "../assets/images/product-iot1.jpg";
 import bloodbank from "../assets/images/bloodbank.jpeg";
@@ -69,15 +67,6 @@ const [isPaused, setIsPaused] = useState(false);
 
   return (
     <>
-    
-<Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
-  <meta
-    name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
-  />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
-</Helmet>
       {/* Products Section */}
       <section className="py-15 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">

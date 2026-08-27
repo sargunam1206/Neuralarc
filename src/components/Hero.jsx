@@ -1,20 +1,10 @@
 import React from "react";
 import heroImg from "../assets/images/Hero-image.jpg";
-import { Helmet } from "react-helmet-async";
 
 
 const Hero = () => {
   return (
     <>
-    
-<Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
-  <meta
-    name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
-  />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
-</Helmet>
     <section
       className="relative bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center text-center"
       style={{ backgroundImage: `url(${heroImg})` }}
@@ -26,27 +16,27 @@ const Hero = () => {
       <div className="relative z-10 max-w-3xl px-6 space-y-6" data-aos="zoom-in">
         {/* Headline */}
         <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-          Powering the Future with Smart IoT & Data Science Solutions
+          NeuralArc — IoT, AI & Software Development, Built in Coimbatore
         </h1>
 
         {/* Subheading */}
         <p className="text-xl md:text-xl text-gray-200">
-          The digital journey of businesses through a comprehensive and customizable digital ecosystem.
+          End-to-end connected hardware, cloud, and data systems for businesses ready to go digital.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="/about"
+            href="/contact"
             className="bg-[#E31C24] text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-red-700 transition"
           >
-            Learn More
+            Talk to Us
           </a>
           <a
-            href="/Productes"
+            href="/Services"
             className="border-2 border-white text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition"
           >
-            See Products
+            Explore Solutions
           </a>
         </div>
       </div>

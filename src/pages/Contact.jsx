@@ -82,12 +82,12 @@ const Contact = () => {
     <>
     
 <Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <title>Contact NeuralArc | IoT Company in Coimbatore</title>
   <meta
     name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+    content="Get in touch with NeuralArc's team in Coimbatore for IoT, AI/ML, and software development projects. Call, email, or visit our office at Arjun IT Park."
   />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+  <link rel="canonical" href="https://www.neuralarc.com/contact" />
 </Helmet>
       <Header />
 
@@ -127,7 +127,11 @@ const Contact = () => {
   {/* Phone */}
   <li className="flex items-start gap-4">
     <FaPhoneAlt className="text-[#E31C24] w-6 h-6 mt-1 shrink-0" />
-    <span>+91 98765 43210</span>
+    <span>
+      <a href="tel:+919597842418" className="hover:text-[#2A6EBB]">+91 95978 42418</a>
+      {" "}/{" "}
+      <a href="tel:+919876543210" className="hover:text-[#2A6EBB]">+91 98765 43210</a>
+    </span>
   </li>
 
   {/* Email */}

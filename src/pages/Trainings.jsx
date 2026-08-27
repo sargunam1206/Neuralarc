@@ -11,8 +11,6 @@ import {
 } from "react-icons/fa";
 
 import TrainingEnrollModal from "../components/TrainingEnrollModal";
-import { Helmet } from "react-helmet-async";
-
 
 const programs = [
   {
@@ -101,15 +99,6 @@ const Training = () => {
 
   return (
     <>
-    
-<Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
-  <meta
-    name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
-  />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
-</Helmet>
       {/* Training Section */}
       <section className="py-15 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">

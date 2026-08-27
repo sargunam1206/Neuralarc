@@ -19,13 +19,18 @@ const About = () => {
   return (
     <>
     
+
+
+
+
+    
 <Helmet>
-  <title>NeuralArc | IoT, Software & Machine Learning Solutions</title>
+  <title>About NeuralArc | IoT & Software Company in Coimbatore</title>
   <meta
     name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+    content="Founded in 2018, NeuralArc is a Coimbatore-based technology company building IoT, AI/ML, and software solutions for businesses of all sizes."
   />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+  <link rel="canonical" href="https://www.neuralarc.com/about" />
 </Helmet>
       <Header />
 

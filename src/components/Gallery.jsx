@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import { FaDownload, FaFilePdf } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 // Example images (replace with your real product + achievements images)
 import product1 from "../assets/Products/product1.png";
@@ -31,6 +32,14 @@ const Gallery = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Gallery | NeuralArc</title>
+        <meta
+          name="description"
+          content="A look at NeuralArc's IoT and software products, achievements, and downloadable brochures."
+        />
+        <link rel="canonical" href="https://www.neuralarc.com/Gallery" />
+      </Helmet>
       <Header />
 
       {/* Hero Section */}

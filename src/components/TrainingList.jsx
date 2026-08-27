@@ -111,12 +111,12 @@ const TrainingList = () => {
     <>
     
 <Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <title>Training & Internship Programs | NeuralArc Coimbatore</title>
   <meta
     name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+    content="Hands-on IoT, AI/ML, full-stack, and data analytics training and internship programs with certification, based in Coimbatore."
   />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+  <link rel="canonical" href="https://www.neuralarc.com/TrainingList" />
 </Helmet>
       <Header />
 

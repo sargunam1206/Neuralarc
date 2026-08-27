@@ -4,9 +4,10 @@ import { Helmet } from "react-helmet-async";
 import Header from '../components/Header/Header'
 import Hero from '../components/Hero'
 import Highlights from '../components/Highlights'
-import Services from './Services'
-import Products from './Products'
+import HomeSolutions from '../components/HomeSolutions'
+import HomeProducts from '../components/HomeProducts'
 import Process from './Process'
+import HomeCaseStudies from '../components/HomeCaseStudies'
 import Training from './Trainings'
 import Testimonials from '../components/Testimonials'
 import CallToAction from '../components/CallToAction'
@@ -17,20 +18,21 @@ const Home = () => {
 <>
 
 <Helmet>
-  <title>NeuralArc | IoT, Software & AI Solutions</title>
+  <title>NeuralArc | IoT, AI & Software Development Company in Coimbatore</title>
   <meta
     name="description"
-    content="NeuralArc provides IoT solutions, software development, AI & ML services, and professional training in India."
+    content="NeuralArc builds IoT hardware, AI/ML systems, and custom software from Coimbatore — connected devices, cloud dashboards, and full-stack development for growing businesses."
   />
-  <meta name="keywords" content="IoT solutions, software development, AI ML services, NeuralArc" />
+  <link rel="canonical" href="https://www.neuralarc.com/" />
 </Helmet>
 
 <Header />
 <Hero />
 <Highlights />
-<Services />
-<Products />
+<HomeSolutions />
+<HomeProducts />
 <Process />
+<HomeCaseStudies />
 <Training />
 <Testimonials />
 <CallToAction />
