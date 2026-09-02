@@ -1,80 +1,18 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-import {
-  FaBrain,
-  FaMicrochip,
-  FaLaptopCode,
-  FaChartBar,
-  FaCertificate,
-  FaQuoteLeft,
-  FaChevronDown,
-  FaChevronUp,
-  FaTimes,
-  FaCheckCircle,
-  FaMobileAlt,
-} from "react-icons/fa";
+import { FaQuoteLeft, FaChevronDown, FaChevronUp, FaCheckCircle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
-
 
 import Header from "./Header/Header";
 import Footer from "./Footer";
-import TrainingEnrollModal from "../components/TrainingEnrollModal";
-
-
-const trainings = [
-  {
-    icon: <FaBrain className="w-10 h-10 text-[#2A6EBB]" />,
-    title: "AI & Machine Learning",
-    duration: "40 hours • Certification included",
-    bullets: ["Python for AI", "Deep Learning", "Model Deployment"],
-    highlight: true,
-  },
-  {
-    icon: <FaMicrochip className="w-10 h-10 text-[#E31C24]" />,
-    title: "IoT Development",
-    duration: "32 hours • Hands-on projects",
-    bullets: ["Sensor Integration", "Cloud Connectivity", "Security Protocols"],
-  },
-  {
-    icon: <FaLaptopCode className="w-10 h-10 text-[#2A6EBB]" />,
-    title: "Python Full-Stack",
-    duration: "55 hours • Certification included",
-    bullets: ["Django / Flask", "REST APIs", "Database Design"],
-  },
-  {
-    icon: <FaLaptopCode className="w-10 h-10 text-[#2A6EBB]" />,
-    title: "MERN Full-Stack",
-    duration: "65 hours • Portfolio projects",
-    bullets: ["MongoDB, Express, React, Node.js", "REST APIs", "Deployment"],
-    highlight: true,
-  },
-  {
-    icon: <FaChartBar className="w-10 h-10 text-[#E31C24]" />,
-    title: "Data Analytics",
-    duration: "36 hours • Real datasets",
-    bullets: ["Statistical Analysis", "Data Visualization", "Business Intelligence"],
-  },
-  {
-    icon: <FaMobileAlt className="w-10 h-10 text-[#2A6EBB]" />,
-    title: "Mobile App Development",
-    duration: "45 hours • Live projects",
-    bullets: ["Flutter / React Native", "Android & iOS Apps", "API Integration"],
-    highlight: true,
-  },
-  {
-    icon: <FaCertificate className="w-10 h-10 text-[#2A6EBB]" />,
-    title: "Cloud Computing",
-    duration: "30 hours • AWS & Azure",
-    bullets: ["Cloud Architecture", "Deployment", "Security Practices"],
-  },
-];
+import trainingData from "../data/trainingData";
 
 const faqs = [
   {
     question: "Do you provide certifications?",
-    answer: "Yes, all programs include certification after completion.",
+    answer: "Yes, all programs include a NeuralArc certificate after completion.",
   },
   {
     question: "Online or offline training?",
@@ -99,9 +37,6 @@ const testimonials = [
 
 const TrainingList = () => {
   const [faqOpenIndex, setFaqOpenIndex] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProgram, setSelectedProgram] = useState(null);
-  
 
   useEffect(() => {
     AOS.init({ duration: 900, once: true });
@@ -109,92 +44,88 @@ const TrainingList = () => {
 
   return (
     <>
-    
-<Helmet>
-  <title>Training & Internship Programs | NeuralArc Coimbatore</title>
-  <meta
-    name="description"
-    content="Hands-on IoT, AI/ML, full-stack, and data analytics training and internship programs with certification, based in Coimbatore."
-  />
-  <link rel="canonical" href="https://www.neuralarc.com/TrainingList" />
-</Helmet>
+      <Helmet>
+        <title>Training & Certification Programs | NeuralArc Coimbatore</title>
+        <meta
+          name="description"
+          content="Hands-on AI & Machine Learning, IoT, full-stack, data analytics, cloud, cybersecurity, and UI/UX training programs with certification, based in Coimbatore."
+        />
+        <link rel="canonical" href="https://www.neuralarc.com/TrainingList" />
+      </Helmet>
       <Header />
 
-      <section className="py-15 bg-gray-50">
+      <section className="py-14 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          {/* Header */}
-          <h2 className="text-4xl font-extrabold text-center text-[#2A6EBB] mb-4">
-            Training & Certification Programs
-          </h2>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-4">
+            Training &amp; Certification Programs
+          </h1>
           <p className="text-center text-gray-600 mb-14 text-lg">
-            Industry-ready programs with hands-on experience
+            Industry-ready programs with hands-on projects and a NeuralArc certificate
           </p>
 
-          {/* Training Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {trainings.map((t, idx) => (
-              <div
-                key={idx}
-                className={`relative bg-white rounded-xl shadow-lg p-6 flex flex-col border-l-4 ${
-                  t.highlight ? "border-[#E31C24]" : "border-[#2A6EBB]"
-                } hover:-translate-y-1 hover:shadow-2xl transition`}
+          {/* Course cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 items-stretch">
+            {trainingData.map((course) => (
+              <article
+                key={course.id}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full hover:-translate-y-1 hover:shadow-2xl transition"
                 data-aos="fade-up"
               >
-                {t.highlight && (
-                  <span className="absolute top-3 right-3 bg-red-100 text-[#E31C24] text-xs font-semibold px-2 py-1 rounded">
-                    Popular
-                  </span>
-                )}
-
-                <div className="mb-4">{t.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                  {t.title}
-                </h3>
-                <p className="text-sm text-gray-500 mb-4">{t.duration}</p>
-
-                {/* Bullet points (aligned like Products) */}
-                <div className="flex flex-col gap-2 mb-6">
-                  {t.bullets.map((b, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                      <FaCheckCircle className="text-green-500 mt-1 w-4 h-4" />
-                      <span>{b}</span>
-                    </div>
-                  ))}
+                {/* Thumbnail */}
+                <div className="relative">
+                  <img
+                    src={course.image}
+                    alt={`${course.title} training course at NeuralArc`}
+                    className="w-full aspect-video object-cover"
+                    loading="lazy"
+                  />
+                  {course.popular && (
+                    <span className="absolute top-3 right-3 bg-white/95 text-[#E31C24] text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                      Popular
+                    </span>
+                  )}
                 </div>
 
-               <div className="mt-auto ml-25">
-  <button
-    onClick={() => {
-      setSelectedProgram(t);
-      setIsModalOpen(true);
-    }}
-    className={`group inline-flex items-center gap-2 text-sm font-semibold transition ${
-      t.highlight
-        ? "text-[#E31C24] hover:text-red-700"
-        : "text-[#2A6EBB] hover:text-blue-700"
-    }`}
-  >
-    <span>Enroll Now</span>
+                {/* Body */}
+                <div className="p-6 flex flex-col flex-1">
+                  <h2 className="text-xl font-bold text-gray-900 mb-1">{course.title}</h2>
+                  <p className="text-sm text-gray-500 mb-4">
+                    {course.duration}
+                    {course.certificationIncluded && " • Certification included"}
+                  </p>
 
-    {/* Arrow */}
-    <span
-      className="transform transition-transform duration-300 group-hover:translate-x-1"
-    >
-      →
-    </span>
-  </button>
-</div>
+                  <div className="flex flex-col gap-2 mb-6">
+                    {course.highlights.map((point) => (
+                      <div
+                        key={point}
+                        className="flex items-start gap-2 text-sm text-gray-600"
+                      >
+                        <FaCheckCircle className="text-green-500 mt-0.5 w-4 h-4 flex-shrink-0" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
 
-              </div>
+                  <Link
+                    to={`/training/${course.slug}`}
+                    aria-label={`Enroll in ${course.title}`}
+                    className="group mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2A6EBB] hover:text-[#1f5aa0] transition"
+                  >
+                    <span>Enroll Now</span>
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
 
           {/* Testimonials */}
           <div className="mb-20">
-            <h3 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
+            <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
               What Our Learners Say
-            </h3>
-
+            </h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {testimonials.map((t, i) => (
                 <div
@@ -202,7 +133,7 @@ const TrainingList = () => {
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition"
                 >
                   <FaQuoteLeft className="text-[#2A6EBB] w-8 h-8 mb-3" />
-                  <p className="text-gray-600 mb-4">"{t.feedback}"</p>
+                  <p className="text-gray-600 mb-4">&ldquo;{t.feedback}&rdquo;</p>
                   <span className="font-semibold text-gray-900">{t.name}</span>
                 </div>
               ))}
@@ -211,26 +142,22 @@ const TrainingList = () => {
 
           {/* FAQ */}
           <div>
-            <h3 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
+            <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
               Frequently Asked Questions
-            </h3>
-
+            </h2>
             <div className="max-w-4xl mx-auto space-y-4">
               {faqs.map((f, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl shadow-md p-4 cursor-pointer"
-                  onClick={() =>
-                    setFaqOpenIndex(faqOpenIndex === idx ? null : idx)
-                  }
-                >
-                  <div className="flex justify-between items-center">
-                    <h4 className="font-semibold text-gray-900">{f.question}</h4>
+                <div key={idx} className="bg-white rounded-xl shadow-md p-4">
+                  <button
+                    type="button"
+                    className="w-full flex justify-between items-center text-left"
+                    aria-expanded={faqOpenIndex === idx}
+                    onClick={() => setFaqOpenIndex(faqOpenIndex === idx ? null : idx)}
+                  >
+                    <h3 className="font-semibold text-gray-900">{f.question}</h3>
                     {faqOpenIndex === idx ? <FaChevronUp /> : <FaChevronDown />}
-                  </div>
-                  {faqOpenIndex === idx && (
-                    <p className="mt-2 text-gray-600">{f.answer}</p>
-                  )}
+                  </button>
+                  {faqOpenIndex === idx && <p className="mt-2 text-gray-600">{f.answer}</p>}
                 </div>
               ))}
             </div>
@@ -239,16 +166,6 @@ const TrainingList = () => {
       </section>
 
       <Footer />
-      {isModalOpen && (
-  <TrainingEnrollModal
-    program={selectedProgram}
-    onClose={() => {
-      setIsModalOpen(false);
-      setSelectedProgram(null);
-    }}
-  />
-)}
-
     </>
   );
 };

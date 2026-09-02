@@ -5,6 +5,8 @@ import Footer from "../Footer";
 import caseStudiesData from "../../data/caseStudiesData";
 import productsData from "../../data/productsData";
 import servicesData from "../../data/servicesData";
+import { getTechIcon } from "../../utils/techIcons";
+import { getTechPagePath } from "../../data/technologiesData";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams();
@@ -39,54 +41,83 @@ const CaseStudyDetail = () => {
         </div>
       </section>
 
-      <article className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 space-y-10">
-          <div>
-            <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">The Challenge</h2>
-            <p className="text-gray-700 leading-relaxed">{caseStudy.challenge}</p>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Our Approach</h2>
-            <p className="text-gray-700 leading-relaxed">{caseStudy.approach}</p>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Technology</h2>
-            <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {caseStudy.technologies.map((tech, i) => (
-                <li key={i} className="bg-gray-50 border rounded-lg px-4 py-2 text-center text-sm">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Outcome</h2>
-            <p className="text-gray-700 leading-relaxed">{caseStudy.outcome}</p>
-          </div>
-
-          <div className="pt-6 border-t flex flex-col sm:flex-row gap-4">
-            {product && (
-              <Link
-                to={`/products/${product.slug}`}
-                className="text-[#E31C24] font-semibold hover:underline"
-              >
-                See the {product.name} product page →
-              </Link>
-            )}
-            {service && (
-              <Link
-                to={`/services/${service.slug}`}
-                className="text-[#2A6EBB] font-semibold hover:underline"
-              >
-                See our {service.title} services →
-              </Link>
-            )}
-          </div>
+      {/* The Challenge */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">The Challenge</h2>
+          <p className="text-gray-700 leading-relaxed">{caseStudy.challenge}</p>
         </div>
-      </article>
+      </section>
+
+      {/* Our Approach */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Our Approach</h2>
+          <p className="text-gray-700 leading-relaxed">{caseStudy.approach}</p>
+        </div>
+      </section>
+
+      {/* Technology */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Technology</h2>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+            {caseStudy.technologies.map((tech, i) => {
+              const techPath = getTechPagePath(tech);
+              const body = (
+                <>
+                  {getTechIcon(tech, "w-8 h-8 flex-shrink-0")}
+                  <span className="font-medium text-gray-800 text-sm">{tech}</span>
+                </>
+              );
+              return (
+                <li key={i} className="bg-gray-50 border rounded-xl hover:shadow-lg transition">
+                  {techPath ? (
+                    <Link
+                      to={techPath}
+                      className="flex items-center gap-3 p-4 hover:text-[#2A6EBB] transition-colors"
+                    >
+                      {body}
+                    </Link>
+                  ) : (
+                    <div className="flex items-center gap-3 p-4">{body}</div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      {/* Outcome */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Outcome</h2>
+          <p className="text-gray-700 leading-relaxed">{caseStudy.outcome}</p>
+        </div>
+      </section>
+
+      {/* Related links */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row gap-4">
+          {product && (
+            <Link
+              to={`/products/${product.slug}`}
+              className="text-[#E31C24] font-semibold hover:underline"
+            >
+              See the {product.name} product page →
+            </Link>
+          )}
+          {service && (
+            <Link
+              to={`/services/${service.slug}`}
+              className="text-[#2A6EBB] font-semibold hover:underline"
+            >
+              See our {service.title} services →
+            </Link>
+          )}
+        </div>
+      </section>
 
       <Footer />
     </>

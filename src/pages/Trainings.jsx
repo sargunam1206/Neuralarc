@@ -1,187 +1,89 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
-import {
-  FaBrain,
-  FaMicrochip,
-  FaLaptopCode,
-  FaChartBar,
-  FaTimes,
-  FaCheck,
-  FaCheckCircle,
-} from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaCheckCircle } from "react-icons/fa";
 
-import TrainingEnrollModal from "../components/TrainingEnrollModal";
+import trainingData from "../data/trainingData";
 
-const programs = [
-  {
-    icon: <FaBrain className="w-8 h-8 text-[#2A6EBB]" />,
-    title: "AI & Machine Learning",
-    hours: "40 hours • Certification included",
-    bullets: ["Python for AI", "Deep Learning", "Model Deployment"],
-  },
-  {
-    icon: <FaMicrochip className="w-8 h-8 text-[#E31C24]" />,
-    title: "IoT Development",
-    hours: "32 hours • Hands-on projects",
-    bullets: ["Sensor Integration", "Cloud Connectivity", "Security Protocols"],
-  },
-  {
-    icon: <FaLaptopCode className="w-8 h-8 text-[#2A6EBB]" />,
-    title: "Full-Stack Development",
-    hours: "60 hours • Portfolio projects",
-    bullets: ["React & Node.js", "Database Design", "API Development"],
-  },
-  {
-    icon: <FaChartBar className="w-8 h-8 text-[#E31C24]" />,
-    title: "Data Analytics",
-    hours: "36 hours • Real datasets",
-    bullets: ["Statistical Analysis", "Data Visualization", "Business Intelligence"],
-  },
-];
+// Compact preview of the training catalogue for the homepage.
+const featured = trainingData.slice(0, 3);
 
 const Training = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProgram, setSelectedProgram] = useState(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [status, setStatus] = useState("");
-
-  const openModal = (program) => {
-    setSelectedProgram(program);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedProgram(null);
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!selectedProgram) return;
-
-    const templateParams = {
-      user_name: formData.name,
-      user_email: formData.email,
-      user_phone: formData.phone,
-      user_message: formData.message,
-      program_title: selectedProgram.title,
-      program_hours: selectedProgram.hours,
-      key_topics: selectedProgram.bullets.join(", "),
-    };
-
-    emailjs
-      .send(
-        "service_ysq8lvn",
-        "template_ip6o30n",
-        templateParams,
-        "7cHgRBfbN3nmtOlHv"
-      )
-      .then(() => {
-        setIsModalOpen(false);
-        setStatus("✅ Enrollment details sent successfully!");
-        setTimeout(() => setStatus(""), 5000);
-      })
-      .catch(() => {
-        setStatus("❌ Failed to send email. Please try again.");
-        setTimeout(() => setStatus(""), 5000);
-      });
-  };
-
   return (
-    <>
-      {/* Training Section */}
-      <section className="py-15 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-2">
-            Training & Certification Programs
-          </h2>
-          <p className="text-center text-gray-600 mb-12">
-            Upskill your team with industry-ready training
-          </p>
+    <section className="py-15 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-2">
+          Training &amp; Certification Programs
+        </h2>
+        <p className="text-center text-gray-600 mb-12">
+          Upskill with industry-ready, project-based training
+        </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-            {programs.map((p, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-50 rounded-xl shadow-md p-6 flex flex-col hover:shadow-xl transition h-full"
-              >
-                {/* Icon */}
-                <div className="mb-4 flex justify-center">{p.icon}</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {featured.map((course) => (
+            <article
+              key={course.id}
+              className="bg-gray-50 rounded-2xl shadow-md overflow-hidden flex flex-col h-full hover:shadow-xl transition"
+            >
+              <div className="relative">
+                <img
+                  src={course.image}
+                  alt={`${course.title} training course at NeuralArc`}
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                {course.popular && (
+                  <span className="absolute top-3 right-3 bg-white/95 text-[#E31C24] text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                    Popular
+                  </span>
+                )}
+              </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-gray-900 text-center mb-1 min-h-[3rem]">
-                  {p.title}
-                </h3>
-
-                {/* Hours */}
-                <p className="text-gray-500 text-sm text-center mb-4">
-                  {p.hours}
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{course.title}</h3>
+                <p className="text-sm text-gray-500 mb-4">
+                  {course.duration}
+                  {course.certificationIncluded && " • Certification included"}
                 </p>
 
-                {/* Topics */}
                 <div className="flex flex-col gap-2 mb-6">
-                  {p.bullets.map((b, i) => (
+                  {course.highlights.map((point) => (
                     <div
-                      key={i}
+                      key={point}
                       className="flex items-start gap-2 text-sm text-gray-600"
                     >
-                      <FaCheck className="text-[#2A6EBB] mt-1 w-3 h-3" />
-                      <span>{b}</span>
+                      <FaCheckCircle className="text-green-500 mt-0.5 w-4 h-4 flex-shrink-0" />
+                      <span>{point}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* CTA */}
-                <div className="flex justify-center mb-15" data-aos="fade-right">
-  
-</div>
+                <Link
+                  to={`/training/${course.slug}`}
+                  aria-label={`Enroll in ${course.title}`}
+                  className="group mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2A6EBB] hover:text-[#1f5aa0] transition"
+                >
+                  <span>Enroll Now</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
               </div>
-            ))}
-          </div>
+            </article>
+          ))}
         </div>
-      </section>
 
-      {/* Enrollment Modal */}
-      \{isModalOpen && (
-  <TrainingEnrollModal
-    program={selectedProgram}
-    onClose={() => {
-      setIsModalOpen(false);
-      setSelectedProgram(null);
-    }}
-  />
-)}
-
-
-      {/* Flash Message */}
-      {status && !isModalOpen && (
-        <div className="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-lg shadow-lg">
-          {status}
+        <div className="flex justify-center mt-10">
+          <Link
+            to="/TrainingList"
+            className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold transition-all duration-300 hover:gap-3"
+          >
+            <span>View all programs</span>
+            <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
         </div>
-      )}
-
-       <div className="flex justify-center mb-10" data-aos="fade-right">
-  <a
-    href="/TrainingList"
-    className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold transition-all duration-300 hover:gap-3"
-  >
-    <span>Know More</span>
-    <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-      →
-    </span>
-  </a>
-</div>
-    </>
+      </div>
+    </section>
   );
 };
 

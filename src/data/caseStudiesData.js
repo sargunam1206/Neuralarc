@@ -84,6 +84,23 @@ const caseStudiesData = [
     outcome:
       "The result is one system for tracking suppliers, products, and purchase orders together, instead of maintaining them as separate lists that have to be manually cross-referenced during procurement.",
   },
+  {
+    slug: "kadai-shop-billing-inventory-management",
+    title: "Centralizing Shop Billing and Inventory Management",
+    subtitle: "How we built Kadai",
+    relatedProduct: "kadai",
+    relatedService: "app-development",
+    metaTitle: "Kadai Case Study | NeuralArc",
+    metaDescription:
+      "How NeuralArc built Kadai, a centralized stock management and billing app for shops and small businesses.",
+    challenge:
+      "Small and mid-sized shops often track stock, billing, and supplier records across separate notebooks, spreadsheets, or disconnected apps — making it hard to know real-time stock levels or catch a low-stock item before it runs out.",
+    approach:
+      "Kadai brings stock tracking, billing, and reporting into a single app. Role-based access lets an owner and staff work from the same system without exposing everything to everyone, low-stock alerts flag items before they run out, and reports give a shop owner a clear read on daily performance without manual tallying.",
+    technologies: ["Flutter", "React Native", "Android (Kotlin)", "iOS (Swift)", "Firebase"],
+    outcome:
+      "The result is one place to see stock levels, record a sale, and check performance — replacing separate notebooks and spreadsheets with a system staff can use directly at the counter.",
+  },
 ];
 
 export default caseStudiesData;

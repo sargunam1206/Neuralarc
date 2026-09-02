@@ -30,6 +30,8 @@ const Header = () => {
     location.pathname === "/Services" || location.pathname.startsWith("/services");
   const isResourcesActive =
     location.pathname.startsWith("/blog") || location.pathname.startsWith("/case-studies");
+  const isTrainingActive =
+    location.pathname === "/TrainingList" || location.pathname.startsWith("/training/");
 
   // Close desktop dropdown on outside click or Escape
   useEffect(() => {
@@ -182,7 +184,7 @@ const Header = () => {
               <NavLink
                 to="/TrainingList"
                 className={({ isActive }) =>
-                  `${baseLinkClass} ${isActive ? activeLinkClass : ""}`
+                  `${baseLinkClass} ${isActive || isTrainingActive ? activeLinkClass : ""}`
                 }
               >
                 Training
@@ -319,7 +321,9 @@ const Header = () => {
               to="/TrainingList"
               className={({ isActive }) =>
                 `block py-2 ${
-                  isActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
+                  isActive || isTrainingActive
+                    ? "text-[#E31C24] font-semibold"
+                    : "hover:text-[#E31C24]"
                 }`
               }
               onClick={() => setIsOpen(false)}

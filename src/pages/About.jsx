@@ -1,208 +1,359 @@
-import React, { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
-import { FaEye, FaBullseye, FaHandshake, FaUsers, FaTrophy, FaLightbulb } from "react-icons/fa";
+import "aos/dist/aos.css";
+import {
+  FaArrowRight,
+  FaQuoteLeft,
+  FaChevronLeft,
+  FaChevronRight,
+  FaBriefcase,
+  FaBoxOpen,
+  FaHeart,
+  FaUsers,
+} from "react-icons/fa";
+
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
-import aboutImage from "../assets/images/about-hero.png";
+
+import heroTeam from "../assets/images/image1.png.png";
+import journeyTeam from "../assets/images/image2.png.png";
+import missionTeam from "../assets/images/image3.png.png";
+
+import logo1 from "../assets/images/logo1.png.jpg";
+import logo2 from "../assets/images/logo2.png.jpg";
+import logo3 from "../assets/images/logo3.png.jpg";
+import logo4 from "../assets/images/logo4.png.jpg";
+import logo5 from "../assets/images/logo5.png.jpg";
+import logo6 from "../assets/images/logo6.png.jpg";
+import logo7 from "../assets/images/logo7.png.jpg";
+import logo8 from "../assets/images/logo8.png.jpg";
+
+import profile1 from "../assets/images/profile_pic1.png.jpg";
+import profile2 from "../assets/images/profile_pic2.png.jpg";
+import profile3 from "../assets/images/profile_pic3.png.jpg";
+import profile4 from "../assets/images/profile_pic4.png.jpg";
+
+const stats = [
+  { icon: FaBriefcase, value: "8+", label: "Years in Business" },
+  { icon: FaBoxOpen, value: "25+", label: "Products Delivered" },
+  { icon: FaHeart, value: "100+", label: "Happy Clients" },
+  { icon: FaUsers, value: "50+", label: "Team Members" },
+];
+
+const partners = [
+  { src: logo1, name: "Nippon Paint" },
+  { src: logo2, name: "Gold Winner" },
+  { src: logo3, name: "Finolex Cables" },
+  { src: logo4, name: "TVS" },
+  { src: logo5, name: "Parry's" },
+  { src: logo6, name: "Milma" },
+  { src: logo7, name: "Rane" },
+  { src: logo8, name: "Polycab" },
+];
+
+const testimonials = [
+  {
+    quote:
+      "NeuralArc is a place where ideas are valued and innovation is encouraged. I love how we work together to solve complex problems and create solutions that truly make a difference.",
+    name: "Aarav Menon",
+    role: "Software Engineer",
+    photo: profile1,
+  },
+  {
+    quote:
+      "The culture here is built on trust, collaboration, and continuous learning. I've grown so much professionally while working on meaningful projects that impact real businesses.",
+    name: "Divya Raman",
+    role: "Project Manager",
+    photo: profile2,
+  },
+  {
+    quote:
+      "NeuralArc empowers you to take ownership, think big, and turn ideas into reality. It's inspiring to be surrounded by talented people who are passionate about what they do.",
+    name: "Karthik Suresh",
+    role: "Lead Developer",
+    photo: profile3,
+  },
+  {
+    quote:
+      "What I love most is the supportive environment and the opportunities to learn new technologies. Every day brings a new challenge and a new opportunity to grow.",
+    name: "Nisha Verma",
+    role: "Data Scientist",
+    photo: profile4,
+  },
+];
 
 const About = () => {
+  const marqueeRef = useRef(null);
+
   useEffect(() => {
-    AOS.init({
-      duration: 1200, // Animation duration
-      once: true, // Animation triggers only once
-    });
+    AOS.init({ duration: 1000, once: true });
   }, []);
+
+  // Continuous auto-scroll for the partners strip. The logo list is rendered
+  // twice; when we pass the halfway point we jump back by half the width for a
+  // seamless loop. Pauses on hover; disabled when the user prefers reduced motion.
+  useEffect(() => {
+    const el = marqueeRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf;
+    let paused = false;
+    const pause = () => (paused = true);
+    const resume = () => (paused = false);
+
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("touchend", resume);
+
+    const tick = () => {
+      if (!paused) {
+        el.scrollLeft += 0.5;
+        if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft -= el.scrollWidth / 2;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", resume);
+    };
+  }, []);
+
+  const scrollToJourney = () => {
+    const target = document.getElementById("our-journey");
+    if (!target) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  };
+
+  const nudgeMarquee = (dir) =>
+    marqueeRef.current?.scrollBy({ left: dir * 320, behavior: "smooth" });
 
   return (
     <>
-    
+      <Helmet>
+        <title>About NeuralArc | IoT, AI & Software Team in Coimbatore</title>
+        <meta
+          name="description"
+          content="Meet the NeuralArc team — innovators, problem solvers and dreamers building IoT, AI/ML and software solutions from Coimbatore for over 8 years."
+        />
+        <link rel="canonical" href="https://www.neuralarc.com/about" />
+      </Helmet>
 
-
-
-
-    
-<Helmet>
-  <title>About NeuralArc | IoT & Software Company in Coimbatore</title>
-  <meta
-    name="description"
-    content="Founded in 2018, NeuralArc is a Coimbatore-based technology company building IoT, AI/ML, and software solutions for businesses of all sizes."
-  />
-  <link rel="canonical" href="https://www.neuralarc.com/about" />
-</Helmet>
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative bg-[#2A6EBB] text-white py-12">
-        <div className="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
-          <div className="md:w-1/2" data-aos="fade-right">
-            <h1 className="text-4xl md:text-4xl font-extrabold mb-4">
-              About <span className="text-[#fff2f2]">NeuralArc</span>
-            </h1>
-            <p className="text-lg md:text-xl text-justify leading-relaxed">
-              At NeuralArc, we specialize in innovative technology solutions that empower
-              businesses to thrive in the digital era. Our expertise spans IoT, Data
-              Science, Software Development, and AI-powered solutions that drive real
-              results.
+      {/* 1 — Hero */}
+      <section className="bg-gray-50 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div data-aos="fade-right">
+            <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-4">
+              WELCOME TO OUR TEAM
             </p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+              We&apos;re a team of innovators, problem solvers, and dreamers.
+            </h1>
+            <p className="text-gray-600 leading-relaxed mb-8 max-w-xl">
+              At NeuralArc, we combine deep technology expertise with real-world
+              understanding to build innovative solutions that make a lasting impact.
+              Together, we create, collaborate, and deliver excellence every day.
+            </p>
+            <button
+              type="button"
+              onClick={scrollToJourney}
+              className="inline-flex items-center gap-2 bg-[#2A6EBB] hover:bg-[#1f5aa0] text-white font-semibold px-7 py-3.5 rounded-md transition"
+            >
+              Learn More About Us <FaArrowRight className="w-4 h-4" />
+            </button>
           </div>
-          <div className="md:w-2/5" data-aos="fade-left">
+
+          <div data-aos="fade-left">
             <img
-              src={aboutImage}
-              alt="About NeuralArc"
-              className="rounded-xl shadow-xl border-4 border-white"
+              src={heroTeam}
+              alt="The NeuralArc team at the Coimbatore office"
+              className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
             />
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-15 bg-gray-50">
+      {/* 2 — Our Journey */}
+      <section id="our-journey" className="bg-white py-16 lg:py-24 scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div data-aos="fade-right" className="order-2 md:order-1">
+            <img
+              src={journeyTeam}
+              alt="NeuralArc company group photo"
+              className="w-full aspect-[3/2] object-cover rounded-2xl shadow-xl"
+            />
+          </div>
+
+          <div data-aos="fade-left" className="order-1 md:order-2">
+            <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-4">
+              OUR JOURNEY
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+              8 Years of Experience
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-10 max-w-xl">
+              For over 8 years, NeuralArc has been at the forefront of digital
+              transformation — delivering smart, scalable, and impactful solutions for
+              businesses across industries. Our journey is built on innovation, trust,
+              and a passion for technology.
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+              {stats.map((stat) => {
+                const StatIcon = stat.icon;
+                return (
+                  <div key={stat.label} className="text-center">
+                    <StatIcon className="w-7 h-7 mx-auto mb-2 text-[#2A6EBB]" />
+                    <div className="text-2xl font-extrabold text-gray-900">{stat.value}</div>
+                    <div className="text-xs text-gray-500 mt-1 leading-snug">{stat.label}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 — Our Partners */}
+      <section className="bg-gray-50 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2
-            className="text-3xl md:text-4xl font-extrabold text-[#2A6EBB] mb-6"
-            data-aos="zoom-in"
-          >
-            Our Story
-          </h2>
-          <p
-            className="text-gray-600 text-lg md:text-lg max-w-3xl mx-auto mb-12"
-            data-aos="fade-up"
-          >
-            Founded in 2018, NeuralArc has grown into a trusted technology partner for
-            businesses worldwide. From startups to enterprises, we create smart, efficient
-            solutions that combine creativity, innovation, and cutting-edge technology.
+          <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-3">
+            OUR PARTNERS
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md" data-aos="flip-left">
-              <h3 className="text-xl font-bold text-[#E31C24] mb-2">2018</h3>
-              <p className="text-gray-600">
-                Founded with a mission to transform businesses through technology.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md" data-aos="flip-up">
-              <h3 className="text-xl font-bold text-[#2A6EBB] mb-2">2022</h3>
-              <p className="text-gray-600">
-                Expanded globally with successful IoT & AI projects.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md" data-aos="flip-right">
-              <h3 className="text-xl font-bold text-[#E31C24] mb-2">2024+</h3>
-              <p className="text-gray-600">
-                Continuing our journey to lead in digital transformation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision, Mission, Values */}
-      <section className="py-15 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-          <div
-            className="p-8 rounded-xl shadow-lg hover:shadow-2xl transition"
-            data-aos="fade-up"
-          >
-            <div className="flex justify-center mb-4">
-              <FaEye className="text-[#2A6EBB] w-14 h-14 bg-blue-100 p-3 rounded-full" />
-            </div>
-            <h3 className="text-2xl font-bold text-[#2A6EBB] mb-3">Our Vision</h3>
-            <p className="text-gray-600">
-              To be the most trusted global partner in digital transformation.
-            </p>
-          </div>
-
-          <div
-            className="p-8 rounded-xl shadow-lg hover:shadow-2xl transition"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div className="flex justify-center mb-4">
-              <FaBullseye className="text-[#E31C24] w-14 h-14 bg-red-100 p-3 rounded-full" />
-            </div>
-            <h3 className="text-2xl font-bold text-[#E31C24] mb-3">Our Mission</h3>
-            <p className="text-gray-600">
-              Deliver innovative and reliable technology solutions that empower businesses
-              to grow and succeed.
-            </p>
-          </div>
-
-          <div
-            className="p-8 rounded-xl shadow-lg hover:shadow-2xl transition"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div className="flex justify-center mb-4">
-              <FaHandshake className="text-[#2A6EBB] w-14 h-14 bg-blue-100 p-3 rounded-full" />
-            </div>
-            <h3 className="text-2xl font-bold text-[#2A6EBB] mb-3">Our Values</h3>
-            <p className="text-gray-600">
-              Innovation, Integrity, Collaboration, Excellence, and Customer Success.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-15 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2
-            className="text-3xl md:text-4xl font-extrabold text-[#2A6EBB] mb-12"
-            data-aos="zoom-in"
-          >
-            Why Choose NeuralArc?
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-10">
+            Trusted by Leading Brands
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up">
-              <FaUsers className="w-12 h-12 text-[#E31C24] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">100+ Clients</h3>
-              <p className="text-gray-600">
-                Trusted by businesses across industries worldwide.
-              </p>
-            </div>
-            <div
-              className="bg-white p-8 rounded-xl shadow-lg"
-              data-aos="fade-up"
-              data-aos-delay="200"
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4">
+          {/* edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-gray-50 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent" />
+
+          <button
+            type="button"
+            onClick={() => nudgeMarquee(-1)}
+            aria-label="Previous partners"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#2A6EBB] hover:bg-gray-100 transition"
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            type="button"
+            onClick={() => nudgeMarquee(1)}
+            aria-label="Next partners"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#2A6EBB] hover:bg-gray-100 transition"
+          >
+            <FaChevronRight />
+          </button>
+
+          <div
+            ref={marqueeRef}
+            className="flex gap-6 overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {[...partners, ...partners].map((partner, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-40 h-24 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center p-5"
+              >
+                <img
+                  src={partner.src}
+                  alt={`${partner.name} logo`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-center text-sm text-gray-400 mt-8">
+          And many more amazing partners…
+        </p>
+      </section>
+
+      {/* 4 — Our Mission */}
+      <section className="bg-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div data-aos="fade-right">
+            <img
+              src={missionTeam}
+              alt="NeuralArc leadership team"
+              className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
+            />
+          </div>
+
+          <div data-aos="fade-left">
+            <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-4">
+              OUR MISSION
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+              The Revolution We&apos;re Building
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-8 max-w-xl">
+              We&apos;re not just building products — we&apos;re building a better future
+              through technology. At NeuralArc, we challenge the status quo, embrace
+              innovation, and engineer solutions that empower businesses and communities
+              worldwide.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-[#2A6EBB] hover:bg-[#1f5aa0] text-white font-semibold px-7 py-3.5 rounded-md transition"
             >
-              <FaTrophy className="w-12 h-12 text-[#2A6EBB] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Award-Winning</h3>
-              <p className="text-gray-600">Recognized for innovation and client success.</p>
-            </div>
-            <div
-              className="bg-white p-8 rounded-xl shadow-lg"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <FaLightbulb className="w-12 h-12 text-[#E31C24] mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Cutting-Edge</h3>
-              <p className="text-gray-600">
-                Delivering future-ready solutions with emerging tech.
-              </p>
-            </div>
+              Join Our Team <FaArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="py-15 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center"
-        data-aos="zoom-in-up"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Journey</h2>
-        <p className="text-lg md:text-lg mb-6 max-w-2xl mx-auto">
-          Be part of an innovative team shaping the future of technology. Let&apos;s build
-          something amazing together.
-        </p>
-        <a
-          href="/contact"
-          className="px-4 py-2 bg-white text-[#E31C24] rounded-md font-semibold hover:bg-gray-100 transition"
-        >
-          Contact Us
-        </a>
+      {/* 5 — Employee Testimonials */}
+      <section className="bg-gray-50 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-3">
+              EMPLOYEE TESTIMONIALS
+            </p>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+              Voices of Our Team
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 flex flex-col hover:shadow-xl transition"
+                data-aos="fade-up"
+              >
+                <FaQuoteLeft className="text-[#2A6EBB]/30 text-2xl mb-4" />
+                <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-gray-900 text-sm">{t.name}</h4>
+                    <span className="text-xs text-gray-500">{t.role}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <Footer />

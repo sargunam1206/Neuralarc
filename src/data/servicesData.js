@@ -216,7 +216,8 @@ longDescription:
   "We create modern, responsive, and high-performing websites that elevate your digital presence. Our web solutions are built with the latest technologies to ensure speed, scalability, and SEO friendliness. We focus on intuitive UI/UX design that enhances user engagement across all devices. From corporate websites to dynamic web apps, we deliver fully optimized solutions. Our goal is to help your brand stand out and convert visitors into customers.",
   technologies: [
     "HTML5",
-    "CSS3,Bootstrap",
+    "CSS3",
+    "Bootstrap",
     "Wordpress",
     "JavaScript",
     "React",

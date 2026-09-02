@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <>
     <section
-      className="relative bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center text-center"
+      className="relative bg-cover bg-center bg-no-repeat min-h-[100svh] py-24 flex items-center justify-center text-center"
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       {/* Overlay */}
@@ -15,12 +15,12 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6 space-y-6" data-aos="zoom-in">
         {/* Headline */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
           NeuralArc — IoT, AI & Software Development, Built in Coimbatore
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl md:text-xl text-gray-200">
+        <p className="text-lg md:text-xl text-gray-200">
           End-to-end connected hardware, cloud, and data systems for businesses ready to go digital.
         </p>
 

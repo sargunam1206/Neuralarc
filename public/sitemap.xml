@@ -19,6 +19,11 @@
   <url><loc>https://www.neuralarc.com/products/expense-tracker-app</loc></url>
   <url><loc>https://www.neuralarc.com/products/microlab</loc></url>
   <url><loc>https://www.neuralarc.com/products/leadpro</loc></url>
+  <url><loc>https://www.neuralarc.com/technologies/esp32-arduino</loc></url>
+  <url><loc>https://www.neuralarc.com/technologies/stm32</loc></url>
+  <url><loc>https://www.neuralarc.com/technologies/lora</loc></url>
+  <url><loc>https://www.neuralarc.com/technologies/gps-tracking</loc></url>
+  <url><loc>https://www.neuralarc.com/technologies/sms-gateway</loc></url>
   <url><loc>https://www.neuralarc.com/blog</loc></url>
   <url><loc>https://www.neuralarc.com/blog/how-we-design-an-iot-monitoring-system</loc></url>
   <url><loc>https://www.neuralarc.com/blog/iot-architecture-sensor-to-dashboard</loc></url>
@@ -47,7 +52,23 @@
   <url><loc>https://www.neuralarc.com/case-studies/leadpro-centralizing-lead-management</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies/blood-bank-software-operations-management</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies/purchase-software-procurement-workflow</loc></url>
+  <url><loc>https://www.neuralarc.com/case-studies/kadai-shop-billing-inventory-management</loc></url>
+  <url><loc>https://www.neuralarc.com/why-choose-us/industry-leading-solutions</loc></url>
+  <url><loc>https://www.neuralarc.com/why-choose-us/products</loc></url>
+  <url><loc>https://www.neuralarc.com/why-choose-us/clients</loc></url>
+  <url><loc>https://www.neuralarc.com/why-choose-us/global-reach</loc></url>
   <url><loc>https://www.neuralarc.com/Gallery</loc></url>
   <url><loc>https://www.neuralarc.com/TrainingList</loc></url>
+  <url><loc>https://www.neuralarc.com/training/ai-machine-learning</loc></url>
+  <url><loc>https://www.neuralarc.com/training/iot-development</loc></url>
+  <url><loc>https://www.neuralarc.com/training/python-full-stack</loc></url>
+  <url><loc>https://www.neuralarc.com/training/mern-full-stack</loc></url>
+  <url><loc>https://www.neuralarc.com/training/data-analytics</loc></url>
+  <url><loc>https://www.neuralarc.com/training/mobile-app-development</loc></url>
+  <url><loc>https://www.neuralarc.com/training/cloud-computing</loc></url>
+  <url><loc>https://www.neuralarc.com/training/cybersecurity</loc></url>
+  <url><loc>https://www.neuralarc.com/training/ui-ux-design</loc></url>
   <url><loc>https://www.neuralarc.com/contact</loc></url>
+  <url><loc>https://www.neuralarc.com/terms-of-service</loc></url>
+  <url><loc>https://www.neuralarc.com/privacy-notice</loc></url>
 </urlset>

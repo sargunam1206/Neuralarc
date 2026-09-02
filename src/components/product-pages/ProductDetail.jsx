@@ -4,6 +4,8 @@ import { FaCheck, FaFlask } from "react-icons/fa";
 import productsData from "../../data/productsData";
 import servicesData from "../../data/servicesData";
 import caseStudiesData from "../../data/caseStudiesData";
+import { getTechIcon } from "../../utils/techIcons";
+import { getTechPagePath } from "../../data/technologiesData";
 import Header from "../Header/Header";
 import Footer from "../Footer";
 
@@ -31,6 +33,133 @@ const ProductDetail = () => {
     (s) => s.slug === serviceSlugByCategory[product.category]
   );
   const caseStudy = caseStudiesData.find((cs) => cs.relatedProduct === product.slug);
+
+  // Every real content block, in display order, kept only if it actually
+  // applies to this product — then given alternating white/gray backgrounds
+  // by position, so the rhythm stays correct for every product regardless of
+  // which optional sections it has.
+  const sections = [
+    {
+      key: "specs",
+      content: (
+        <>
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">Key Specifications</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {product.specs.map((spec, i) => (
+              <div key={i} className="bg-white rounded-xl shadow p-6 flex items-start gap-3">
+                <FaCheck className="text-[#2A6EBB] mt-1 w-4 h-4 flex-shrink-0" />
+                <span className="text-gray-700">{spec}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      ),
+    },
+    product.features &&
+      product.features.length > 0 && {
+        key: "features",
+        content: (
+          <>
+            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">
+              How {product.name} Works
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {product.features.map((feature, i) => (
+                <div key={i} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                  <h3 className="font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        ),
+      },
+    product.benefits &&
+      product.benefits.length > 0 && {
+        key: "benefits",
+        content: (
+          <>
+            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">Business Benefits</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {product.benefits.map((benefit, i) => (
+                <div key={i} className="bg-white rounded-lg shadow p-4 flex items-start gap-3">
+                  <FaCheck className="text-[#E31C24] mt-1 w-4 h-4 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        ),
+      },
+    product.technologies &&
+      product.technologies.length > 0 && {
+        key: "technologies",
+        content: (
+          <>
+            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">Technology Stack</h2>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+              {product.technologies.map((tech, i) => {
+                const techPath = getTechPagePath(tech);
+                const body = (
+                  <>
+                    {getTechIcon(tech, "w-9 h-9 flex-shrink-0")}
+                    <span className="font-medium text-gray-800">{tech}</span>
+                  </>
+                );
+                return (
+                  <li key={i} className="bg-white rounded-xl shadow hover:shadow-lg transition border">
+                    {techPath ? (
+                      <Link
+                        to={techPath}
+                        className="flex items-center gap-3 p-6 hover:text-[#2A6EBB] transition-colors"
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      <div className="flex items-center gap-3 p-6">{body}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        ),
+      },
+    relatedService && {
+      key: "team",
+      content: (
+        <>
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">
+            Built by NeuralArc's {relatedService.title} Team
+          </h2>
+          <p className="text-gray-600 max-w-3xl mb-6">
+            {product.name} was designed and developed by our team in Coimbatore, using the same stack and process we use across our {relatedService.title} projects.
+          </p>
+          <Link
+            to={`/services/${relatedService.slug}`}
+            className="text-[#E31C24] font-semibold hover:underline"
+          >
+            See our {relatedService.title} services →
+          </Link>
+        </>
+      ),
+    },
+    caseStudy && {
+      key: "case-study",
+      content: (
+        <>
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">Case Study: {caseStudy.title}</h2>
+          <p className="text-gray-600 max-w-3xl mb-6">{caseStudy.challenge}</p>
+          <Link
+            to={`/case-studies/${caseStudy.slug}`}
+            className="text-[#E31C24] font-semibold hover:underline"
+          >
+            Read the full case study →
+          </Link>
+        </>
+      ),
+    },
+  ].filter(Boolean);
 
   return (
     <>
@@ -74,130 +203,11 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Specs */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">
-            Key Specifications
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {product.specs.map((spec, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl shadow p-6 flex items-start gap-3"
-              >
-                <FaCheck className="text-[#2A6EBB] mt-1 w-4 h-4 flex-shrink-0" />
-                <span className="text-gray-700">{spec}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Full feature workflow */}
-      {product.features && product.features.length > 0 && (
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">
-              How {product.name} Works
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {product.features.map((feature, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition"
-                >
-                  <h3 className="font-bold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+      {sections.map((s, i) => (
+        <section key={s.key} className={`py-16 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+          <div className="max-w-7xl mx-auto px-6">{s.content}</div>
         </section>
-      )}
-
-      {/* Business benefits */}
-      {product.benefits && product.benefits.length > 0 && (
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">
-              Business Benefits
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {product.benefits.map((benefit, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-lg shadow p-4 flex items-start gap-3"
-                >
-                  <FaCheck className="text-[#E31C24] mt-1 w-4 h-4 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Technology stack */}
-      {product.technologies && product.technologies.length > 0 && (
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">
-              Technology Stack
-            </h2>
-            <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {product.technologies.map((tech, i) => (
-                <li
-                  key={i}
-                  className="bg-white p-4 rounded-lg shadow text-center border"
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* Built by NeuralArc's team for this service */}
-      {relatedService && (
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">
-              Built by NeuralArc's {relatedService.title} Team
-            </h2>
-            <p className="text-gray-600 max-w-3xl mb-6">
-              {product.name} was designed and developed by our team in Coimbatore, using the same stack and process we use across our {relatedService.title} projects.
-            </p>
-            <Link
-              to={`/services/${relatedService.slug}`}
-              className="text-[#E31C24] font-semibold hover:underline"
-            >
-              See our {relatedService.title} services →
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* Case study */}
-      {caseStudy && (
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">
-              Case Study: {caseStudy.title}
-            </h2>
-            <p className="text-gray-600 max-w-3xl mb-6">{caseStudy.challenge}</p>
-            <Link
-              to={`/case-studies/${caseStudy.slug}`}
-              className="text-[#E31C24] font-semibold hover:underline"
-            >
-              Read the full case study →
-            </Link>
-          </div>
-        </section>
-      )}
+      ))}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center">
