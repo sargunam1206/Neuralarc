@@ -39,40 +39,41 @@ const ServiceDetail = () => {
   // backgrounds by position — so the rhythm stays correct no matter which
   // conditional sections show up for a given service.
   const sections = [
-    {
-      key: "technologies",
-      maxWidth: "max-w-7xl",
-      content: (
-        <>
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">Technologies We Use</h2>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-            {service.technologies.map((tech, i) => {
-              const techPath = getTechPagePath(tech);
-              const body = (
-                <>
-                  {getTechIcon(tech, "w-9 h-9 flex-shrink-0")}
-                  <span className="font-medium text-gray-800">{tech}</span>
-                </>
-              );
-              return (
-                <li key={i} className="bg-white rounded-xl shadow hover:shadow-lg transition">
-                  {techPath ? (
-                    <Link
-                      to={techPath}
-                      className="flex items-center gap-3 p-6 hover:text-[#2A6EBB] transition-colors"
-                    >
-                      {body}
-                    </Link>
-                  ) : (
-                    <div className="flex items-center gap-3 p-6">{body}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      ),
-    },
+    service.technologies &&
+      service.technologies.length > 0 && {
+        key: "technologies",
+        maxWidth: "max-w-7xl",
+        content: (
+          <>
+            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">Technologies We Use</h2>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+              {service.technologies.map((tech, i) => {
+                const techPath = getTechPagePath(tech);
+                const body = (
+                  <>
+                    {getTechIcon(tech, "w-9 h-9 flex-shrink-0")}
+                    <span className="font-medium text-gray-800">{tech}</span>
+                  </>
+                );
+                return (
+                  <li key={i} className="bg-white rounded-xl shadow hover:shadow-lg transition">
+                    {techPath ? (
+                      <Link
+                        to={techPath}
+                        className="flex items-center gap-3 p-6 hover:text-[#2A6EBB] transition-colors"
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      <div className="flex items-center gap-3 p-6">{body}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        ),
+      },
     {
       key: "features",
       maxWidth: "max-w-7xl",
@@ -104,7 +105,7 @@ const ServiceDetail = () => {
       content: (
         <>
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-6">Based in Coimbatore</h2>
-          <p className="text-gray-600 max-w-3xl mb-4">
+          <p className="text-gray-600 mb-4">
             Our team works out of Coimbatore, so you can meet us in person, visit our office, or get local support throughout your project.
           </p>
           <p className="text-gray-700">
@@ -184,7 +185,7 @@ const ServiceDetail = () => {
     service.faqs &&
       service.faqs.length > 0 && {
         key: "faqs",
-        maxWidth: "max-w-4xl",
+        maxWidth: "max-w-7xl",
         content: (
           <>
             <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">
@@ -220,12 +221,20 @@ const ServiceDetail = () => {
       <section className="bg-[#2A6EBB] text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl font-bold mb-4">{service.h1 || service.title}</h1>
-          <p className="text-lg max-w-3xl">{service.longDescription}</p>
+          <p className="text-lg">{service.longDescription}</p>
         </div>
       </section>
 
+      {/* Alternate white/gray, counting back from the last section so it
+          always lands on gray — keeps a visible seam against the white
+          footer regardless of how many optional sections this service has. */}
       {sections.map((s, i) => (
-        <section key={s.key} className={`py-16 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+        <section
+          key={s.key}
+          className={`py-16 ${
+            (sections.length - 1 - i) % 2 === 0 ? "bg-gray-50" : "bg-white"
+          }`}
+        >
           <div className={`${s.maxWidth} mx-auto px-6`}>{s.content}</div>
         </section>
       ))}

@@ -51,7 +51,7 @@ const Gallery = () => {
       </section>
 
       {/* IoT Products */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12">
             IoT Product Showcase
@@ -74,7 +74,7 @@ const Gallery = () => {
       </section>
 
       {/* Software Products */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-[#E31C24] mb-12">
             Software Product Showcase
@@ -97,7 +97,7 @@ const Gallery = () => {
       </section>
 
       {/* Achievements */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12">
             Our Achievements
@@ -120,8 +120,8 @@ const Gallery = () => {
       </section>
 
       {/* Brochures */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">
             Download Our Brochures
           </h2>
@@ -131,7 +131,7 @@ const Gallery = () => {
                 key={index}
                 href={doc.file}
                 download
-                className="flex flex-col items-center justify-center p-6 border rounded-xl shadow hover:shadow-lg transition bg-gray-50 hover:bg-gray-100"
+                className="flex flex-col items-center justify-center p-6 border rounded-xl shadow hover:shadow-lg transition bg-white hover:bg-gray-100"
               >
                 <FaFilePdf className="text-red-600 text-4xl mb-3" />
                 <span className="font-semibold text-gray-700">{doc.name}</span>

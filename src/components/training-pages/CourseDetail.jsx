@@ -255,7 +255,7 @@ const CourseDetail = () => {
 
       {/* ---------- ABOUT ---------- */}
       <section id="about" className="scroll-mt-40 bg-white py-14 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">
             About this course
           </h2>

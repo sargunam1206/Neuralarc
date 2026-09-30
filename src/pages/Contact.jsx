@@ -331,8 +331,8 @@ const Contact = () => {
       </section>
 
       {/* ---------- MAP ---------- */}
-      <section className="bg-white py-14 lg:py-20">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="bg-gray-50 py-14 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-2xl md:text-3xl font-extrabold text-center text-gray-900 mb-8">
             Visit Our Office
           </h2>

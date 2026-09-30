@@ -103,8 +103,12 @@ const Header = () => {
               </NavLink>
             </li>
 
-            {/* Solutions dropdown */}
-            <li className="relative">
+            {/* Solutions dropdown — opens on hover (desktop) as well as click/keyboard */}
+            <li
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("solutions")}
+              onMouseLeave={() => setOpenDropdown((cur) => (cur === "solutions" ? null : cur))}
+            >
               <button
                 type="button"
                 aria-haspopup="true"
@@ -122,16 +126,21 @@ const Header = () => {
                 />
               </button>
               {openDropdown === "solutions" && (
-                <div className="absolute left-0 top-full mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
-                  {servicesData.map((service) => (
-                    <Link
-                      key={service.slug}
-                      to={`/services/${service.slug}`}
-                      className="block px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-[#E31C24] transition"
-                    >
-                      {service.title}
-                    </Link>
-                  ))}
+                // pt-2 (not mt-2) keeps this flush against the trigger with no
+                // hoverable gap, so moving the pointer down into it doesn't
+                // momentarily leave the <li> and close the menu.
+                <div className="absolute left-0 top-full w-72 pt-2 z-50">
+                  <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
+                    {servicesData.map((service) => (
+                      <Link
+                        key={service.slug}
+                        to={`/services/${service.slug}`}
+                        className="block px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-[#E31C24] transition"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </li>
@@ -147,8 +156,12 @@ const Header = () => {
               </NavLink>
             </li>
 
-            {/* Resources dropdown */}
-            <li className="relative">
+            {/* Resources dropdown — opens on hover (desktop) as well as click/keyboard */}
+            <li
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("resources")}
+              onMouseLeave={() => setOpenDropdown((cur) => (cur === "resources" ? null : cur))}
+            >
               <button
                 type="button"
                 aria-haspopup="true"
@@ -166,16 +179,18 @@ const Header = () => {
                 />
               </button>
               {openDropdown === "resources" && (
-                <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
-                  {resourcesItems.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="block px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-[#E31C24] transition"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+                <div className="absolute left-0 top-full w-56 pt-2 z-50">
+                  <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
+                    {resourcesItems.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className="block px-4 py-2.5 text-base text-gray-700 hover:bg-gray-50 hover:text-[#E31C24] transition"
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </li>

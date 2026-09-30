@@ -1,6 +1,29 @@
+import b1 from "../assets/images/B1.png.png";
+import b2 from "../assets/images/B2.png.png";
+import b3 from "../assets/images/B3.png.png";
+import b4 from "../assets/images/B4.png.png";
+import b5 from "../assets/images/B5.png.png";
+import b6 from "../assets/images/B6.png.png";
+import b7 from "../assets/images/B7.png.png";
+import b8 from "../assets/images/B8.png.png";
+import b9 from "../assets/images/B9.png.png";
+import b10 from "../assets/images/B10.png.png";
+import b11 from "../assets/images/B11.png.png";
+import b12 from "../assets/images/B12.png.png";
+import b13 from "../assets/images/B13.png.png";
+import b14 from "../assets/images/B14.png.png";
+import b15 from "../assets/images/B15.png.png";
+import b16 from "../assets/images/B16.png.png";
+import b17 from "../assets/images/B17.png.png";
+import b18 from "../assets/images/B18.png.png";
+import b19 from "../assets/images/B19.png.png";
+import b20 from "../assets/images/B20.png.png";
+import b21 from "../assets/images/B21.png.png";
+
 const blogData = [
   {
     slug: "how-we-design-an-iot-monitoring-system",
+    image: b1,
     relatedService: "iot",
     title: "How We Design an IoT Monitoring System",
     metaTitle: "How We Design an IoT Monitoring System | NeuralArc",
@@ -46,6 +69,7 @@ const blogData = [
   },
   {
     slug: "iot-architecture-sensor-to-dashboard",
+    image: b2,
     relatedService: "iot",
     title: "IoT Architecture: From Sensor to Dashboard",
     metaTitle: "IoT Architecture: Sensor to Dashboard | NeuralArc",
@@ -83,6 +107,7 @@ const blogData = [
   },
   {
     slug: "choosing-iot-sensors-cold-chain-industrial-monitoring",
+    image: b3,
     relatedService: "iot",
     title: "Choosing IoT Sensors for Cold-Chain & Industrial Monitoring",
     metaTitle: "IoT Sensors for Cold-Chain & Industrial Monitoring | NeuralArc",
@@ -120,6 +145,7 @@ const blogData = [
   },
   {
     slug: "iot-gateway-connectivity-lora-vs-wifi-vs-cellular",
+    image: b4,
     relatedService: "iot",
     title: "IoT Gateway & Connectivity: LoRa vs Wi-Fi vs Cellular",
     metaTitle: "IoT Connectivity: LoRa vs Wi-Fi vs Cellular | NeuralArc",
@@ -157,6 +183,7 @@ const blogData = [
   },
   {
     slug: "iot-data-analytics-sensor-data-to-alerts",
+    image: b5,
     relatedService: "iot",
     title: "IoT Data Analytics: From Sensor Data to Alerts",
     metaTitle: "IoT Data Analytics: Sensor Data to Alerts | NeuralArc",
@@ -188,6 +215,7 @@ const blogData = [
   },
   {
     slug: "securing-device-to-cloud-data-transmission",
+    image: b6,
     relatedService: "iot",
     title: "Securing Device-to-Cloud Data Transmission",
     metaTitle: "Securing IoT Device-to-Cloud Data Transmission | NeuralArc",
@@ -221,6 +249,7 @@ const blogData = [
   // AI, ML & Data Science
   {
     slug: "how-we-build-predictive-analytics-models",
+    image: b7,
     relatedService: "ai-ml-data-science",
     title: "How We Build Predictive Analytics Models",
     metaTitle: "How We Build Predictive Analytics Models | NeuralArc",
@@ -252,6 +281,7 @@ const blogData = [
   },
   {
     slug: "from-raw-data-to-business-intelligence-dashboards",
+    image: b8,
     relatedService: "ai-ml-data-science",
     title: "From Raw Data to Business Intelligence Dashboards",
     metaTitle: "From Raw Data to BI Dashboards | NeuralArc",
@@ -283,6 +313,7 @@ const blogData = [
   },
   {
     slug: "choosing-the-right-data-science-tools",
+    image: b9,
     relatedService: "ai-ml-data-science",
     title: "Choosing the Right Tools for a Data Science Project",
     metaTitle: "Choosing Data Science Tools: Python, TensorFlow, Power BI | NeuralArc",
@@ -316,6 +347,7 @@ const blogData = [
   // Embedded Software Development
   {
     slug: "how-we-design-custom-enterprise-software",
+    image: b10,
     relatedService: "embedded-software-development",
     title: "How We Design Custom Enterprise Software",
     metaTitle: "How We Design Custom Enterprise Software | NeuralArc",
@@ -347,6 +379,7 @@ const blogData = [
   },
   {
     slug: "integrating-third-party-apis-securely",
+    image: b11,
     relatedService: "embedded-software-development",
     title: "Integrating Third-Party APIs Securely",
     metaTitle: "Integrating Third-Party APIs Securely | NeuralArc",
@@ -372,6 +405,7 @@ const blogData = [
   },
   {
     slug: "building-for-scale-our-architecture-approach",
+    image: b12,
     relatedService: "embedded-software-development",
     title: "Building for Scale: Our Architecture Approach",
     metaTitle: "Building for Scale: Our Architecture Approach | NeuralArc",
@@ -399,6 +433,7 @@ const blogData = [
   // Full Stack Development
   {
     slug: "how-we-build-fast-responsive-websites",
+    image: b13,
     relatedService: "full-stack-development",
     title: "How We Build Fast, Responsive Websites",
     metaTitle: "How We Build Fast, Responsive Websites | NeuralArc",
@@ -424,6 +459,7 @@ const blogData = [
   },
   {
     slug: "seo-foundations-we-build-into-every-website",
+    image: b14,
     relatedService: "full-stack-development",
     title: "SEO Foundations We Build Into Every Website",
     metaTitle: "SEO Foundations We Build Into Every Website | NeuralArc",
@@ -449,6 +485,7 @@ const blogData = [
   },
   {
     slug: "react-vs-wordpress-how-we-choose",
+    image: b15,
     relatedService: "full-stack-development",
     title: "React vs WordPress: How We Choose the Right Stack",
     metaTitle: "React vs WordPress: How We Choose | NeuralArc",
@@ -476,6 +513,7 @@ const blogData = [
   // Mobile App Development
   {
     slug: "flutter-vs-react-native-how-we-choose",
+    image: b16,
     relatedService: "app-development",
     title: "Flutter vs React Native: How We Choose",
     metaTitle: "Flutter vs React Native: How We Choose | NeuralArc",
@@ -501,6 +539,7 @@ const blogData = [
   },
   {
     slug: "how-we-design-mobile-apps-people-actually-use",
+    image: b17,
     relatedService: "app-development",
     title: "How We Design Mobile Apps People Actually Use",
     metaTitle: "How We Design Mobile Apps People Actually Use | NeuralArc",
@@ -526,6 +565,7 @@ const blogData = [
   },
   {
     slug: "getting-your-app-through-app-store-review",
+    image: b18,
     relatedService: "app-development",
     title: "Getting Your App Through App Store Review",
     metaTitle: "Getting Your App Through App Store Review | NeuralArc",
@@ -547,6 +587,7 @@ const blogData = [
   // Training
   {
     slug: "how-our-training-programs-are-structured",
+    image: b19,
     relatedService: "training",
     title: "How Our Training Programs Are Structured",
     metaTitle: "How Our Training Programs Are Structured | NeuralArc",
@@ -572,6 +613,7 @@ const blogData = [
   },
   {
     slug: "why-we-focus-on-live-projects-not-just-theory",
+    image: b20,
     relatedService: "training",
     title: "Why We Focus on Live Projects, Not Just Theory",
     metaTitle: "Why We Focus on Live Projects, Not Just Theory | NeuralArc",
@@ -597,6 +639,7 @@ const blogData = [
   },
   {
     slug: "from-training-to-placement-how-we-support-learners",
+    image: b21,
     relatedService: "training",
     title: "From Training to Placement: How We Support Learners",
     metaTitle: "From Training to Placement | NeuralArc",

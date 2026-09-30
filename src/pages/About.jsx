@@ -6,8 +6,6 @@ import "aos/dist/aos.css";
 import {
   FaArrowRight,
   FaQuoteLeft,
-  FaChevronLeft,
-  FaChevronRight,
   FaBriefcase,
   FaBoxOpen,
   FaHeart,
@@ -16,6 +14,7 @@ import {
 
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
+import CallToAction from "../components/CallToAction";
 
 import heroTeam from "../assets/images/image1.png.png";
 import journeyTeam from "../assets/images/image2.png.png";
@@ -86,31 +85,25 @@ const testimonials = [
 
 const About = () => {
   const marqueeRef = useRef(null);
+  // Set by hovering an individual brand tile — pauses the auto-scroll only
+  // while the cursor is on a logo, not anywhere in the strip.
+  const marqueePausedRef = useRef(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // Continuous auto-scroll for the partners strip. The logo list is rendered
-  // twice; when we pass the halfway point we jump back by half the width for a
-  // seamless loop. Pauses on hover; disabled when the user prefers reduced motion.
+  // Continuous horizontal auto-scroll for the partners strip. The logo list is
+  // rendered twice; when we pass the halfway point we jump back by half the
+  // width for a seamless loop. Disabled when the user prefers reduced motion.
   useEffect(() => {
     const el = marqueeRef.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf;
-    let paused = false;
-    const pause = () => (paused = true);
-    const resume = () => (paused = false);
-
-    el.addEventListener("mouseenter", pause);
-    el.addEventListener("mouseleave", resume);
-    el.addEventListener("touchstart", pause, { passive: true });
-    el.addEventListener("touchend", resume);
-
     const tick = () => {
-      if (!paused) {
+      if (!marqueePausedRef.current) {
         el.scrollLeft += 0.5;
         if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft -= el.scrollWidth / 2;
       }
@@ -118,14 +111,15 @@ const About = () => {
     };
     raf = requestAnimationFrame(tick);
 
-    return () => {
-      cancelAnimationFrame(raf);
-      el.removeEventListener("mouseenter", pause);
-      el.removeEventListener("mouseleave", resume);
-      el.removeEventListener("touchstart", pause);
-      el.removeEventListener("touchend", resume);
-    };
+    return () => cancelAnimationFrame(raf);
   }, []);
+
+  const pauseMarquee = () => {
+    marqueePausedRef.current = true;
+  };
+  const resumeMarquee = () => {
+    marqueePausedRef.current = false;
+  };
 
   const scrollToJourney = () => {
     const target = document.getElementById("our-journey");
@@ -133,9 +127,6 @@ const About = () => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   };
-
-  const nudgeMarquee = (dir) =>
-    marqueeRef.current?.scrollBy({ left: dir * 320, behavior: "smooth" });
 
   return (
     <>
@@ -241,31 +232,18 @@ const About = () => {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-gray-50 to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-gray-50 to-transparent" />
 
-          <button
-            type="button"
-            onClick={() => nudgeMarquee(-1)}
-            aria-label="Previous partners"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#2A6EBB] hover:bg-gray-100 transition"
-          >
-            <FaChevronLeft />
-          </button>
-          <button
-            type="button"
-            onClick={() => nudgeMarquee(1)}
-            aria-label="Next partners"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#2A6EBB] hover:bg-gray-100 transition"
-          >
-            <FaChevronRight />
-          </button>
-
           <div
             ref={marqueeRef}
-            className="flex gap-6 overflow-x-auto py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-8 overflow-x-auto py-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {[...partners, ...partners].map((partner, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-40 h-24 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center p-5"
+                onMouseEnter={pauseMarquee}
+                onMouseLeave={resumeMarquee}
+                onTouchStart={pauseMarquee}
+                onTouchEnd={resumeMarquee}
+                className="flex-shrink-0 w-44 h-28 sm:w-52 sm:h-32 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center p-7 grayscale opacity-70 transition duration-300 ease-out hover:grayscale-0 hover:opacity-100 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-xl hover:border-[#2A6EBB]/30"
               >
                 <img
                   src={partner.src}
@@ -356,6 +334,7 @@ const About = () => {
         </div>
       </section>
 
+      <CallToAction />
       <Footer />
     </>
   );

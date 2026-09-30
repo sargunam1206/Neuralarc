@@ -122,13 +122,10 @@ const productsData = [
     description:
       "Microlab is a smart laboratory management platform that connects patients, laboratories, and technicians to simplify test booking, technician assignment, sample collection, payment, and real-time tracking.",
     technologies: [
-      "Flutter",
       "Node.js",
       "Express.js",
       "MySQL",
-      "Sequelize",
       "Firebase",
-      "Google Maps",
     ],
     features: [
       {
@@ -191,7 +188,7 @@ const productsData = [
     image: leadproImg,
     description:
       "A centralized lead management platform designed to help businesses capture, organize, track, and convert leads efficiently—from initial enquiry to successful follow-up and closure.",
-    technologies: ["PHP", "CodeIgniter", "JavaScript", "MySQL"],
+    technologies: ["CodeIgniter", "JavaScript", "MySQL"],
     features: [
       {
         title: "Lead Capture",

@@ -16,6 +16,7 @@ const stats = [
   { value: "5", label: "Countries" },
   { value: "Remote", label: "Delivery Model" },
   { value: "Global", label: "Client Support" },
+  { value: "24/7", label: "Cross-Timezone Support" },
 ];
 
 const GlobalReachPage = () => {
@@ -41,14 +42,14 @@ const GlobalReachPage = () => {
       </section>
 
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Map */}
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 mb-8">
             <img src={worldMap} alt="Map showing NeuralArc's reach across India, USA, Sweden, Estonia, and Singapore" className="w-full h-auto" />
           </div>
 
           {/* Stat row */}
-          <div className="grid grid-cols-3 gap-4 mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-14">
             {stats.map((s) => (
               <div key={s.label} className="bg-gray-50 rounded-xl text-center py-5 px-2 shadow-sm">
                 <div className="text-xl md:text-2xl font-bold text-[#2A6EBB]">{s.value}</div>
@@ -59,7 +60,7 @@ const GlobalReachPage = () => {
 
           {/* Our Presence */}
           <h2 className="text-xl font-bold text-gray-900 mb-4">Our Presence</h2>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {countries.map((c) => (
               <div key={c.name} className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4">
                 <span className="text-2xl">{c.flag}</span>

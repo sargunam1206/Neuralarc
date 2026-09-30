@@ -275,7 +275,7 @@ const TechnologyDetail = () => {
             {tech.blog.eyebrow}
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{tech.blog.title}</h2>
-          <p className="text-gray-600 max-w-2xl mb-5">{tech.blog.body}</p>
+          <p className="text-gray-600 mb-5">{tech.blog.body}</p>
           <ExternalLink href={tech.blog.href}>{tech.blog.linkLabel}</ExternalLink>
         </div>
       </section>
@@ -287,7 +287,7 @@ const TechnologyDetail = () => {
             {tech.caseStudy.eyebrow}
           </p>
           <h2 className="text-2xl md:text-3xl font-bold mb-3">{tech.caseStudy.title}</h2>
-          <p className="text-white/80 max-w-2xl mb-5">{tech.caseStudy.body}</p>
+          <p className="text-white/80 mb-5">{tech.caseStudy.body}</p>
           <a
             href={tech.caseStudy.href}
             target="_blank"
@@ -323,7 +323,7 @@ const TechnologyDetail = () => {
 
       {/* Journey accordion — each item links out (external) */}
       <section className="py-16 bg-[#0B1B2B] text-white">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#5AA9E6] mb-3">
             {tech.journey.eyebrow}
           </p>
@@ -381,7 +381,7 @@ const TechnologyDetail = () => {
 
       {/* FAQ — 10 keyword-tagged questions */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#E31C24] mb-3 text-center">FAQS</p>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
             {tech.name} — Frequently Asked Questions

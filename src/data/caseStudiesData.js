@@ -1,8 +1,16 @@
+import csTRemo from "../assets/images/CS-1.png.png";
+import csMicrolab from "../assets/images/CS-2.png.png";
+import csLeadPro from "../assets/images/CS-3.png.png";
+import csBloodBank from "../assets/images/CS-4.PNG.png";
+import csPurchase from "../assets/images/CS-5.PNG.png";
+import csKadai from "../assets/images/CS-6.PNG.png";
+
 const caseStudiesData = [
   {
     slug: "t-remo-cold-chain-monitoring",
     title: "Cold-Chain Monitoring for Vaccine & Medicine Transport",
     subtitle: "How we built T-Remo",
+    image: csTRemo,
     relatedProduct: "t-remo",
     relatedService: "iot",
     metaTitle: "Cold-Chain Monitoring Case Study | NeuralArc",
@@ -20,6 +28,7 @@ const caseStudiesData = [
     slug: "microlab-diagnostic-lab-tracking",
     title: "Real-Time Tracking for Diagnostic Lab Bookings",
     subtitle: "How we built Microlab",
+    image: csMicrolab,
     relatedProduct: "microlab",
     relatedService: "app-development",
     metaTitle: "Diagnostic Lab Tracking Case Study | NeuralArc",
@@ -29,7 +38,7 @@ const caseStudiesData = [
       "Diagnostic lab bookings that rely on phone calls and manual technician dispatch make it hard for a patient to know when a technician is actually coming, and hard for a lab to balance bookings against who's available and where.",
     approach:
       "Microlab handles the whole flow in one platform: patients book directly, the system assigns an available technician based on location, and both sides can track the booking status and technician's live location in real time. OTP verification and branch/pincode detection keep each booking routed to the right place and the right person.",
-    technologies: ["Flutter", "Node.js", "Express.js", "MySQL", "Firebase", "Google Maps"],
+    technologies: ["Node.js", "Express.js", "MySQL", "Firebase"],
     outcome:
       "Patients get a live ETA instead of an estimated call-back window, and lab staff get an assignment and tracking system that replaces manual coordination with something both sides can see.",
   },
@@ -37,6 +46,7 @@ const caseStudiesData = [
     slug: "leadpro-centralizing-lead-management",
     title: "Centralizing Lead Management for a Sales Team",
     subtitle: "How we built LeadPro",
+    image: csLeadPro,
     relatedProduct: "leadpro",
     relatedService: "embedded-software-development",
     metaTitle: "Lead Management Case Study | NeuralArc",
@@ -46,7 +56,7 @@ const caseStudiesData = [
       "Leads coming in from multiple channels, tracked in scattered notes or spreadsheets, are easy to lose track of — a follow-up gets missed, no one's sure who owns a lead, and there's no single view of where things stand.",
     approach:
       "LeadPro brings lead capture, assignment, and follow-up into one system. Every lead moves through defined stages — New, Contacted, Follow-Up, Converted, Lost — with tasks, reminders, and activity notes attached, so a sales team can see the full history of a lead in one place instead of piecing it together.",
-    technologies: ["PHP", "CodeIgniter", "JavaScript", "MySQL"],
+    technologies: ["CodeIgniter", "JavaScript", "MySQL"],
     outcome:
       "The practical result is fewer leads falling through the cracks — every lead has an owner, a status, and a next action, visible on one dashboard instead of scattered across individual inboxes and notebooks.",
   },
@@ -54,6 +64,7 @@ const caseStudiesData = [
     slug: "blood-bank-software-operations-management",
     title: "Centralizing Blood Bank Stock and Donor Records",
     subtitle: "How we built Blood Bank Software",
+    image: csBloodBank,
     relatedProduct: "blood-bank-software",
     relatedService: "embedded-software-development",
     metaTitle: "Blood Bank Software Case Study | NeuralArc",
@@ -63,7 +74,7 @@ const caseStudiesData = [
       "Blood bank operations involve tracking donor information, incoming and outgoing blood bags, screening reports, and stock across branches — when that's split across paper records and disconnected spreadsheets, it's hard to get an accurate, current picture of what's actually in stock and where.",
     approach:
       "Blood Bank Software brings these operations into one system: donor information, purchase bill management, and blood bag stock tracking are all recorded in the same place. It monitors empty bag stock alongside available stock, keeps screening reports and blood request information together, and tracks bags branch-wise so a multi-branch operation can see stock across locations rather than one at a time.",
-    technologies: ["PHP", "Flask", "Node.js", "React", "SQL"],
+    technologies: ["Node.js", "React"],
     outcome:
       "The practical effect is a single, current view of donor records and blood bag stock instead of records scattered across branches and paper trails — stock and screening status are something staff can check directly rather than reconcile after the fact.",
   },
@@ -71,6 +82,7 @@ const caseStudiesData = [
     slug: "purchase-software-procurement-workflow",
     title: "Streamlining Procurement and Supplier Management",
     subtitle: "How we built Purchase Software",
+    image: csPurchase,
     relatedProduct: "purchase-software",
     relatedService: "embedded-software-development",
     metaTitle: "Purchase Software Case Study | NeuralArc",
@@ -80,7 +92,7 @@ const caseStudiesData = [
       "Procurement workflows that span purchase orders, supplier records, project site tracking, and invoices tend to break down when they live in separate tools or manual logs — it becomes hard to know which orders are open, which suppliers are tied to which project, and where an invoice actually stands.",
     approach:
       "Purchase Software consolidates purchase order management, supplier list management, and product list management into one workflow. It tracks project sites and invoices alongside the purchase orders themselves, so procurement staff can follow a purchase from order to invoice without switching between separate records.",
-    technologies: ["PHP", "Flask", "Node.js", "React", "SQL"],
+    technologies: ["Node.js", "React"],
     outcome:
       "The result is one system for tracking suppliers, products, and purchase orders together, instead of maintaining them as separate lists that have to be manually cross-referenced during procurement.",
   },
@@ -88,6 +100,7 @@ const caseStudiesData = [
     slug: "kadai-shop-billing-inventory-management",
     title: "Centralizing Shop Billing and Inventory Management",
     subtitle: "How we built Kadai",
+    image: csKadai,
     relatedProduct: "kadai",
     relatedService: "app-development",
     metaTitle: "Kadai Case Study | NeuralArc",
@@ -97,7 +110,7 @@ const caseStudiesData = [
       "Small and mid-sized shops often track stock, billing, and supplier records across separate notebooks, spreadsheets, or disconnected apps — making it hard to know real-time stock levels or catch a low-stock item before it runs out.",
     approach:
       "Kadai brings stock tracking, billing, and reporting into a single app. Role-based access lets an owner and staff work from the same system without exposing everything to everyone, low-stock alerts flag items before they run out, and reports give a shop owner a clear read on daily performance without manual tallying.",
-    technologies: ["Flutter", "React Native", "Android (Kotlin)", "iOS (Swift)", "Firebase"],
+    technologies: ["React Native", "Firebase"],
     outcome:
       "The result is one place to see stock levels, record a sale, and check performance — replacing separate notebooks and spreadsheets with a system staff can use directly at the counter.",
   },

@@ -33,17 +33,26 @@ const Blog = () => {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="bg-white rounded-xl shadow-lg p-6 flex flex-col hover:shadow-2xl transition"
+                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition"
               >
-                <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                  {post.title}
-                </h2>
-                <p className="text-gray-600 text-sm mb-4 flex-1">
-                  {post.excerpt}
-                </p>
-                <span className="text-[#E31C24] font-semibold text-sm">
-                  Read more →
-                </span>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+
+                <div className="p-6 flex flex-col flex-1">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm mb-4 flex-1">
+                    {post.excerpt}
+                  </p>
+                  <span className="text-[#E31C24] font-semibold text-sm">
+                    Read more →
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

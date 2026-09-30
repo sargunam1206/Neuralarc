@@ -16,7 +16,7 @@ const PrivacyNotice = () => (
 
     <Header />
 
-    <section className="bg-white py-14 lg:py-20">
+    <section className="bg-gray-50 py-14 lg:py-20">
       <div className="max-w-3xl mx-auto px-6">
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
           Privacy Notice

@@ -19,9 +19,11 @@ const Training = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {featured.map((course) => (
-            <article
+            <Link
               key={course.id}
-              className="bg-gray-50 rounded-2xl shadow-md overflow-hidden flex flex-col h-full hover:shadow-xl transition"
+              to={`/training/${course.slug}`}
+              aria-label={`View ${course.title} and enroll`}
+              className="group bg-gray-50 rounded-2xl shadow-md overflow-hidden flex flex-col h-full hover:shadow-xl transition"
             >
               <div className="relative">
                 <img
@@ -56,18 +58,14 @@ const Training = () => {
                   ))}
                 </div>
 
-                <Link
-                  to={`/training/${course.slug}`}
-                  aria-label={`Enroll in ${course.title}`}
-                  className="group mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2A6EBB] hover:text-[#1f5aa0] transition"
-                >
+                <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2A6EBB] group-hover:text-[#1f5aa0] transition">
                   <span>Enroll Now</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
-                </Link>
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 

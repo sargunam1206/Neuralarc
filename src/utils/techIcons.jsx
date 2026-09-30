@@ -1,44 +1,31 @@
-import {
-  SiReact,
-  SiNodedotjs,
-  SiPython,
-  SiPandas,
-  SiNumpy,
-  SiTensorflow,
-  SiTableau,
-  SiPhp,
-  SiFlask,
-  SiHtml5,
-  SiCss3,
-  SiBootstrap,
-  SiWordpress,
-  SiJavascript,
-  SiTailwindcss,
-  SiFlutter,
-  SiKotlin,
-  SiSwift,
-  SiFirebase,
-  SiExpress,
-  SiMysql,
-  SiSequelize,
-  SiGooglemaps,
-  SiCodeigniter,
-  SiRaspberrypi,
-} from "react-icons/si";
-import {
-  FaDatabase,
-  FaChartLine,
-  FaChartBar,
-  FaGlobe,
-  FaBrain,
-  FaMicrochip,
-  FaCode,
-} from "react-icons/fa";
+// Technology icon lookup. Every entry here renders a real uploaded logo file —
+// no generic react-icon substitutes. A technology without an uploaded icon
+// simply isn't listed anywhere on the site (see servicesData/productsData/
+// caseStudiesData), so getTechIcon should never actually need its fallback.
+
 import arduinoLogo from "../assets/images/arduino.png";
 import stm32Logo from "../assets/images/stm32.png";
 import loraLogo from "../assets/images/lora.png";
 import gpsLogo from "../assets/images/gps.jpg";
 import smsLogo from "../assets/images/sms.png";
+import tailwindLogo from "../assets/images/tailwind-icon.svg";
+
+import htmlLogo from "../assets/images/fwd/html-5.svg";
+import cssLogo from "../assets/images/fwd/css-3.svg";
+import bootstrapLogo from "../assets/images/fwd/bootstrap.svg";
+import wordpressLogo from "../assets/images/fwd/wordpress.svg";
+import javascriptLogo from "../assets/images/fwd/javascript.svg";
+import nodejsLogo from "../assets/images/fwd/nodejs-icon.svg";
+import reactLogo from "../assets/images/fwd/react.svg";
+import sqliteLogo from "../assets/images/fwd/sqlite.svg";
+
+import codeigniterLogo from "../assets/images/fwdlogos/Codeigniter--Streamline-Svg-Logos.svg";
+import expressLogo from "../assets/images/fwdlogos/Express--Streamline-Simple-Icons.svg";
+import firebaseLogo from "../assets/images/fwdlogos/Firebase-Logo--Streamline-Logos.svg";
+import githubLogo from "../assets/images/fwdlogos/Logo-Github--Streamline-Outlined-Streamline-Material-Free (1).svg";
+import mysqlLogo from "../assets/images/fwdlogos/Mysql--Streamline-Svg-Logos.svg";
+import seleniumLogo from "../assets/images/fwdlogos/Selenium--Streamline-Simple-Icons.svg";
+import springLogo from "../assets/images/fwdlogos/Spring--Streamline-Simple-Icons.svg";
 
 const logoImg = (src, alt) => (c) => (
   <img src={src} alt={alt} className={`${c} object-contain rounded-full`} />
@@ -47,51 +34,42 @@ const logoImg = (src, alt) => (c) => (
 // Normalize so "Node.js", "NodeJS", "node js" etc. all hit the same key.
 const normalize = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-// Each entry renders itself given a className — lets a real logo image and a
-// react-icon sit side by side in the same map.
+// Only technologies with an uploaded logo file get an entry. React Native
+// reuses the React mark — same brand, same logo.
 const iconMap = {
-  esp32arduino: logoImg(arduinoLogo, "Arduino"),
-  raspberrypi: (c) => <SiRaspberrypi className={c} />,
+  esp32arduino: logoImg(arduinoLogo, "ESP32 / Arduino"),
   stm32: logoImg(stm32Logo, "STM32"),
   lora: logoImg(loraLogo, "LoRa"),
-  nrf32: (c) => <FaMicrochip className={c} />,
   gps: logoImg(gpsLogo, "GPS"),
   smsgateway: logoImg(smsLogo, "SMS Gateway"),
-  python: (c) => <SiPython className={c} />,
-  pandas: (c) => <SiPandas className={c} />,
-  numpy: (c) => <SiNumpy className={c} />,
-  tensorflow: (c) => <SiTensorflow className={c} />,
-  powerbi: (c) => <FaChartBar className={c} />, // no dedicated brand icon in react-icons
-  tableau: (c) => <SiTableau className={c} />,
-  php: (c) => <SiPhp className={c} />,
-  flask: (c) => <SiFlask className={c} />,
-  nodejs: (c) => <SiNodedotjs className={c} />,
-  react: (c) => <SiReact className={c} />,
-  sql: (c) => <FaDatabase className={c} />, // generic — "SQL" isn't a single brand
-  html5: (c) => <SiHtml5 className={c} />,
-  css3: (c) => <SiCss3 className={c} />,
-  bootstrap: (c) => <SiBootstrap className={c} />,
-  wordpress: (c) => <SiWordpress className={c} />,
-  javascript: (c) => <SiJavascript className={c} />,
-  tailwindcss: (c) => <SiTailwindcss className={c} />,
-  flutter: (c) => <SiFlutter className={c} />,
-  reactnative: (c) => <SiReact className={c} />,
-  androidkotlin: (c) => <SiKotlin className={c} />,
-  iosswift: (c) => <SiSwift className={c} />,
-  firebase: (c) => <SiFirebase className={c} />,
-  dataanalytics: (c) => <FaChartLine className={c} />,
-  webdevelopment: (c) => <FaGlobe className={c} />,
-  aiml: (c) => <FaBrain className={c} />,
-  iot: (c) => <FaMicrochip className={c} />,
-  expressjs: (c) => <SiExpress className={c} />,
-  mysql: (c) => <SiMysql className={c} />,
-  sequelize: (c) => <SiSequelize className={c} />,
-  googlemaps: (c) => <SiGooglemaps className={c} />,
-  codeigniter: (c) => <SiCodeigniter className={c} />,
+  html5: logoImg(htmlLogo, "HTML5"),
+  css3: logoImg(cssLogo, "CSS3"),
+  bootstrap: logoImg(bootstrapLogo, "Bootstrap"),
+  wordpress: logoImg(wordpressLogo, "WordPress"),
+  javascript: logoImg(javascriptLogo, "JavaScript"),
+  nodejs: logoImg(nodejsLogo, "Node.js"),
+  react: logoImg(reactLogo, "React"),
+  reactnative: logoImg(reactLogo, "React Native"),
+  sqlite: logoImg(sqliteLogo, "SQLite"),
+  tailwindcss: logoImg(tailwindLogo, "Tailwind CSS"),
+  codeigniter: logoImg(codeigniterLogo, "CodeIgniter"),
+  expressjs: logoImg(expressLogo, "Express.js"),
+  firebase: logoImg(firebaseLogo, "Firebase"),
+  github: logoImg(githubLogo, "GitHub"),
+  mysql: logoImg(mysqlLogo, "MySQL"),
+  selenium: logoImg(seleniumLogo, "Selenium"),
+  spring: logoImg(springLogo, "Spring"),
 };
 
-/** Returns a React icon (or logo image) element for a technology name, falling back to a generic code icon. */
+/**
+ * Returns a logo image element for a technology name, or null if there's no
+ * uploaded icon for it. Callers should skip rendering the technology entirely
+ * when this returns null rather than falling back to a generic icon.
+ */
 export const getTechIcon = (techName, className = "w-6 h-6") => {
-  const render = iconMap[normalize(techName)] || ((c) => <FaCode className={c} />);
-  return render(className);
+  const render = iconMap[normalize(techName)];
+  return render ? render(className) : null;
 };
+
+/** Whether a technology name has an uploaded icon available. */
+export const hasTechIcon = (techName) => Boolean(iconMap[normalize(techName)]);

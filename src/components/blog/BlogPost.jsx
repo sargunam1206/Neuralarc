@@ -30,15 +30,24 @@ const BlogPost = () => {
       </Helmet>
       <Header />
 
-      <section className="bg-[#2A6EBB] text-white py-16">
-        <div className="max-w-3xl mx-auto px-6">
+      <section
+        className="relative bg-[#0A0E14] text-white py-20 bg-cover bg-center"
+        style={
+          post.image
+            ? {
+                backgroundImage: `linear-gradient(to top, rgba(10,14,20,0.92), rgba(10,14,20,0.55)), url(${post.image})`,
+              }
+            : undefined
+        }
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-3">{post.title}</h1>
           <p className="text-white/90">{post.excerpt}</p>
         </div>
       </section>
 
       <article className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 space-y-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
           {post.sections.map((section, i) => (
             <div key={i}>
               <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">

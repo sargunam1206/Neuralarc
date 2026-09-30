@@ -29,15 +29,29 @@ const OurJourney = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">Our Journey</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">Our Journey</h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-10">
+            Over the years we&apos;ve built more than 25 products across IoT
+            hardware, mobile apps, and business software — each one solving a
+            real operational problem for the team that uses it every day, rather
+            than sitting on a shelf as a proof of concept. Some, like T-Remo and
+            Tracker, are physical devices that report from the field over LoRa,
+            cellular, or Wi-Fi; others, like Kadai and LeadPro, are software our
+            clients' staff open every morning to run billing, stock, or their
+            sales pipeline. The thread running through all of them is the same:
+            we design for the workflow the product actually has to fit into, not
+            a generic template. Here&apos;s a closer look at eight of them, from
+            cold-chain monitoring devices to billing and lead-management
+            platforms — the rest are in the full product catalog below.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {journeyProducts.map((p) => (
               <Link
                 key={p.slug}
                 to={`/products/${p.slug}`}
-                className="flex items-center gap-4 bg-gray-50 rounded-xl shadow p-5 hover:shadow-lg transition"
+                className="flex items-center gap-4 bg-white rounded-xl shadow p-5 hover:shadow-lg transition"
               >
                 <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-[#2A6EBB]/10 flex items-center justify-center">
                   {p.image ? (

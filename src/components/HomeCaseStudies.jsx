@@ -2,12 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import caseStudiesData from "../data/caseStudiesData";
-import productsData from "../data/productsData";
 
-const slides = caseStudiesData.map((cs) => ({
-  ...cs,
-  image: productsData.find((p) => p.slug === cs.relatedProduct)?.image || null,
-}));
+const slides = caseStudiesData;
 
 const HomeCaseStudies = () => {
   const [current, setCurrent] = useState(0);

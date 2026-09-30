@@ -5,14 +5,12 @@ import {
   FaUser,
   FaMicrochip,
   FaRobot,
-  FaMicrochip as FaChip,
   FaChartLine,
   FaLayerGroup,
   FaQuoteLeft,
 } from "react-icons/fa";
 import Header from "../Header/Header";
 import Footer from "../Footer";
-import servicesData from "../../data/servicesData";
 
 const team = [
   { name: "A. Kumar", role: "Founder & CEO", color: "#2A6EBB" },
@@ -72,28 +70,59 @@ const IndustryLeadingSolutions = () => {
       </section>
 
       <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Core expertise + visual, two-column */}
-          <div className="bg-gray-50 rounded-2xl shadow-sm p-6 mb-12 grid sm:grid-cols-2 gap-6 items-center">
-            <div>
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Our Core Expertise</h2>
-              <ul className="space-y-2.5">
-                {servicesData.map((service) => (
-                  <li key={service.slug}>
-                    <Link
-                      to={`/services/${service.slug}`}
-                      className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#2A6EBB]"
-                    >
-                      <FaCheckCircle className="text-[#2A6EBB] w-4 h-4 flex-shrink-0" />
-                      {service.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="aspect-square rounded-xl bg-gradient-to-br from-[#0B1F3A] to-[#123A6B] flex items-center justify-center">
-              <FaChip className="text-cyan-300 w-16 h-16 drop-shadow-[0_0_18px_rgba(34,211,238,0.6)]" />
-            </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          {/* Core expertise — intro copy with inline links to each service */}
+          <div className="mb-14">
+            <h2 className="text-2xl font-bold text-[#2A6EBB] mb-4">Our Core Expertise</h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              From connected hardware to intelligent software, NeuralArc's core
+              expertise spans six disciplines that work together on every project:{" "}
+              <Link
+                to="/services/iot"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                IoT Solutions
+              </Link>
+              ,{" "}
+              <Link
+                to="/services/ai-ml-data-science"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                AI, ML &amp; Data Science
+              </Link>
+              ,{" "}
+              <Link
+                to="/services/embedded-software-development"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                Embedded Software Development
+              </Link>
+              ,{" "}
+              <Link
+                to="/services/full-stack-development"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                Full Stack Development
+              </Link>
+              ,{" "}
+              <Link
+                to="/services/app-development"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                Mobile App Development
+              </Link>
+              , and{" "}
+              <Link
+                to="/services/training"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                Training &amp; Internship Programs
+              </Link>
+              . Most engagements draw on more than one of these at once — a connected
+              device needs firmware and a dashboard, a dashboard needs data science
+              behind it — which is how we deliver solutions end to end instead of
+              handing off between teams.
+            </p>
           </div>
 
           {/* Solutions we deliver — enlarged cards with case study links */}

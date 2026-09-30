@@ -33,20 +33,28 @@ const CaseStudies = () => {
               <Link
                 key={cs.slug}
                 to={`/case-studies/${cs.slug}`}
-                className="bg-white rounded-xl shadow-lg p-6 flex flex-col hover:shadow-2xl transition"
+                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition"
               >
-                <span className="text-sm font-medium text-[#E31C24] mb-2">
-                  {cs.subtitle}
-                </span>
-                <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                  {cs.title}
-                </h2>
-                <p className="text-gray-600 text-sm mb-4 flex-1">
-                  {cs.challenge.slice(0, 120)}…
-                </p>
-                <span className="text-[#2A6EBB] font-semibold text-sm">
-                  Read the case study →
-                </span>
+                <img
+                  src={cs.image}
+                  alt={`${cs.title} — ${cs.subtitle}`}
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                <div className="p-6 flex flex-col flex-1">
+                  <span className="text-sm font-medium text-[#E31C24] mb-2">
+                    {cs.subtitle}
+                  </span>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                    {cs.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm mb-4 flex-1">
+                    {cs.challenge.slice(0, 120)}…
+                  </p>
+                  <span className="text-[#2A6EBB] font-semibold text-sm">
+                    Read the case study →
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

@@ -30,9 +30,8 @@ longDescription:
 
   technologies: [
     "ESP32 / Arduino",
-    "Raspberry Pi",
     "Stm32",
-    "Lora",    "Nrf32",
+    "Lora",
   ],
 
   features: [
@@ -89,14 +88,7 @@ longDescription:
 longDescription:
   "We transform raw data into meaningful insights that drive smarter business decisions. Our data science services combine advanced analytics, machine learning, and interactive visualization to uncover hidden patterns. We build predictive models that help forecast trends and optimize performance. From data cleaning to model deployment, we handle the complete analytics pipeline. Our solutions enable organizations to become truly data-driven and competitive.",
 
-  technologies: [
-    "Python",
-    "Pandas",
-    "NumPy",
-    "TensorFlow",
-    "Power BI",
-    "Tableau",
-  ],
+  technologies: [],
 
   features: [
     {
@@ -153,11 +145,8 @@ longDescription:
   "We design and develop robust, scalable, and secure software tailored to your business goals. Our team follows modern development practices to build high-performance applications that grow with your needs. From custom enterprise systems to API-driven platforms, we ensure clean architecture and maintainability. We prioritize security, reliability, and seamless user experience in every solution. Our software helps businesses streamline operations and accelerate digital transformation.",
 
   technologies: [
-    "PHP",
-    "Flask",
     "Node.js",
     "React",
-    "SQL",
   ],
 
   features: [
@@ -280,10 +269,7 @@ longDescription:
   "We build powerful and user-friendly mobile applications for Android and iOS platforms. Our apps are designed for smooth performance, scalability, and excellent user experience. Using cross-platform and native technologies, we ensure faster development and reliable functionality. We integrate secure APIs, real-time features, and cloud services seamlessly. Our mobile solutions help businesses reach customers anytime, anywhere.",
 
   technologies: [
-    "Flutter",
     "React Native",
-    "Android (Kotlin)",
-    "iOS (Swift)",
     "Firebase",
   ],
 
@@ -341,13 +327,7 @@ longDescription:
 longDescription:
   "Our training and internship programs are designed to bridge the gap between academic learning and industry demands. We provide hands-on experience through real-time projects guided by experienced mentors. The curriculum focuses on practical skills, problem-solving, and modern technologies. Participants gain confidence through continuous assessment and career preparation support. Our mission is to make students industry-ready and highly employable.",
 
-  technologies: [
-    "Python",
-    "Data Analytics",
-    "Web Development",
-    "AI & ML",
-    "IoT",
-  ],
+  technologies: [],
 
   features: [
     {

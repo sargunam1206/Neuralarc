@@ -132,7 +132,7 @@ const ProductDetail = () => {
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">
             Built by NeuralArc's {relatedService.title} Team
           </h2>
-          <p className="text-gray-600 max-w-3xl mb-6">
+          <p className="text-gray-600 mb-6">
             {product.name} was designed and developed by our team in Coimbatore, using the same stack and process we use across our {relatedService.title} projects.
           </p>
           <Link
@@ -149,7 +149,7 @@ const ProductDetail = () => {
       content: (
         <>
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">Case Study: {caseStudy.title}</h2>
-          <p className="text-gray-600 max-w-3xl mb-6">{caseStudy.challenge}</p>
+          <p className="text-gray-600 mb-6">{caseStudy.challenge}</p>
           <Link
             to={`/case-studies/${caseStudy.slug}`}
             className="text-[#E31C24] font-semibold hover:underline"

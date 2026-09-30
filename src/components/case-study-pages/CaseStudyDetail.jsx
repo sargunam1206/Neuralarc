@@ -32,8 +32,17 @@ const CaseStudyDetail = () => {
       </Helmet>
       <Header />
 
-      <section className="bg-[#2A6EBB] text-white py-16">
-        <div className="max-w-3xl mx-auto px-6">
+      <section
+        className="relative bg-[#0A0E14] text-white py-20 bg-cover bg-center"
+        style={
+          caseStudy.image
+            ? {
+                backgroundImage: `linear-gradient(to top, rgba(10,14,20,0.92), rgba(10,14,20,0.55)), url(${caseStudy.image})`,
+              }
+            : undefined
+        }
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <span className="text-sm font-medium text-white/80 mb-2 block">
             {caseStudy.subtitle}
           </span>
@@ -42,24 +51,24 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* The Challenge */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">The Challenge</h2>
           <p className="text-gray-700 leading-relaxed">{caseStudy.challenge}</p>
         </div>
       </section>
 
       {/* Our Approach */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Our Approach</h2>
           <p className="text-gray-700 leading-relaxed">{caseStudy.approach}</p>
         </div>
       </section>
 
       {/* Technology */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Technology</h2>
           <ul className="grid grid-cols-2 sm:grid-cols-3 gap-5">
             {caseStudy.technologies.map((tech, i) => {
@@ -71,7 +80,7 @@ const CaseStudyDetail = () => {
                 </>
               );
               return (
-                <li key={i} className="bg-gray-50 border rounded-xl hover:shadow-lg transition">
+                <li key={i} className="bg-white border rounded-xl hover:shadow-lg transition">
                   {techPath ? (
                     <Link
                       to={techPath}
@@ -90,16 +99,16 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* Outcome */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">Outcome</h2>
           <p className="text-gray-700 leading-relaxed">{caseStudy.outcome}</p>
         </div>
       </section>
 
       {/* Related links */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row gap-4">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row gap-4">
           {product && (
             <Link
               to={`/products/${product.slug}`}

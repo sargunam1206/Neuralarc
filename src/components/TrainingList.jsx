@@ -22,6 +22,41 @@ const faqs = [
     question: "Corporate training available?",
     answer: "Yes, we provide customized corporate training solutions.",
   },
+  {
+    question: "Do I need prior experience to join a course?",
+    answer:
+      "Most of our courses are built for beginners and assume no prior experience — the course page for each program lists its actual level and any recommended background under the info bar.",
+  },
+  {
+    question: "How are the training programs delivered?",
+    answer:
+      "Live instructor-led sessions combined with hands-on labs and project work, delivered online or on-site depending on the program and batch.",
+  },
+  {
+    question: "What kind of projects will I work on?",
+    answer:
+      "Real, hands-on projects tied to the skills being taught — from building and deploying a machine learning model to shipping a small full-stack or mobile app — not simplified textbook exercises.",
+  },
+  {
+    question: "What's the difference between a training program and an internship?",
+    answer:
+      "A training program follows a structured curriculum toward a certificate. An internship places you on a real project alongside our engineering team, working to deadlines like any other team member.",
+  },
+  {
+    question: "Can I switch to a different course after enrolling?",
+    answer:
+      "Yes, within the first week of a batch — talk to your program coordinator and we'll help you move into a better-fit course wherever possible.",
+  },
+  {
+    question: "Is there placement or career support after completion?",
+    answer:
+      "Yes — resume review, mock interviews, and job referrals are part of our placement guidance, continuing past the last day of the program.",
+  },
+  {
+    question: "What are the payment and refund options?",
+    answer:
+      "We offer upfront and installment payment options depending on the program. Reach out to our team for the specific terms and refund policy before you enroll.",
+  },
 ];
 
 const testimonials = [
@@ -66,9 +101,13 @@ const TrainingList = () => {
           {/* Course cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 items-stretch">
             {trainingData.map((course) => (
-              <article
+              // The whole card is clickable — tapping anywhere opens the
+              // course's enroll page, not just the "Enroll Now" text.
+              <Link
                 key={course.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full hover:-translate-y-1 hover:shadow-2xl transition"
+                to={`/training/${course.slug}`}
+                aria-label={`View ${course.title} and enroll`}
+                className="group bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full hover:-translate-y-1 hover:shadow-2xl transition"
                 data-aos="fade-up"
               >
                 {/* Thumbnail */}
@@ -106,18 +145,14 @@ const TrainingList = () => {
                     ))}
                   </div>
 
-                  <Link
-                    to={`/training/${course.slug}`}
-                    aria-label={`Enroll in ${course.title}`}
-                    className="group mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2A6EBB] hover:text-[#1f5aa0] transition"
-                  >
+                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2A6EBB] group-hover:text-[#1f5aa0] transition">
                     <span>Enroll Now</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       →
                     </span>
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
@@ -145,7 +180,7 @@ const TrainingList = () => {
             <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
               Frequently Asked Questions
             </h2>
-            <div className="max-w-4xl mx-auto space-y-4">
+            <div className="space-y-4">
               {faqs.map((f, idx) => (
                 <div key={idx} className="bg-white rounded-xl shadow-md p-4">
                   <button
