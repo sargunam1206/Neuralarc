@@ -2,15 +2,31 @@ import { useState,useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { FaFlask } from "react-icons/fa";
 
 import productsData from "../data/productsData";
 
-const categories = ["All", "IoT", "Mobile App","Software"];
+const categories = ["All", "IoT", "Agriculture", "Mobile App", "Software"];
+
+// "Agriculture" is an industry rather than a category, so it filters on the
+// product's `industry` field; every other tab filters on `category`.
+const matchesTab = (product, tab) =>
+  tab === "Agriculture" ? product.industry === "Agriculture" : product.category === tab;
+
+// IoT products lead the "All" view; the rest keep their original order.
+const orderedProducts = [
+  ...productsData.filter((p) => p.category === "IoT"),
+  ...productsData.filter((p) => p.category !== "IoT"),
+];
 
 const ProducteList = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  // ?category=IoT (etc.) opens a tab directly, so other pages can link to it.
+  const [searchParams] = useSearchParams();
+  const requested = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(
+    categories.includes(requested) ? requested : "All"
+  );
   const [selectedProduct, setSelectedProduct] = useState(null);
   useEffect(() => {
   document.body.style.overflow = selectedProduct ? "hidden" : "auto";
@@ -26,8 +42,8 @@ useEffect(() => {
 
   const filteredProducts =
     activeCategory === "All"
-      ? productsData
-      : productsData.filter((p) => p.category === activeCategory);
+      ? orderedProducts
+      : orderedProducts.filter((p) => matchesTab(p, activeCategory));
       
 
   return (
@@ -38,7 +54,7 @@ useEffect(() => {
   <title>IoT Devices & Software Products | NeuralArc</title>
   <meta
     name="description"
-    content="Products built by NeuralArc: T-Remo temperature monitoring for cold-chain transport, Tracker IoT asset monitoring, plus billing, inventory, and blood bank software."
+    content="Products built by NeuralArc: T-Remo temperature monitoring, Tracker IoT asset monitoring, the Smart Agriculture Solution and iStarter smart irrigation, plus billing, inventory, and blood bank software."
   />
   <link rel="canonical" href="https://www.neuralarc.com/Productes" />
 </Helmet>
@@ -76,12 +92,13 @@ useEffect(() => {
       className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
     >
       {/* Image */}
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-52 overflow-hidden bg-gray-50">
         {product.image ? (
+          // object-contain so tall device photos aren't cropped to a sliver
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-[#2A6EBB]/10 text-[#2A6EBB]">
@@ -89,7 +106,7 @@ useEffect(() => {
             <span className="text-xs font-medium">Image coming soon</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/25 to-transparent" />
         <span className="absolute bottom-3 left-3 bg-white/90 text-[#2A6EBB] text-xs font-semibold px-3 py-1 rounded-full">
           {product.category}
         </span>

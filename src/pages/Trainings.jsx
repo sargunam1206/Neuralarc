@@ -3,8 +3,12 @@ import { FaCheckCircle } from "react-icons/fa";
 
 import trainingData from "../data/trainingData";
 
-// Compact preview of the training catalogue for the homepage.
-const featured = trainingData.slice(0, 3);
+// Compact preview of the training catalogue for the homepage — IoT first,
+// then the rest in catalogue order.
+const featured = [
+  ...trainingData.filter((c) => c.slug === "iot-development"),
+  ...trainingData.filter((c) => c.slug !== "iot-development"),
+].slice(0, 3);
 
 const Training = () => {
   return (

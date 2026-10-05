@@ -1,8 +1,12 @@
-// Technology icon lookup. Every entry here renders a real uploaded logo file —
-// no generic react-icon substitutes. A technology without an uploaded icon
-// simply isn't listed anywhere on the site (see servicesData/productsData/
-// caseStudiesData), so getTechIcon should never actually need its fallback.
+// Technology icon lookup. Every entry here renders the technology's real
+// brand mark — either an uploaded logo file or the official Simple Icons mark
+// (react-icons/si) in its brand colour — never a generic substitute icon.
+// A technology without a mark simply isn't listed anywhere on the site
+// (see servicesData/productsData/caseStudiesData).
 
+import { SiEspressif, SiKicad } from "react-icons/si";
+import eagleLogo from "../assets/images/fwdlogos/eagle-logo.png";
+import prusaSlicerLogo from "../assets/images/fwdlogos/prusa-slicer-logo.png";
 import arduinoLogo from "../assets/images/arduino.png";
 import stm32Logo from "../assets/images/stm32.png";
 import loraLogo from "../assets/images/lora.png";
@@ -31,6 +35,11 @@ const logoImg = (src, alt) => (c) => (
   <img src={src} alt={alt} className={`${c} object-contain rounded-full`} />
 );
 
+// Brand mark from Simple Icons, drawn in the brand's own colour.
+const brandIcon = (Icon, color, label) => (c) => (
+  <Icon className={c} style={{ color }} role="img" aria-label={label} />
+);
+
 // Normalize so "Node.js", "NodeJS", "node js" etc. all hit the same key.
 const normalize = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
@@ -38,6 +47,10 @@ const normalize = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 // reuses the React mark — same brand, same logo.
 const iconMap = {
   esp32arduino: logoImg(arduinoLogo, "ESP32 / Arduino"),
+  esp32espidf: brandIcon(SiEspressif, "#E7352C", "Espressif ESP32 / ESP-IDF"),
+  kicad: brandIcon(SiKicad, "#314CB0", "KiCad"),
+  eagle: logoImg(eagleLogo, "Autodesk Eagle"),
+  prusaslicer: logoImg(prusaSlicerLogo, "PrusaSlicer"),
   stm32: logoImg(stm32Logo, "STM32"),
   lora: logoImg(loraLogo, "LoRa"),
   gps: logoImg(gpsLogo, "GPS"),

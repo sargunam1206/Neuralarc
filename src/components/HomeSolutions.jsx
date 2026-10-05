@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef, cloneElement } from "react";
 import { Link } from "react-router-dom";
-import { FaMicrochip, FaDatabase, FaLaptopCode, FaGlobe, FaMobileAlt, FaChalkboardTeacher, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaMicrochip, FaMemory, FaIndustry, FaDatabase, FaLaptopCode, FaGlobe, FaMobileAlt, FaChalkboardTeacher, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import servicesData from "../data/servicesData";
-import caseStudiesData from "../data/caseStudiesData";
 
 const iconBySlug = {
   iot: <FaMicrochip className="w-10 h-10" />,
+  "embedded-software-development": <FaMemory className="w-10 h-10" />,
+  "hardware-design-manufacturing": <FaIndustry className="w-10 h-10" />,
   "ai-ml-data-science": <FaDatabase className="w-10 h-10" />,
-  "embedded-software-development": <FaLaptopCode className="w-10 h-10" />,
+  "custom-software-development": <FaLaptopCode className="w-10 h-10" />,
   "full-stack-development": <FaGlobe className="w-10 h-10" />,
   "app-development": <FaMobileAlt className="w-10 h-10" />,
   training: <FaChalkboardTeacher className="w-10 h-10" />,
@@ -16,21 +17,21 @@ const iconBySlug = {
 // One distinct deep-toned gradient per solution — no external images, no red/blue repeat.
 const gradientBySlug = {
   iot: "from-[#0F2A4A] to-[#061422]", // connectivity blue
-  "ai-ml-data-science": "from-[#2B1750] to-[#150A28]", // AI violet
   "embedded-software-development": "from-[#0B3B2E] to-[#041B16]", // circuit-board green
+  "hardware-design-manufacturing": "from-[#3A2A12] to-[#1A1206]", // copper bronze
+  "ai-ml-data-science": "from-[#2B1750] to-[#150A28]", // AI violet
+  "custom-software-development": "from-[#1F2937] to-[#0B0F16]", // software slate
   "full-stack-development": "from-[#1B1F5C] to-[#0B0D2E]", // web indigo
   "app-development": "from-[#4A1030] to-[#220818]", // mobile magenta
   training: "from-[#4A2E0A] to-[#221503]", // learning amber
 };
 
-const slides = servicesData.map((service) => {
-  const caseStudy = caseStudiesData.find((cs) => cs.relatedService === service.slug);
-  return {
-    ...service,
-    learnMoreTo: caseStudy ? `/case-studies/${caseStudy.slug}` : `/services/${service.slug}`,
-    learnMoreLabel: caseStudy ? "Learn More" : "Learn More",
-  };
-});
+// Every card leads to its own service page; case studies are linked from there.
+const slides = servicesData.map((service) => ({
+  ...service,
+  learnMoreTo: `/services/${service.slug}`,
+  learnMoreLabel: "Learn More",
+}));
 
 const HomeSolutions = () => {
   const [current, setCurrent] = useState(0);

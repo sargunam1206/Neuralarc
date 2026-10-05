@@ -4,16 +4,19 @@ import worldMap from "../../assets/images/world-map.png";
 import Header from "../Header/Header";
 import Footer from "../Footer";
 
+// `caseStudy` links a country to the project delivered there.
 const countries = [
   { name: "India", note: "Coimbatore — Home Base", flag: "🇮🇳" },
+  { name: "USA", note: "Smart agriculture deployment — Colorado", flag: "🇺🇸", caseStudy: "smart-agriculture-crop-monitoring" },
+  { name: "Spain", note: "Smart agriculture deployment — olive plantation", flag: "🇪🇸", caseStudy: "smart-agriculture-crop-monitoring" },
+  { name: "Vietnam", note: "Smart agriculture deployment — pepper plantation", flag: "🇻🇳", caseStudy: "smart-agriculture-crop-monitoring" },
   { name: "Sweden", note: "", flag: "🇸🇪" },
   { name: "Estonia", note: "", flag: "🇪🇪" },
-  { name: "USA", note: "", flag: "🇺🇸" },
   { name: "Singapore", note: "", flag: "🇸🇬" },
 ];
 
 const stats = [
-  { value: "5", label: "Countries" },
+  { value: String(countries.length), label: "Countries" },
   { value: "Remote", label: "Delivery Model" },
   { value: "Global", label: "Client Support" },
   { value: "24/7", label: "Cross-Timezone Support" },
@@ -45,7 +48,7 @@ const GlobalReachPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Map */}
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 mb-8">
-            <img src={worldMap} alt="Map showing NeuralArc's reach across India, USA, Sweden, Estonia, and Singapore" className="w-full h-auto" />
+            <img src={worldMap} alt="World map showing NeuralArc's global reach" className="w-full h-auto" />
           </div>
 
           {/* Stat row */}
@@ -61,15 +64,30 @@ const GlobalReachPage = () => {
           {/* Our Presence */}
           <h2 className="text-xl font-bold text-gray-900 mb-4">Our Presence</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {countries.map((c) => (
-              <div key={c.name} className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4">
-                <span className="text-2xl">{c.flag}</span>
-                <div>
-                  <div className="font-semibold text-gray-900">{c.name}</div>
-                  {c.note && <div className="text-xs text-gray-500">{c.note}</div>}
+            {countries.map((c) => {
+              const body = (
+                <>
+                  <span className="text-2xl">{c.flag}</span>
+                  <div>
+                    <div className="font-semibold text-gray-900">{c.name}</div>
+                    {c.note && <div className="text-xs text-gray-500">{c.note}</div>}
+                  </div>
+                </>
+              );
+              return c.caseStudy ? (
+                <Link
+                  key={c.name}
+                  to={`/case-studies/${c.caseStudy}`}
+                  className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4 hover:bg-[#2A6EBB]/10 transition"
+                >
+                  {body}
+                </Link>
+              ) : (
+                <div key={c.name} className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4">
+                  {body}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

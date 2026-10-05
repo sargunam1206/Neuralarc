@@ -348,7 +348,7 @@ const blogData = [
   {
     slug: "how-we-design-custom-enterprise-software",
     image: b10,
-    relatedService: "embedded-software-development",
+    relatedService: "custom-software-development",
     title: "How We Design Custom Enterprise Software",
     metaTitle: "How We Design Custom Enterprise Software | NeuralArc",
     metaDescription:
@@ -380,7 +380,7 @@ const blogData = [
   {
     slug: "integrating-third-party-apis-securely",
     image: b11,
-    relatedService: "embedded-software-development",
+    relatedService: "custom-software-development",
     title: "Integrating Third-Party APIs Securely",
     metaTitle: "Integrating Third-Party APIs Securely | NeuralArc",
     metaDescription:
@@ -406,7 +406,7 @@ const blogData = [
   {
     slug: "building-for-scale-our-architecture-approach",
     image: b12,
-    relatedService: "embedded-software-development",
+    relatedService: "custom-software-development",
     title: "Building for Scale: Our Architecture Approach",
     metaTitle: "Building for Scale: Our Architecture Approach | NeuralArc",
     metaDescription:

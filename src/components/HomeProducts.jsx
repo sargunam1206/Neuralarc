@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { FaFlask } from "react-icons/fa";
 import productsData from "../data/productsData";
 
-const featuredSlugs = ["t-remo", "tracker", "microlab", "kadai", "leadpro", "blood-bank-software"];
-const featuredProducts = productsData.filter((p) => featuredSlugs.includes(p.slug));
+const featuredSlugs = ["t-remo", "tracker", "smart-agri-solution", "istarter", "microlab", "leadpro"];
+// Keep the order of featuredSlugs (IoT first) rather than the data file order.
+const featuredProducts = featuredSlugs
+  .map((slug) => productsData.find((p) => p.slug === slug))
+  .filter(Boolean);
 
 const HomeProducts = () => {
   return (

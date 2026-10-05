@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 
 import Header from '../components/Header/Header'
 import Hero from '../components/Hero'
+import HomeIoT from '../components/HomeIoT'
 import Highlights from '../components/Highlights'
 import HomeSolutions from '../components/HomeSolutions'
 import HomeProducts from '../components/HomeProducts'
@@ -28,6 +29,7 @@ const Home = () => {
 
 <Header />
 <Hero />
+<HomeIoT />
 <Highlights />
 <HomeSolutions />
 <HomeProducts />

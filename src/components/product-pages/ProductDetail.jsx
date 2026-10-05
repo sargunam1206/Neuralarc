@@ -14,7 +14,7 @@ import Footer from "../Footer";
 const serviceSlugByCategory = {
   IoT: "iot",
   "Mobile App": "app-development",
-  Software: "embedded-software-development",
+  Software: "custom-software-development",
 };
 
 const ProductDetail = () => {
@@ -191,7 +191,7 @@ const ProductDetail = () => {
               <img
                 src={product.image}
                 alt={product.name}
-                className="rounded-xl shadow-xl border-4 border-white w-full h-64 object-cover"
+                className="rounded-xl shadow-xl border-4 border-white bg-white w-full h-64 object-contain"
               />
             ) : (
               <div className="rounded-xl shadow-xl border-4 border-white w-full h-64 flex flex-col items-center justify-center gap-3 bg-white/10 text-white">

@@ -25,6 +25,13 @@
 body {
   font-family: "Open Sans", Arial, sans-serif;
 }
+
+/* AOS fade-left/right start elements off-screen; clipping each section stops
+   that widening the page on mobile. (On <body> the rule would be handed to the
+   viewport and not clip at all.) */
+section {
+  overflow-x: clip;
+}
 @keyframes slideInRight {
   from {
     transform: translateX(100%);

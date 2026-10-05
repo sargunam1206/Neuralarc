@@ -4,6 +4,9 @@ import csLeadPro from "../assets/images/CS-3.png.png";
 import csBloodBank from "../assets/images/CS-4.PNG.png";
 import csPurchase from "../assets/images/CS-5.PNG.png";
 import csKadai from "../assets/images/CS-6.PNG.png";
+import csSmartAgri from "../assets/images/agri/smart-agri-soil-moisture-analytics.jpg";
+import csEnvMonitoring from "../assets/images/agri/environmental-monitoring-system.jpg";
+import csVentilator from "../assets/images/agri/smart-ambu-bag-ventilator.jpg";
 
 const caseStudiesData = [
   {
@@ -23,6 +26,58 @@ const caseStudiesData = [
     technologies: ["ESP32 / Arduino", "STM32", "LoRa", "GPS", "SMS gateway"],
     outcome:
       "The result is continuous, GPS-tagged temperature visibility for the length of a shipment, instead of a single reading at pickup and another at delivery — giving logistics teams a real record to check against, not a gap they have to trust blindly.",
+  },
+  {
+    slug: "smart-agriculture-crop-monitoring",
+    title: "Crop Health Monitoring for Commercial Growers",
+    subtitle: "How we built the Smart Agriculture Solution",
+    image: csSmartAgri,
+    relatedProduct: "smart-agri-solution",
+    relatedService: "iot",
+    metaTitle: "Smart Agriculture Case Study | NeuralArc",
+    metaDescription:
+      "How NeuralArc built a LoRa-based crop monitoring system — sensor nodes, gateway and cloud analytics — deployed in the USA, Spain and Vietnam.",
+    challenge:
+      "Growers need continuous, in-depth information about climate, soil and plant conditions to keep crops healthy, but working it out manually is slow, and plantations can stretch for kilometres from the nearest building with power and a network connection.",
+    approach:
+      "For a US agritech client, we designed two devices. Solar-charged sensor nodes (DCD) mounted on poles measure light, air temperature and humidity, soil temperature, moisture and EC, and stem diameter using dendrometers, then send readings over LoRa with around 15 km coverage. A Linux-based gateway (DAD) aggregates the data from many nodes, stores it on a local SD card and uploads it over SSL and MQTT through Ethernet, Wi-Fi or LTE. In the cloud, raw readings become soil moisture, VPD, PPFD and DLI values, plant breathing patterns, and crop-health and disease-hazard insights on live dashboards.",
+    technologies: ["LoRa", "LTE / 4G", "MQTT", "Linux", "SSL"],
+    outcome:
+      "The system is commercially deployed on a cannabis plantation in Colorado (USA), olive plants in Spain and a pepper plantation in Vietnam. At the Vietnam trial site, one gateway serves a plantation stretching 3.2 km north and 2 km east, with 150+ plots planted at the time and 300+ sensor nodes planned for the final deployment. Growers now read crop conditions from a dashboard instead of calculating them by hand.",
+  },
+  {
+    slug: "environmental-monitoring-system",
+    title: "Multi-Sensor Air Quality Monitoring",
+    subtitle: "How we built the Environmental Monitoring System",
+    image: csEnvMonitoring,
+    relatedService: "iot",
+    metaTitle: "Environmental Monitoring Case Study | NeuralArc",
+    metaDescription:
+      "How NeuralArc built a multi-sensor environmental monitoring system measuring particulates, gases, temperature and humidity.",
+    challenge:
+      "Air quality depends on several pollutants at once — particulates as well as gases — so a single-sensor device can't give an industry, office or home a complete picture of the air, indoors or out.",
+    approach:
+      "We built a multi-sensor unit that measures PM2.5 and PM10 particles, CO, CO₂, SO₂, NO and NO₂, and temperature and humidity, run by a Linux computing engine with smart controls. It communicates over Ethernet, Wi-Fi, GSM and GPS on a multi-band network, secured with SSL and VPN.",
+    technologies: ["Linux", "GPS", "GSM", "Wi-Fi", "SSL / VPN"],
+    outcome:
+      "One device covers both outdoor ambient air monitoring and air-quality control for industries, offices and homes, with secured communication back to the monitoring platform.",
+  },
+  {
+    slug: "smart-ambu-bag-ventilator",
+    title: "Automating Ambu Bag Ventilation",
+    subtitle: "How we built the Smart Ambu Bag Ventilator",
+    image: csVentilator,
+    relatedService: "embedded-software-development",
+    metaTitle: "Smart Ambu Bag Ventilator Case Study | NeuralArc",
+    metaDescription:
+      "How NeuralArc built a sensor-driven Ambu bag ventilator with programmable adult and infant operation and 24-hour battery backup.",
+    challenge:
+      "Ventilating a patient with a manual Ambu bag needs a person squeezing the bag continuously, and the breathing rate and volume depend on whoever is doing it.",
+    approach:
+      "We built a smart Ambu bag ventilator integrated with sensors for blood oxygen level, pressure, air temperature and humidity, and airflow rate. A clear display with a three-button interface supports manual and patient-triggered operation, timer-based operation, and programmable settings for adults and infants.",
+    technologies: ["Embedded firmware", "Sensor integration", "Display UI"],
+    outcome:
+      "A self-contained ventilator that runs programmed breathing cycles for adult or infant settings, monitors the patient through its sensors, and keeps running for up to 24 hours on battery backup.",
   },
   {
     slug: "microlab-diagnostic-lab-tracking",
@@ -48,7 +103,7 @@ const caseStudiesData = [
     subtitle: "How we built LeadPro",
     image: csLeadPro,
     relatedProduct: "leadpro",
-    relatedService: "embedded-software-development",
+    relatedService: "custom-software-development",
     metaTitle: "Lead Management Case Study | NeuralArc",
     metaDescription:
       "How NeuralArc built LeadPro, a centralized lead capture, assignment, and follow-up platform for sales teams.",
@@ -66,7 +121,7 @@ const caseStudiesData = [
     subtitle: "How we built Blood Bank Software",
     image: csBloodBank,
     relatedProduct: "blood-bank-software",
-    relatedService: "embedded-software-development",
+    relatedService: "custom-software-development",
     metaTitle: "Blood Bank Software Case Study | NeuralArc",
     metaDescription:
       "How NeuralArc built Blood Bank Software to centralize donor records, blood bag stock, and branch-wise tracking.",
@@ -84,7 +139,7 @@ const caseStudiesData = [
     subtitle: "How we built Purchase Software",
     image: csPurchase,
     relatedProduct: "purchase-software",
-    relatedService: "embedded-software-development",
+    relatedService: "custom-software-development",
     metaTitle: "Purchase Software Case Study | NeuralArc",
     metaDescription:
       "How NeuralArc built Purchase Software to consolidate purchase orders, supplier records, and procurement tracking.",

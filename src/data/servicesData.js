@@ -8,13 +8,18 @@ const servicesData = [
     "NeuralArc designs and deploys IoT hardware and cloud systems from Coimbatore — sensor to gateway to dashboard, built on ESP32, STM32, LoRa, and Raspberry Pi.",
   shortDescription:
     "Smart automation and connected devices for industries & homes.",
+  // Short selling points shown at the top of the IoT page and the homepage IoT section.
+  heroPoints: [
+    "We custom-tailor products to your needs",
+    "We do R&D for your niche requirements",
+  ],
 longDescription:
   "Our IoT solutions empower businesses with intelligent device connectivity and real-time automation, designed and deployed by our team in Coimbatore. We design and deploy scalable systems that collect, analyze, and act on sensor data instantly. From smart homes to industrial monitoring, we ensure seamless integration between hardware and cloud platforms. Our solutions improve operational efficiency, reduce downtime, and enable predictive maintenance. With strong security and reliable architecture, we help you build future-ready connected ecosystems.",
   faqs: [
     {
       question: "What hardware platforms does NeuralArc work with?",
       answer:
-        "We build on ESP32 and Arduino, Raspberry Pi, STM32, LoRa, and NRF32 — choosing the platform based on power, range, and processing needs for each project.",
+        "We build on ESP32 (with ESP-IDF), Raspberry Pi, STM32, LoRa, and NRF32 — choosing the platform based on power, range, and processing needs for each project — and design our PCBs in KiCad and Eagle.",
     },
     {
       question: "Where is NeuralArc based?",
@@ -24,14 +29,87 @@ longDescription:
     {
       question: "What IoT devices has NeuralArc built?",
       answer:
-        "Two examples are T-Remo, a temperature monitoring device for vaccine and medicine transport, and Tracker, a battery-operated asset monitoring device with GPS and cloud reporting.",
+        "Two examples are T-Remo, a temperature monitoring device for vaccine and medicine transport, ice cream stalls, and cooking and mess kitchens, and Tracker, a battery-operated asset monitoring device with GPS and cloud reporting.",
+    },
+    {
+      question: "Does NeuralArc build IoT solutions for agriculture?",
+      answer:
+        "Yes. Our Smart Agriculture Solution uses solar-charged LoRa sensor nodes and a gateway to monitor climate, soil and plant conditions, and has been deployed in the USA, Spain and Vietnam. Our iStarter digital starter controls irrigation motors from a mobile app and can irrigate automatically based on soil moisture.",
     },
   ],
 
+  technologiesHeading: "Hardware & Connectivity",
   technologies: [
-    "ESP32 / Arduino",
-    "Stm32",
-    "Lora",
+    "ESP32 / ESP-IDF",
+    "STM32",
+    "LoRa",
+    "GPS",
+    "SMS Gateway",
+    "KiCad",
+    "Eagle",
+    "PrusaSlicer",
+  ],
+
+  // Store-and-forward behaviour, shown as a callout on the service page and
+  // the homepage IoT section.
+  highlight: {
+    icon: "🔌",
+    title: "Works Offline — Store Now, Send Later",
+    description:
+      "Our devices keep recording through power cuts and internet outages. Readings are stored on the device and sent automatically once power and connectivity return, so no data is lost.",
+  },
+
+  // Only industries named by the company or shown in real products and
+  // case studies — nothing speculative.
+  industries: [
+    {
+      title: "Agriculture & Smart Farming",
+      description:
+        "Crop, soil and climate monitoring over LoRa, and smart irrigation motor control — as in our Smart Agriculture Solution and iStarter.",
+      icon: "🌱",
+    },
+    {
+      title: "Healthcare & Cold Chain",
+      description:
+        "Temperature monitoring for vaccine and medicine transport, with GPS coordinates and SMS or web reporting — as in T-Remo.",
+      icon: "💉",
+    },
+    {
+      title: "Food & Hospitality",
+      description:
+        "Temperature monitoring for ice cream stalls and cooking and mess kitchens — also with T-Remo.",
+      icon: "🍦",
+    },
+    {
+      title: "Logistics & Asset Tracking",
+      description:
+        "Battery-operated asset monitoring with optional GPS location tracking and secured cloud reporting — as in Tracker.",
+      icon: "🚚",
+    },
+    {
+      title: "Environmental Monitoring",
+      description:
+        "Particulate, gas, temperature and humidity monitoring for outdoor air and for industries, offices and homes.",
+      icon: "🌫️",
+    },
+    {
+      title: "Medical Devices",
+      description:
+        "Sensor-driven medical equipment such as our Smart Ambu Bag Ventilator.",
+      icon: "🩺",
+    },
+    {
+      title: "Industrial Monitoring",
+      description:
+        "Sensor data collection, real-time alerts and predictive maintenance to reduce downtime in industrial operations.",
+      icon: "🏭",
+    },
+    {
+      title: "Smart Homes",
+      description:
+        "Smart automation and connected devices that integrate home hardware with cloud platforms.",
+      icon: "🏠",
+    },
   ],
 
   features: [
@@ -58,6 +136,139 @@ longDescription:
       description:
         "Ensure end-to-end encrypted communication between devices and cloud using industry-standard security protocols.",
       icon: "🔐",
+    },
+    {
+      title: "Reliable Solutions",
+      description:
+        "Devices validated under real field conditions — temperature extremes, motion and connectivity dropouts — so they keep running dependably.",
+      icon: "✅",
+    },
+  ],
+},
+{
+  slug: "embedded-software-development",
+  title: "Embedded Software Development",
+  h1: "Embedded & Firmware Development in Coimbatore",
+  metaTitle: "Embedded & Firmware Development Services | NeuralArc",
+  metaDescription:
+    "NeuralArc writes embedded firmware for ESP32 (ESP-IDF) and STM32 devices — sensor integration, wireless connectivity, low-power battery designs, offline store-and-forward and secure device-to-cloud data transfer.",
+  shortDescription: "Firmware for connected, low-power embedded devices.",
+  longDescription:
+    "Our embedded team writes the firmware that runs inside our connected devices — the same work behind T-Remo and Tracker. We develop embedded C/C++ firmware for ESP32 (using ESP-IDF) and STM32 microcontrollers, integrate sensors, and connect devices over Wi-Fi, Bluetooth, LoRa, GPS and SMS. We design for battery-operated operation, offline store-and-forward and secured data transfer to the cloud — when power or internet drops, readings are stored on the device and sent once the connection returns. Because firmware is built alongside our IoT cloud and dashboard work, the device and the platform are designed together.",
+  faqs: [
+    {
+      question: "Which microcontrollers does NeuralArc write firmware for?",
+      answer:
+        "ESP32 (with ESP-IDF), STM32, and LoRa-based designs — choosing the platform based on power, range, and processing needs for each project.",
+    },
+    {
+      question: "What devices run NeuralArc's embedded firmware?",
+      answer:
+        "Two examples are T-Remo, a temperature monitoring device for vaccine and medicine transport, ice cream stalls, and cooking and mess kitchens, and Tracker, a battery-operated asset monitoring device with GPS and cloud reporting.",
+    },
+    {
+      question: "How is embedded development different from your IoT Solutions service?",
+      answer:
+        "Embedded development covers the device itself — firmware, sensors and connectivity. Our IoT Solutions service covers the complete system, including cloud dashboards, remote control and alerts.",
+    },
+    {
+      question: "Do you work beyond microcontrollers?",
+      answer:
+        "Yes. We also build on Linux and Android platforms — board support packages and integration, bootloaders, device drivers, middleware and protocol stacks, and RTOS-based applications. Our Smart Agriculture gateway and Environmental Monitoring System both run on a Linux computing engine.",
+    },
+  ],
+
+  technologiesHeading: "Microcontrollers & Connectivity",
+  technologies: [
+    "ESP32 / ESP-IDF",
+    "STM32",
+    "LoRa",
+    "GPS",
+    "SMS Gateway",
+  ],
+
+  features: [
+    {
+      title: "Microcontroller Firmware",
+      description:
+        "Embedded C/C++ firmware for ESP32 (ESP-IDF) and STM32, with the platform chosen for each project's power, range and processing needs.",
+      icon: "🔧",
+    },
+    {
+      title: "Sensor Integration",
+      description:
+        "On-device sensor reading and processing — such as the continuous temperature measurement in T-Remo and Tracker.",
+      icon: "🌡️",
+    },
+    {
+      title: "Battery-Operated Design",
+      description:
+        "Firmware for battery-operated devices like Tracker, with periodic message transfer and LED device status indication.",
+      icon: "🔋",
+    },
+    {
+      title: "Connectivity & Secure Transfer",
+      description:
+        "Wi-Fi, Bluetooth, LoRa, GPS and SMS connectivity, with secured data transfer from the device to the cloud.",
+      icon: "📶",
+    },
+  ],
+},
+{
+  slug: "hardware-design-manufacturing",
+  title: "Hardware Design & Manufacturing",
+  h1: "Hardware Design & Low-Volume Manufacturing in Coimbatore",
+  metaTitle: "Hardware Design, PCB & Low-Volume Manufacturing | NeuralArc",
+  metaDescription:
+    "NeuralArc designs electronics hardware — schematics, multi-layer and high-speed PCBs, component selection and BOM optimisation — and takes boards through validation, testing and low-volume manufacturing with EMS partners.",
+  shortDescription: "PCB design, prototyping and low-volume manufacturing.",
+  longDescription:
+    "We take products from requirements analysis through mechanical, electrical and software design, to implementation, testing and final integration. Our hardware team prepares schematics, selects components, optimises the bill of materials and lays out multi-layer and high-speed PCBs with delay and impedance matching, then releases Gerbers and BOMs for fabrication and assembly. Boards are validated with power-up and sanity testing, test code, and purpose-built jigs and fixtures, and we support prototyping and low-volume manufacturing through our EMS partners.",
+  faqs: [
+    {
+      question: "Who manufactures the boards NeuralArc designs?",
+      answer:
+        "We work with multiple EMS companies — MightyNet (Taiwan), 3D Technologies Pvt. Ltd. (Bangalore) and Vasantha Advanced Systems (Coimbatore) — for prototyping and low-volume manufacturing.",
+    },
+    {
+      question: "Can you improve or rework an existing product?",
+      answer:
+        "Yes — feature addition, value engineering, BOM cost reduction, obsolescence management, design recovery of legacy products and performance enhancement.",
+    },
+    {
+      question: "What testing and compliance support do you provide?",
+      answer:
+        "Verification and validation, system testing, safety testing, pre-compliance testing and standards compliance, along with test applications, test automation and test reports.",
+    },
+  ],
+
+  technologiesHeading: "Design Tools",
+  technologies: ["KiCad", "Eagle", "PrusaSlicer"],
+
+  features: [
+    {
+      title: "Schematic & PCB Layout",
+      description:
+        "Microprocessor-based, multi-layer and high-speed PCB design with delay and impedance matching.",
+      icon: "📐",
+    },
+    {
+      title: "Components & BOM",
+      description:
+        "Component selection and BOM optimisation, with Gerber and BOM release for fabrication and assembly.",
+      icon: "🧾",
+    },
+    {
+      title: "Board Validation & Testing",
+      description:
+        "Power-up and sanity testing, test code development, and jigs and fixtures for custom board manufacturing.",
+      icon: "🧪",
+    },
+    {
+      title: "Prototyping & Low-Volume Manufacturing",
+      description:
+        "Prototypes and small production runs through our EMS partners in India and Taiwan.",
+      icon: "🏭",
     },
   ],
 },
@@ -118,9 +329,9 @@ longDescription:
   ],
 },
 {
-  slug: "embedded-software-development",
-  title: "Embedded Software Development",
-  metaTitle: "Embedded Software Development Services | NeuralArc",
+  slug: "custom-software-development",
+  title: "Custom Software Development",
+  metaTitle: "Custom Software Development Services | NeuralArc",
   metaDescription:
     "NeuralArc builds secure, scalable custom software — from enterprise systems to API-driven platforms — using PHP, Flask, Node.js, and React.",
   shortDescription: "Robust and scalable custom software solutions.",

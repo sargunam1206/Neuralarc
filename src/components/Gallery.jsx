@@ -23,11 +23,13 @@ const Gallery = () => {
   const softwareProducts = [software1, software2, software3];
   const achievements = [award1, award2, award3];
 
-  // Example brochures (keep them in /public/brochures folder)
+  // Brochures live in /public/brochures so they're served as-is in production.
+  // `size` is shown on the card so visitors know before downloading.
   const brochures = [
-    { name: "IoT Product Brochure", file: "./src/assets/brochures/Blood Bank Software - Brochure.pdf" },
-    { name: "Company Profile", file: "./src/assets/brochures/NeuralArc Overall.pdf" },
-    { name: "Achievements Catalog", file: "/brochures/achievements.pdf" },
+    { name: "Company Profile", file: "/brochures/neuralarc-company-profile.pdf", size: "115 KB" },
+    { name: "Company Portfolio", file: "/brochures/neuralarc-portfolio.pdf", size: "18.7 MB" },
+    { name: "Smart Agriculture Solution", file: "/brochures/neuralarc-smart-agriculture-solution.pdf", size: "5.7 MB" },
+    { name: "Blood Bank Software Brochure", file: "/brochures/blood-bank-software-brochure.pdf", size: "870 KB" },
   ];
 
   return (
@@ -125,7 +127,7 @@ const Gallery = () => {
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">
             Download Our Brochures
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {brochures.map((doc, index) => (
               <a
                 key={index}
@@ -135,6 +137,7 @@ const Gallery = () => {
               >
                 <FaFilePdf className="text-red-600 text-4xl mb-3" />
                 <span className="font-semibold text-gray-700">{doc.name}</span>
+                <span className="text-xs text-gray-500 mt-1">PDF · {doc.size}</span>
                 <FaDownload className="text-gray-500 mt-2" />
               </a>
             ))}

@@ -11,7 +11,7 @@ const CaseStudies = () => {
         <title>Case Studies | NeuralArc</title>
         <meta
           name="description"
-          content="How NeuralArc built T-Remo, Microlab, LeadPro, and other real IoT, mobile, and software products from Coimbatore."
+          content="How NeuralArc built T-Remo, a smart agriculture system deployed in the USA, Spain and Vietnam, an environmental monitoring system, a smart ventilator, and real mobile and software products from Coimbatore."
         />
         <link rel="canonical" href="https://www.neuralarc.com/case-studies" />
       </Helmet>

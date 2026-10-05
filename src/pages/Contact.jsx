@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import emailjs from "emailjs-com";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
@@ -8,6 +9,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import LegalModal from "../components/LegalModal";
 import countryCodes, { flagEmoji } from "../data/countryCodes";
+import servicesData from "../data/servicesData";
 import { termsSections, privacySections, LEGAL_LAST_UPDATED } from "../data/legalContent";
 import worldMap from "../assets/images/world-map.png";
 
@@ -35,6 +37,7 @@ const RatingStars = ({ score }) => {
 const initialForm = {
   firstName: "",
   lastName: "",
+  service: "",
   subject: "",
   email: "",
   country: "IN",
@@ -50,7 +53,13 @@ const fieldClass = `${controlBase} w-full`;
 const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5";
 
 const Contact = () => {
-  const [form, setForm] = useState(initialForm);
+  // Service pages link here as /contact?service=<slug> to pre-select the service.
+  const [searchParams] = useSearchParams();
+  const requestedService = searchParams.get("service");
+  const [form, setForm] = useState(() => ({
+    ...initialForm,
+    service: servicesData.some((s) => s.slug === requestedService) ? requestedService : "",
+  }));
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
   const [legal, setLegal] = useState(null); // null | "terms" | "privacy"
@@ -64,16 +73,26 @@ const Contact = () => {
     setStatus("");
 
     const dial = countryCodes.find((c) => c.iso2 === form.country)?.dial || "";
+    const serviceTitle =
+      servicesData.find((s) => s.slug === form.service)?.title ||
+      (form.service === "other" ? "Other" : "");
+
+    // The EmailJS template has no service field, so it rides along in the
+    // subject and message rather than needing a template change.
+    const details = [
+      serviceTitle && `— Service: ${serviceTitle}`,
+      form.company && `— Company: ${form.company}`,
+    ].filter(Boolean);
 
     const templateParams = {
       form_title: "📩 New Contact Enquiry",
       user_name: `${form.firstName} ${form.lastName}`.trim(),
       user_email: form.email,
       user_phone: `${dial} ${form.phone}`.trim(),
-      user_message: form.company
-        ? `${form.message}\n\n— Company: ${form.company}`
+      user_message: details.length
+        ? `${form.message}\n\n${details.join("\n")}`
         : form.message,
-      subject: form.subject,
+      subject: serviceTitle ? `[${serviceTitle}] ${form.subject}`.trim() : form.subject,
       program_title: "",
       program_hours: "",
       key_topics: "",
@@ -183,6 +202,28 @@ const Contact = () => {
                     className={fieldClass}
                   />
                 </div>
+              </div>
+
+              {/* Service of interest */}
+              <div>
+                <label htmlFor="service" className={labelClass}>
+                  Service
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={form.service}
+                  onChange={handleChange}
+                  className={`${fieldClass} bg-white`}
+                >
+                  <option value="">Select a service (optional)</option>
+                  {servicesData.map((s) => (
+                    <option key={s.slug} value={s.slug}>
+                      {s.title}
+                    </option>
+                  ))}
+                  <option value="other">Other</option>
+                </select>
               </div>
 
               {/* Contact with us */}

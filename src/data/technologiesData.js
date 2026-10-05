@@ -4477,6 +4477,8 @@ const techPageSlugByName = {
   arduinoesp32: "esp32-arduino",
   esp32: "esp32-arduino",
   arduino: "esp32-arduino",
+  esp32espidf: "esp32-arduino",
+  espidf: "esp32-arduino",
   // STM32
   stm32: "stm32",
   // LoRa / LoRaWAN

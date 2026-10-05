@@ -7,6 +7,7 @@ import servicesData from "../../data/servicesData";
 const resourcesItems = [
   { title: "Blog", to: "/blog" },
   { title: "Case Studies", to: "/case-studies" },
+  { title: "Gallery", to: "/Gallery" },
 ];
 
 const Header = () => {
@@ -26,10 +27,16 @@ const Header = () => {
 
   const activeLinkClass = "text-[#E31C24] after:scale-x-100";
 
+  // IoT is the company's core focus, so it gets its own top-level link;
+  // the Solutions dropdown still lists it alongside every other service.
+  const isIotActive = location.pathname === "/services/iot";
   const isSolutionsActive =
-    location.pathname === "/Services" || location.pathname.startsWith("/services");
+    !isIotActive &&
+    (location.pathname === "/Services" || location.pathname.startsWith("/services"));
   const isResourcesActive =
-    location.pathname.startsWith("/blog") || location.pathname.startsWith("/case-studies");
+    location.pathname.startsWith("/blog") ||
+    location.pathname.startsWith("/case-studies") ||
+    location.pathname === "/Gallery";
   const isTrainingActive =
     location.pathname === "/TrainingList" || location.pathname.startsWith("/training/");
 
@@ -60,7 +67,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsOpen(false);
         setOpenAccordion(null);
       }
@@ -82,16 +89,17 @@ const Header = () => {
       <nav className="bg-white shadow-md py-2" ref={navRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/">
+          <Link to="/" className="shrink-0">
             <img
               src={logo}
               alt="NeuralArc Logo"
-              className="h-10 sm:h-12 md:h-16 transition-all duration-300"
+              className="h-10 sm:h-12 lg:h-14 xl:h-16 transition-all duration-300"
             />
           </Link>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex text-lg space-x-6 lg:space-x-10 font-medium text-[#1E1E1E] relative items-center">
+          {/* Desktop Menu — from lg up; tablets use the hamburger menu, since
+              seven items plus the CTA don't fit alongside the logo below 1024px. */}
+          <ul className="hidden lg:flex text-base xl:text-lg space-x-5 xl:space-x-10 font-medium text-[#1E1E1E] relative items-center">
             <li>
               <NavLink
                 to="/"
@@ -100,6 +108,15 @@ const Header = () => {
                 }
               >
                 Home
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/services/iot"
+                className={`${baseLinkClass} ${isIotActive ? activeLinkClass : ""}`}
+              >
+                IoT
               </NavLink>
             </li>
 
@@ -219,7 +236,7 @@ const Header = () => {
           </ul>
 
           {/* CTA */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <NavLink
               to="/contact"
               className="bg-[#E31C24] text-white px-4 py-2 rounded-md hover:bg-red-700 transition whitespace-nowrap"
@@ -230,7 +247,7 @@ const Header = () => {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-[#2A6EBB] text-2xl"
+            className="lg:hidden text-[#2A6EBB] text-2xl"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
@@ -241,7 +258,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white px-4 pb-4 space-y-1 text-[#1E1E1E] border-t">
+          <div className="lg:hidden bg-white px-4 pb-4 space-y-1 text-[#1E1E1E] border-t">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -252,6 +269,16 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
             >
               Home
+            </NavLink>
+
+            <NavLink
+              to="/services/iot"
+              className={`block py-2 ${
+                isIotActive ? "text-[#E31C24] font-semibold" : "hover:text-[#E31C24]"
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              IoT Solutions
             </NavLink>
 
             {/* Solutions accordion */}

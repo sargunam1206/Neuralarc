@@ -10,6 +10,12 @@ import Footer from "../Footer";
 
 const SITE = "https://www.neuralarc.com";
 
+// The email-gated report and e-book downloads are hidden until the real PDFs
+// exist. To turn them back on: put each file in public/reports/ or
+// public/ebooks/ with the exact `fileName` from technologiesData.js, then set
+// this to true.
+const DOWNLOADS_ENABLED = false;
+
 // --- Small reusable bits ---------------------------------------------------
 
 const ExternalLink = ({ href, children, className = "" }) => (
@@ -347,6 +353,7 @@ const TechnologyDetail = () => {
       </section>
 
       {/* Dedicated report — email-gated download */}
+      {DOWNLOADS_ENABLED && (
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -378,6 +385,7 @@ const TechnologyDetail = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* FAQ — 10 keyword-tagged questions */}
       <section className="py-16 bg-gray-50">
@@ -406,7 +414,8 @@ const TechnologyDetail = () => {
       {/* Media row — video (external), e-book & report (email-gated) */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid sm:grid-cols-3 gap-6">
+          {/* With downloads off only the video card is left, so centre it. */}
+          <div className={DOWNLOADS_ENABLED ? "grid sm:grid-cols-3 gap-6" : "grid max-w-md mx-auto"}>
             {/* Watch video */}
             <a
               href={tech.media.video.href}
@@ -424,6 +433,8 @@ const TechnologyDetail = () => {
               </span>
             </a>
 
+            {DOWNLOADS_ENABLED && (
+            <>
             {/* Read the e-book */}
             <EmailGate
               asset={tech.media.ebook}
@@ -471,6 +482,8 @@ const TechnologyDetail = () => {
                 </button>
               )}
             />
+            </>
+            )}
           </div>
         </div>
       </section>

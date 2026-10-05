@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t">
+  <title id="t">Illustration of NeuralArc's mission — connected devices around the globe and a rocket launching a better future</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F5AA0"/>
+      <stop offset="1" stop-color="#0E2E57"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#5B9BE0" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#5B9BE0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- Stars -->
+  <g fill="#FFFFFF">
+    <circle cx="80" cy="70" r="2.5"/><circle cx="190" cy="140" r="1.8"/><circle cx="700" cy="60" r="2.2"/>
+    <circle cx="620" cy="140" r="1.6"/><circle cx="740" cy="250" r="2"/><circle cx="60" cy="300" r="1.8"/>
+    <circle cx="120" cy="520" r="2"/><circle cx="720" cy="520" r="1.8"/><circle cx="420" cy="40" r="1.6"/>
+  </g>
+
+  <!-- Globe -->
+  <circle cx="330" cy="330" r="220" fill="url(#glow)"/>
+  <circle cx="330" cy="330" r="160" fill="#2A6EBB"/>
+  <g fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="2">
+    <ellipse cx="330" cy="330" rx="160" ry="60"/>
+    <ellipse cx="330" cy="330" rx="160" ry="120"/>
+    <ellipse cx="330" cy="330" rx="60" ry="160"/>
+    <ellipse cx="330" cy="330" rx="115" ry="160"/>
+    <line x1="170" y1="330" x2="490" y2="330"/>
+    <line x1="330" y1="170" x2="330" y2="490"/>
+  </g>
+  <path d="M250 250 q30-30 70-10 q20 20 0 40 q-30 10-40 40 q-20 10-36-10 q-14-30 6-60z" fill="#7FB3E8" opacity=".55"/>
+  <path d="M360 360 q40-20 70 10 q10 30-20 50 q-30 10-50-10 q-14-24 0-50z" fill="#7FB3E8" opacity=".55"/>
+
+  <!-- Network links between devices -->
+  <g stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="6 8" fill="none" stroke-opacity=".8">
+    <path d="M210 230 Q 300 120 430 200"/>
+    <path d="M430 200 Q 520 300 440 430"/>
+    <path d="M440 430 Q 300 520 220 420"/>
+    <path d="M220 420 Q 150 320 210 230"/>
+    <path d="M210 230 L 440 430"/>
+  </g>
+  <g>
+    <circle cx="210" cy="230" r="16" fill="#E31C24"/><circle cx="210" cy="230" r="6" fill="#FFFFFF"/>
+    <circle cx="430" cy="200" r="16" fill="#FFFFFF"/><circle cx="430" cy="200" r="6" fill="#E31C24"/>
+    <circle cx="440" cy="430" r="16" fill="#E31C24"/><circle cx="440" cy="430" r="6" fill="#FFFFFF"/>
+    <circle cx="220" cy="420" r="16" fill="#FFFFFF"/><circle cx="220" cy="420" r="6" fill="#2A6EBB"/>
+  </g>
+
+  <!-- Rocket -->
+  <g transform="translate(610 300) rotate(35)">
+    <path d="M0 -110 q38 40 38 120 h-76 q0-80 38-120z" fill="#FFFFFF"/>
+    <circle cx="0" cy="-30" r="16" fill="#2A6EBB" stroke="#1E2A3A" stroke-width="4"/>
+    <path d="M-38 10 l-30 40 l30-6z M38 10 l30 40 l-30-6z" fill="#E31C24"/>
+    <path d="M-22 10 h44 l-8 22 h-28z" fill="#C9D6E6"/>
+    <path d="M-14 34 q14 70 14 90 q0-20 14-90z" fill="#F6B93B"/>
+    <path d="M-7 34 q7 40 7 54 q0-14 7-54z" fill="#E31C24"/>
+  </g>
+
+  <!-- Trail -->
+  <path d="M560 380 Q 520 470 420 540" fill="none" stroke="#F6B93B" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 14" opacity=".9"/>
+</svg>

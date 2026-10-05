@@ -1,0 +1,35 @@
+# Apache (cPanel) config for the React single-page app.
+# Vite copies this file into dist/ on every build.
+
+# Send every request that isn't a real file or folder to index.html,
+# so deep links like /services/iot work on refresh and direct visits.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Built JS/CSS/images have content hashes in their names, so they can be
+# cached for a year; index.html must never be cached, so new deploys show up.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|svg|png|jpe?g|webp|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "^index\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Compress text files
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
+</IfModule>
+

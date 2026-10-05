@@ -21,7 +21,7 @@ const Hero = () => {
 
         {/* Subheading */}
         <p className="text-lg md:text-xl text-gray-200">
-          End-to-end connected hardware, cloud, and data systems for businesses ready to go digital.
+          End-to-end IoT — connected hardware, firmware, cloud and dashboards — backed by AI and software for businesses ready to go digital.
         </p>
 
         {/* CTA Buttons */}
@@ -33,10 +33,10 @@ const Hero = () => {
             Talk to Us
           </a>
           <a
-            href="/Services"
+            href="/services/iot"
             className="border-2 border-white text-base text-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition"
           >
-            Explore Solutions
+            Explore IoT Solutions
           </a>
         </div>
       </div>

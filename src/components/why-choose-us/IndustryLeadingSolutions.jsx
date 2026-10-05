@@ -22,16 +22,16 @@ const team = [
 
 const deliverables = [
   {
-    icon: <FaRobot className="w-8 h-8" />,
-    title: "AI-Powered Automation",
-    description: "Automated workflows that cut manual work and speed up day-to-day operations.",
-    caseStudy: { slug: "microlab-diagnostic-lab-tracking", label: "Read Case Study" },
-  },
-  {
     icon: <FaMicrochip className="w-8 h-8" />,
     title: "IoT Device Management",
     description: "Real-time monitoring and control of connected devices, wherever they are.",
     caseStudy: { slug: "t-remo-cold-chain-monitoring", label: "Read Case Study" },
+  },
+  {
+    icon: <FaRobot className="w-8 h-8" />,
+    title: "AI-Powered Automation",
+    description: "Automated workflows that cut manual work and speed up day-to-day operations.",
+    caseStudy: { slug: "microlab-diagnostic-lab-tracking", label: "Read Case Study" },
   },
   {
     icon: <FaChartLine className="w-8 h-8" />,
@@ -76,12 +76,26 @@ const IndustryLeadingSolutions = () => {
             <h2 className="text-2xl font-bold text-[#2A6EBB] mb-4">Our Core Expertise</h2>
             <p className="text-gray-600 text-lg leading-relaxed">
               From connected hardware to intelligent software, NeuralArc's core
-              expertise spans six disciplines that work together on every project:{" "}
+              expertise is led by IoT and spans eight disciplines that work together on every project:{" "}
               <Link
                 to="/services/iot"
                 className="text-[#2A6EBB] font-semibold hover:underline"
               >
                 IoT Solutions
+              </Link>
+              ,{" "}
+              <Link
+                to="/services/embedded-software-development"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                Embedded Software Development
+              </Link>
+              ,{" "}
+              <Link
+                to="/services/hardware-design-manufacturing"
+                className="text-[#2A6EBB] font-semibold hover:underline"
+              >
+                Hardware Design &amp; Manufacturing
               </Link>
               ,{" "}
               <Link
@@ -92,10 +106,10 @@ const IndustryLeadingSolutions = () => {
               </Link>
               ,{" "}
               <Link
-                to="/services/embedded-software-development"
+                to="/services/custom-software-development"
                 className="text-[#2A6EBB] font-semibold hover:underline"
               >
-                Embedded Software Development
+                Custom Software Development
               </Link>
               ,{" "}
               <Link

@@ -83,7 +83,7 @@ const TrainingList = () => {
         <title>Training & Certification Programs | NeuralArc Coimbatore</title>
         <meta
           name="description"
-          content="Hands-on AI & Machine Learning, IoT, full-stack, data analytics, cloud, cybersecurity, and UI/UX training programs with certification, based in Coimbatore."
+          content="Hands-on AI & Machine Learning, IoT, full-stack, data analytics, cloud, and UI/UX training programs with certification, based in Coimbatore."
         />
         <link rel="canonical" href="https://www.neuralarc.com/TrainingList" />
       </Helmet>

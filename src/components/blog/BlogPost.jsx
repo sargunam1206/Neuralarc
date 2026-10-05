@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer";
 import blogData from "../../data/blogData";
 import productsData from "../../data/productsData";
+import servicesData from "../../data/servicesData";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -20,6 +21,7 @@ const BlogPost = () => {
   const relatedProducts = productsData.filter((p) =>
     (post.relatedProducts || []).includes(p.slug)
   );
+  const relatedService = servicesData.find((s) => s.slug === post.relatedService);
 
   return (
     <>
@@ -61,11 +63,16 @@ const BlogPost = () => {
             </div>
           ))}
 
-          <div className="pt-6 border-t">
-            <Link to="/services/iot" className="text-[#E31C24] font-semibold hover:underline">
-              See how this fits into NeuralArc's IoT development services →
-            </Link>
-          </div>
+          {relatedService && (
+            <div className="pt-6 border-t">
+              <Link
+                to={`/services/${relatedService.slug}`}
+                className="text-[#E31C24] font-semibold hover:underline"
+              >
+                Learn more about NeuralArc&apos;s {relatedService.title} →
+              </Link>
+            </div>
+          )}
 
           {relatedProducts.length > 0 && (
             <div className="pt-6 border-t">

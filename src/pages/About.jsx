@@ -10,15 +10,20 @@ import {
   FaBoxOpen,
   FaHeart,
   FaUsers,
+  FaLinkedin,
 } from "react-icons/fa";
 
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import CallToAction from "../components/CallToAction";
 
-import heroTeam from "../assets/images/image1.png.png";
-import journeyTeam from "../assets/images/image2.png.png";
-import missionTeam from "../assets/images/image3.png.png";
+import heroTeam from "../assets/images/illustrations/about-team.svg";
+import journeyTeam from "../assets/images/illustrations/about-journey.svg";
+import missionTeam from "../assets/images/illustrations/about-mission.svg";
+
+// "Our Partners" logo strip is hidden until the client confirms the partner
+// list. Set to true to show it again — the logos and code are all kept below.
+const SHOW_PARTNERS = false;
 
 import logo1 from "../assets/images/logo1.png.jpg";
 import logo2 from "../assets/images/logo2.png.jpg";
@@ -29,10 +34,6 @@ import logo6 from "../assets/images/logo6.png.jpg";
 import logo7 from "../assets/images/logo7.png.jpg";
 import logo8 from "../assets/images/logo8.png.jpg";
 
-import profile1 from "../assets/images/profile_pic1.png.jpg";
-import profile2 from "../assets/images/profile_pic2.png.jpg";
-import profile3 from "../assets/images/profile_pic3.png.jpg";
-import profile4 from "../assets/images/profile_pic4.png.jpg";
 
 const stats = [
   { icon: FaBriefcase, value: "8+", label: "Years in Business" },
@@ -52,36 +53,72 @@ const partners = [
   { src: logo8, name: "Polycab" },
 ];
 
+// Employee cards for "Voices of Our Team".
+// photo: save the person's own photo (e.g. downloaded from their LinkedIn
+//   profile, with their permission) to src/assets/images/team/, import it
+//   above — `import raja from "../assets/images/team/raja.jpg";` — and set
+//   `photo: raja`. Leave it null to show the person's initials instead.
+//   LinkedIn photos can't be loaded from the profile URL automatically.
+// linkedin: full profile URL; shows a LinkedIn button. "" hides it.
 const testimonials = [
   {
     quote:
-      "NeuralArc is a place where ideas are valued and innovation is encouraged. I love how we work together to solve complex problems and create solutions that truly make a difference.",
-    name: "Aarav Menon",
-    role: "Software Engineer",
-    photo: profile1,
+      "At NeuralArc, our goal is to build connected products end to end — from the circuit board to the cloud dashboard. Seeing our devices work in the field for real customers is what keeps us going.",
+    name: "Raja Duraisamy",
+    role: "CEO",
+    photo: null,
+    linkedin: "https://www.linkedin.com/in/raja-duraisamy-b586962/",
   },
   {
     quote:
-      "The culture here is built on trust, collaboration, and continuous learning. I've grown so much professionally while working on meaningful projects that impact real businesses.",
-    name: "Divya Raman",
-    role: "Project Manager",
-    photo: profile2,
+      "Keeping our systems, tools and teams running smoothly means our engineers can focus on building. I enjoy solving problems before anyone else notices them.",
+    name: "Pushpa Ganesan",
+    role: "IT Manager",
+    photo: null,
+    linkedin: "https://www.linkedin.com/in/pushpa-ganesan/",
   },
   {
     quote:
-      "NeuralArc empowers you to take ownership, think big, and turn ideas into reality. It's inspiring to be surrounded by talented people who are passionate about what they do.",
-    name: "Karthik Suresh",
-    role: "Lead Developer",
-    photo: profile3,
+      "I get to design how the pieces fit together — sensors, gateways, cloud and apps. Turning a customer's problem into an architecture that works reliably in the field is the most rewarding part of my job.",
+    name: "Selvin Jehovah Jireh",
+    role: "Solution Architect",
+    photo: null,
+    linkedin: "https://www.linkedin.com/in/selvin-jehovah-jireh/",
   },
   {
     quote:
-      "What I love most is the supportive environment and the opportunities to learn new technologies. Every day brings a new challenge and a new opportunity to grow.",
-    name: "Nisha Verma",
-    role: "Data Scientist",
-    photo: profile4,
+      "Every feature I build ends up in the hands of real users. I like that we own our work from the first line of code to the final release.",
+    name: "B Jayamala",
+    role: "Software Developer",
+    photo: null,
+    linkedin: "https://www.linkedin.com/in/b-jayamala-81274b237/",
+  },
+  {
+    quote:
+      "Sensor data only matters when people can act on it. I enjoy turning raw readings into clear dashboards and insights our clients actually use.",
+    name: "Sargunam T",
+    role: "Data Analyst",
+    photo: null,
+    linkedin: "https://www.linkedin.com/in/sargunam-t/",
+  },
+   {
+    quote:
+      "Working across IoT, web and mobile projects keeps me learning every day. The team is always ready to help, and there is always a new challenge to take on.",
+    name: "NiroshKumar K",
+    role: "Full stack Developer",
+    photo: null,
+    linkedin: "https://www.linkedin.com/in/nirosh-kumark2003",
   },
 ];
+
+// "Raja Duraisamy" → "RD", "Sargunam T" → "ST"
+const initials = (name) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0].toUpperCase())
+    .join("");
 
 const About = () => {
   const marqueeRef = useRef(null);
@@ -152,9 +189,12 @@ const About = () => {
               We&apos;re a team of innovators, problem solvers, and dreamers.
             </h1>
             <p className="text-gray-600 leading-relaxed mb-8 max-w-xl">
-              At NeuralArc, we combine deep technology expertise with real-world
-              understanding to build innovative solutions that make a lasting impact.
-              Together, we create, collaborate, and deliver excellence every day.
+              NeuralArc is an R&amp;D firm from Coimbatore, India. Our electrical and
+              electronics engineers and data analysts design and develop products from
+              requirements analysis through mechanical, electrical and software design,
+              all the way to implementation, testing and final integration — offering
+              embedded and IoT product development, data analytics, prototyping and
+              low-volume manufacturing.
             </p>
             <button
               type="button"
@@ -168,7 +208,7 @@ const About = () => {
           <div data-aos="fade-left">
             <img
               src={heroTeam}
-              alt="The NeuralArc team at the Coimbatore office"
+              alt="Illustration of the NeuralArc team collaborating around a connected device and dashboard"
               className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
             />
           </div>
@@ -181,7 +221,7 @@ const About = () => {
           <div data-aos="fade-right" className="order-2 md:order-1">
             <img
               src={journeyTeam}
-              alt="NeuralArc company group photo"
+              alt="Illustration of NeuralArc's journey from an idea to connected products and the cloud"
               className="w-full aspect-[3/2] object-cover rounded-2xl shadow-xl"
             />
           </div>
@@ -216,7 +256,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* 3 — Our Partners */}
+      {/* 3 — Our Partners (hidden while SHOW_PARTNERS is false) */}
+      {SHOW_PARTNERS && (
       <section className="bg-gray-50 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-3">
@@ -259,14 +300,16 @@ const About = () => {
           And many more amazing partners…
         </p>
       </section>
+      )}
 
-      {/* 4 — Our Mission */}
-      <section className="bg-white py-16 lg:py-24">
+      {/* 4 — Our Mission — backgrounds swap so sections keep alternating
+          white/gray whether or not the partners strip is shown. */}
+      <section className={`${SHOW_PARTNERS ? "bg-white" : "bg-gray-50"} py-16 lg:py-24`}>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div data-aos="fade-right">
             <img
               src={missionTeam}
-              alt="NeuralArc leadership team"
+              alt="Illustration of connected devices around the globe and a rocket launching"
               className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
             />
           </div>
@@ -295,7 +338,7 @@ const About = () => {
       </section>
 
       {/* 5 — Employee Testimonials */}
-      <section className="bg-gray-50 py-16 lg:py-24">
+      <section className={`${SHOW_PARTNERS ? "bg-gray-50" : "bg-white"} py-16 lg:py-24`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-xs font-bold tracking-[0.2em] text-[#2A6EBB] mb-3">
@@ -306,7 +349,7 @@ const About = () => {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <div
                 key={t.name}
@@ -318,15 +361,35 @@ const About = () => {
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                  <img
-                    src={t.photo}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-                  />
-                  <div>
+                  {t.photo ? (
+                    <img
+                      src={t.photo}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="w-12 h-12 rounded-full bg-[#2A6EBB] text-white font-bold flex items-center justify-center flex-shrink-0"
+                    >
+                      {initials(t.name)}
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
                     <h4 className="font-semibold text-gray-900 text-sm">{t.name}</h4>
                     <span className="text-xs text-gray-500">{t.role}</span>
                   </div>
+                  {t.linkedin && (
+                    <a
+                      href={t.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${t.name} on LinkedIn`}
+                      className="text-[#0A66C2] hover:text-[#004182] transition shrink-0"
+                    >
+                      <FaLinkedin className="w-6 h-6" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

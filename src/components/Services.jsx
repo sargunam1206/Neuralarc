@@ -1,6 +1,6 @@
 import Header from "./Header/Header"; 
 import { Link } from "react-router-dom";
-import { FaDatabase, FaMicrochip, FaLaptopCode, FaGlobe, FaChalkboardTeacher, FaMobileAlt,FaUserTie  } from "react-icons/fa";
+import { FaDatabase, FaMicrochip, FaMemory, FaIndustry, FaLaptopCode, FaGlobe, FaChalkboardTeacher, FaMobileAlt } from "react-icons/fa";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet-async";
 
@@ -11,6 +11,19 @@ const services = [
     title: "IoT Solutions",
     description: "Smart automation and connected devices for industries & homes.",
     link: "/services/iot",
+    featured: true,
+  },
+  {
+    icon: <FaMemory className="text-[#E31C24] w-12 h-12" />,
+    title: "Embedded Software Development",
+    description: "Firmware for connected, low-power embedded devices.",
+    link: "/services/embedded-software-development",
+  },
+  {
+    icon: <FaIndustry className="text-[#2A6EBB] w-12 h-12" />,
+    title: "Hardware Design & Manufacturing",
+    description: "PCB design, prototyping and low-volume manufacturing.",
+    link: "/services/hardware-design-manufacturing",
   },
   {
     icon: <FaDatabase className="text-[#E31C24] w-12 h-12" />,
@@ -20,9 +33,9 @@ const services = [
   },
   {
     icon: <FaLaptopCode className="text-[#2A6EBB] w-12 h-12" />,
-    title: "Embedded Software Development",
-    description: "Robust and scalable web & mobile applications.",
-    link: "/services/embedded-software-development",
+    title: "Custom Software Development",
+    description: "Robust and scalable custom software solutions.",
+    link: "/services/custom-software-development",
   },
   {
     icon: <FaGlobe className="text-[#E31C24] w-12 h-12" />,
@@ -84,10 +97,17 @@ const ServiceList = () => {
       {services.map((service, index) => (
         <div
           key={index}
-          className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center hover:shadow-2xl hover:-translate-y-2 transition"
+          className={`relative bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center hover:shadow-2xl hover:-translate-y-2 transition ${
+            service.featured ? "ring-2 ring-[#2A6EBB]" : ""
+          }`}
           data-aos="fade-up"
           data-aos-delay={index * 200} // stagger effect
         >
+          {service.featured && (
+            <span className="absolute top-3 right-3 bg-[#E31C24] text-white text-xs font-bold px-2.5 py-1 rounded-full">
+              Core Focus
+            </span>
+          )}
           <div className="mb-4">{service.icon}</div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
           <p className="text-gray-600 mb-4 text-base">{service.description}</p>

@@ -9,7 +9,6 @@ import imgMern from "../assets/images/MERNFull-Stack.png.png";
 import imgData from "../assets/images/DataAnalytics.png.png";
 import imgMobile from "../assets/images/MobileAppDevelopment.png.png";
 import imgCloud from "../assets/images/CloudComputing.png.png";
-import imgCyber from "../assets/images/Cybersecurity.png.png";
 import imgUiux from "../assets/images/UIUXDesign.png.png";
 
 // Shared placeholder visual for the detail-page "Outcomes" section until
@@ -772,95 +771,7 @@ const trainingData = [
     },
   },
 
-  {
-    id: "cybersecurity",
-    slug: "cybersecurity",
-    title: "Cybersecurity",
-    image: imgCyber,
-    duration: "38 hours",
-    certificationIncluded: true,
-    popular: false,
-    highlights: ["Network Security", "Threat Detection", "Secure Practices"],
-
-    category: "Professional Certificate",
-    h1: "Cybersecurity",
-    tagline:
-      "Learn to protect systems, networks, and data — from core security concepts to hands-on defensive practice.",
-    heroPoints: [
-      "Understand common attacks and how to defend against them.",
-      "Practise secure configuration, monitoring, and incident response.",
-    ],
-    metaTitle: "Cybersecurity Course | NeuralArc",
-    metaDescription:
-      "Learn cybersecurity fundamentals at NeuralArc — network security, threat detection, secure configuration, cryptography basics, and incident response, with hands-on labs. Certification included.",
-
-    infoBar: {
-      certificateNote: "Earn a career-focused certificate",
-      rating: 4.7,
-      ratingNote: "Based on learner feedback",
-      level: "Beginner Level",
-      levelNote: "Basic IT knowledge helpful",
-      timeToComplete: "3 months to complete",
-      scheduleNote: "Flexible learning schedule",
-    },
-
-    about: {
-      description:
-        "The Cybersecurity course builds a practical foundation in defensive security: how networks and operating systems can be attacked, how to configure them securely, how to detect suspicious activity, and how to respond to an incident. You cover access control, cryptography basics, common web vulnerabilities, logging and monitoring, and safe security-testing practice in a lab environment. It is aimed at students and IT staff moving into security roles, and completion earns a NeuralArc certificate. This course focuses on authorised, defensive practice only.",
-      whatYouLearn: [
-        "Identify common network, system, and web application threats",
-        "Apply secure configuration and access-control practices",
-        "Detect and investigate suspicious activity using logs and monitoring",
-        "Follow a structured incident-response process",
-      ],
-    },
-
-    skills: [
-      "Cybersecurity",
-      "Network Security",
-      "Threat Detection",
-      "Access Control",
-      "Cryptography Basics",
-      "Vulnerability Assessment",
-      "Security Monitoring",
-      "Incident Response",
-      "Secure Configuration",
-      "Risk Awareness",
-      "Log Analysis",
-      "Security Best Practices",
-    ],
-    tools: [
-      "Linux",
-      "Wireshark",
-      "Nmap",
-      "Burp Suite (Community)",
-      "Splunk",
-      "OpenVAS",
-      "Bash",
-      "Python",
-      "Git",
-      "GitHub",
-    ],
-
-    outcomes: {
-      heading: "Advance your career with in-demand security skills",
-      image: careerVisual,
-      points: [
-        "Harden systems and networks using recognised practices.",
-        "Demonstrate detection and incident-response skills through lab work.",
-        "Earn a NeuralArc certificate recognising your cybersecurity skills.",
-      ],
-    },
-
-    whyChoose: defaultWhyChoose("cybersecurity"),
-    learnerReviews: defaultLearnerReviews("cybersecurity"),
-
-    finalCta: {
-      heading: "Ready to start a career in cybersecurity?",
-      subtext:
-        "Learn to defend real systems. Practise in the lab. Earn your NeuralArc certificate.",
-    },
-  },
+  
 
   {
     id: "ui-ux-design",

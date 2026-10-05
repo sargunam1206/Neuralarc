@@ -6,6 +6,8 @@
   <url><loc>https://www.neuralarc.com/services/iot</loc></url>
   <url><loc>https://www.neuralarc.com/services/ai-ml-data-science</loc></url>
   <url><loc>https://www.neuralarc.com/services/embedded-software-development</loc></url>
+  <url><loc>https://www.neuralarc.com/services/hardware-design-manufacturing</loc></url>
+  <url><loc>https://www.neuralarc.com/services/custom-software-development</loc></url>
   <url><loc>https://www.neuralarc.com/services/full-stack-development</loc></url>
   <url><loc>https://www.neuralarc.com/services/app-development</loc></url>
   <url><loc>https://www.neuralarc.com/services/training</loc></url>
@@ -19,6 +21,8 @@
   <url><loc>https://www.neuralarc.com/products/expense-tracker-app</loc></url>
   <url><loc>https://www.neuralarc.com/products/microlab</loc></url>
   <url><loc>https://www.neuralarc.com/products/leadpro</loc></url>
+  <url><loc>https://www.neuralarc.com/products/smart-agri-solution</loc></url>
+  <url><loc>https://www.neuralarc.com/products/istarter</loc></url>
   <url><loc>https://www.neuralarc.com/technologies/esp32-arduino</loc></url>
   <url><loc>https://www.neuralarc.com/technologies/stm32</loc></url>
   <url><loc>https://www.neuralarc.com/technologies/lora</loc></url>
@@ -65,6 +69,9 @@
   <url><loc>https://www.neuralarc.com/blog/from-training-to-placement-how-we-support-learners</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies/t-remo-cold-chain-monitoring</loc></url>
+  <url><loc>https://www.neuralarc.com/case-studies/smart-agriculture-crop-monitoring</loc></url>
+  <url><loc>https://www.neuralarc.com/case-studies/environmental-monitoring-system</loc></url>
+  <url><loc>https://www.neuralarc.com/case-studies/smart-ambu-bag-ventilator</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies/microlab-diagnostic-lab-tracking</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies/leadpro-centralizing-lead-management</loc></url>
   <url><loc>https://www.neuralarc.com/case-studies/blood-bank-software-operations-management</loc></url>
@@ -83,7 +90,6 @@
   <url><loc>https://www.neuralarc.com/training/data-analytics</loc></url>
   <url><loc>https://www.neuralarc.com/training/mobile-app-development</loc></url>
   <url><loc>https://www.neuralarc.com/training/cloud-computing</loc></url>
-  <url><loc>https://www.neuralarc.com/training/cybersecurity</loc></url>
   <url><loc>https://www.neuralarc.com/training/ui-ux-design</loc></url>
   <url><loc>https://www.neuralarc.com/contact</loc></url>
   <url><loc>https://www.neuralarc.com/terms-of-service</loc></url>
