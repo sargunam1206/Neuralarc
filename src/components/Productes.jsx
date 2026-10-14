@@ -62,9 +62,9 @@ useEffect(() => {
       <section className="py-15 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section Heading */}
-          <h2 className="text-4xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-8" data-aos="fade-down">
+          <h1 className="text-4xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-8" data-aos="fade-down">
             Our Products
-          </h2>
+          </h1>
 
           {/* Tabs */}
           <div className="flex justify-center gap-4 md:gap-6 mb-12 flex-wrap">
@@ -114,9 +114,9 @@ useEffect(() => {
 
       {/* Content */}
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl font-bold text-gray-900 mb-3">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">
           {product.name}
-        </h3>
+        </h2>
 
         <ul className="text-gray-600 text-sm space-y-2 mb-6 list-disc list-inside">
           {product.specs.slice(0, 3).map((spec, i) => (

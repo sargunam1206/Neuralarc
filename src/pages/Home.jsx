@@ -25,6 +25,21 @@ const Home = () => {
     content="NeuralArc builds IoT hardware, AI/ML systems, and custom software from Coimbatore — connected devices, cloud dashboards, and full-stack development for growing businesses."
   />
   <link rel="canonical" href="https://www.neuralarc.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NeuralArc" />
+  <meta property="og:title" content="NeuralArc | IoT, AI & Software Development Company in Coimbatore" />
+  <meta
+    property="og:description"
+    content="NeuralArc builds IoT hardware, AI/ML systems, and custom software from Coimbatore — connected devices, cloud dashboards, and full-stack development for growing businesses."
+  />
+  <meta property="og:url" content="https://www.neuralarc.com/" />
+  <meta property="og:image" content="https://www.neuralarc.com/logos/Logo-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="NeuralArc | IoT, AI & Software Development Company in Coimbatore" />
+  <meta
+    name="twitter:description"
+    content="NeuralArc builds IoT hardware, AI/ML systems, and custom software from Coimbatore — connected devices, cloud dashboards, and full-stack development for growing businesses."
+  />
 </Helmet>
 
 <Header />

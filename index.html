@@ -5,7 +5,27 @@
 <link rel="icon" type="image/png" href="/logos/Logo-icon.png" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NeuralArc</title>
+
+    <!--
+      Static <title> fallback only. Every other per-page SEO tag (meta
+      description, canonical, Open Graph, Twitter) is set by each page's
+      <Helmet> and is already baked into the shipped HTML by the prerender
+      step (scripts/prerender.mjs) for every route in sitemap.xml — so none
+      of those belong here as static markup too.
+
+      react-helmet-async only dedupes tags it manages across its own
+      renders; it has no way to know about tags that were already sitting in
+      this file before React mounted, so it just appends alongside them
+      instead of replacing them. A static meta[name=description] or
+      link[rel=canonical] here would therefore ship TWICE on every prerendered
+      page (this generic one plus the correct per-page one) — which is
+      exactly the kind of conflicting signal that makes Google ignore both
+      and fall back to guessing. <title> is safe to keep because the
+      document can only ever have one real title; the browser (and Helmet)
+      update that single slot in place rather than adding a second one.
+    -->
+    <title>NeuralArc | IoT, AI & Software Development Company in Coimbatore</title>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
