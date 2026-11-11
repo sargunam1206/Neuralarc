@@ -9,6 +9,7 @@ import { getTechPagePath } from "../../data/techPaths";
 import Header from "../Header/Header";
 import Footer from "../Footer";
 import NotFound from "../../pages/NotFound";
+import RequestQuoteSection from "./RequestQuoteSection";
 
 // Same mapping used on the service pages, in reverse — only categories with
 // a real, evidenced matching service get a cross-link.
@@ -192,10 +193,10 @@ const ProductDetail = () => {
               <img
                 src={product.image}
                 alt={`${product.name}${product.tagline ? ` — ${product.tagline}` : ""} by NeuralArc`}
-                className="rounded-xl shadow-xl border-4 border-white bg-white w-full h-64 object-contain"
+                className="rounded-xl shadow-xl border-4 border-white bg-white w-full aspect-video object-contain"
               />
             ) : (
-              <div className="rounded-xl shadow-xl border-4 border-white w-full h-64 flex flex-col items-center justify-center gap-3 bg-white/10 text-white">
+              <div className="rounded-xl shadow-xl border-4 border-white w-full aspect-video flex flex-col items-center justify-center gap-3 bg-white/10 text-white">
                 <FaFlask className="w-14 h-14" />
                 <span className="text-sm font-medium">Image coming soon</span>
               </div>
@@ -210,18 +211,8 @@ const ProductDetail = () => {
         </section>
       ))}
 
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4" data-aos="zoom-in">
-          Interested in {product.name}?
-        </h2>
-        <Link
-          to="/contact"
-          className="inline-block px-6 py-3 bg-white text-[#E31C24] rounded-md font-semibold hover:bg-gray-100 transition"
-        >
-          Talk to Our Team
-        </Link>
-      </section>
+      {/* Request a Quote */}
+      <RequestQuoteSection productName={product.name} />
 
       <Footer />
     </>

@@ -96,7 +96,7 @@ useEffect(() => {
       className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
     >
       {/* Image */}
-      <div className="relative h-52 overflow-hidden bg-gray-50">
+      <div className="relative aspect-video overflow-hidden bg-gray-50">
         {product.image ? (
           // object-contain so tall device photos aren't cropped to a sliver
           <img
@@ -129,25 +129,33 @@ useEffect(() => {
         </ul>
 
         {/* CTA */}
-        <div className="mt-auto flex flex-col gap-2">
-          <button
-            onClick={() => setSelectedProduct(product)}
-            className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold cursor-pointer
-                       hover:gap-3 transition-all duration-300"
-          >
-            <span>Quick View</span>
-            <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          </button>
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <div className="flex flex-col gap-2">
+            <button
+              onClick={() => setSelectedProduct(product)}
+              className="group inline-flex items-center gap-2 text-[#E31C24] font-semibold cursor-pointer
+                         hover:gap-3 transition-all duration-300"
+            >
+              <span>Quick View</span>
+              <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </button>
+            <Link
+              to={`/products/${product.slug}`}
+              className="group inline-flex items-center gap-2 text-[#2A6EBB] font-semibold"
+            >
+              <span>Full Product Page</span>
+              <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
+          </div>
           <Link
             to={`/products/${product.slug}`}
-            className="group inline-flex items-center gap-2 text-[#2A6EBB] font-semibold"
+            className="shrink-0 text-center px-4 py-2 border-2 border-[#E31C24] text-[#E31C24] font-bold text-sm uppercase tracking-wide rounded-md hover:bg-[#E31C24] hover:text-white transition"
           >
-            <span>Full Product Page</span>
-            <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            Book Demo
           </Link>
         </div>
       </div>
@@ -187,10 +195,10 @@ useEffect(() => {
             <img
               src={selectedProduct.image}
               alt={selectedProduct.name}
-              className="rounded-xl w-full h-64 md:h-80 object-cover shadow-md"
+              className="rounded-xl w-full aspect-video object-cover shadow-md"
             />
           ) : (
-            <div className="rounded-xl w-full h-64 md:h-80 flex flex-col items-center justify-center gap-3 bg-[#2A6EBB]/10 text-[#2A6EBB] shadow-md">
+            <div className="rounded-xl w-full aspect-video flex flex-col items-center justify-center gap-3 bg-[#2A6EBB]/10 text-[#2A6EBB] shadow-md">
               <FaFlask className="w-14 h-14" />
               <span className="text-sm font-medium">Image coming soon</span>
             </div>

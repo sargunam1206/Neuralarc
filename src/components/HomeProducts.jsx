@@ -27,7 +27,7 @@ const HomeProducts = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition flex flex-col"
               data-aos="fade-up"
             >
-              <div className="h-40 overflow-hidden">
+              <div className="aspect-video overflow-hidden">
                 {product.image ? (
                   <img
                     src={product.image}

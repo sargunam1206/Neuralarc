@@ -1,4 +1,4 @@
-import product1 from "../assets/images/product-iot1.jpg";
+import tremo from "../assets/Products/product2.jpg";
 import bloodbank from "../assets/images/bloodbank.jpeg";
 import purchase from "../assets/images/purchase.jpeg";
 import tracker from "../assets/Products/product1.jpg";
@@ -30,7 +30,7 @@ const productsData = [
       "Customizable Wireless Access module",
       "Dimension : (LxBxH) 50 x 50 x 36 mm",
     ],
-    image: product1,
+    image: tremo,
     description:
       "T-Remo is a smart temperature monitoring solution for vaccine and medicine transport, ice cream stalls, and cooking and mess kitchens, with GPS coordinates. All sensed parameters are sent through SMS or uploaded directly to the web server — and when power or internet is unavailable, readings are stored on the device and sent later.",
     features: [
