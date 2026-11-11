@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 
-import product1 from "../assets/images/product-iot1.jpg";
+import tremo from "../assets/Products/product2.png";
 import bloodbank from "../assets/images/bloodbank.jpeg";
 import purchase from "../assets/images/purchase.jpeg";
 import tracker from "../assets/Products/product1.png";
@@ -16,7 +16,7 @@ const productsData = [
       "Customizable wireless module",
       "Compact size: 50 × 50 × 36 mm",
     ],
-    image: product1,
+    image: tremo,
   },
   {
     id: 3,
@@ -92,7 +92,7 @@ const [isPaused, setIsPaused] = useState(false);
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-40 object-cover rounded-md mb-4"
+                      className="w-full aspect-video object-cover rounded-md mb-4"
                     />
 
                     {/* Title */}

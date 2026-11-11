@@ -4,24 +4,27 @@ import Footer from "../components/Footer";
 import { FaDownload, FaFilePdf } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
-// Example images (replace with your real product + achievements images)
 import product1 from "../assets/Products/product1.png";
 import product2 from "../assets/Products/product2.png";
-import product3 from "../assets/Products/product3.png";
-import product4 from "../assets/Products/product4.png";
+import agriSensorNodeImg from "../assets/images/agri/smart-agri-sensor-node.jpg";
+import istarterImg from "../assets/images/agri/istarter-mobile-app.jpg";
 
-import software1 from "../assets/Products/product4.png";
-import software2 from "../assets/Products/product4.png";
-import software3 from "../assets/Products/product4.png";
-
-import award1 from "../assets/images/team3.jpg";
-import award2 from "../assets/images/team2.jpg";
-import award3 from "../assets/images/team2.jpg";
+import leadproImg from "../assets/images/LeadPro.png";
+import bloodbank from "../assets/images/bloodbank.jpeg";
+import billing from "../assets/images/billing.jpeg";
 
 const Gallery = () => {
-  const iotProducts = [product1, product2, product3, product4];
-  const softwareProducts = [software1, software2, software3];
-  const achievements = [award1, award2, award3];
+  const iotProducts = [
+    { image: product1, name: "Tracker" },
+    { image: product2, name: "T-Remo" },
+    { image: agriSensorNodeImg, name: "Smart Agriculture Solution" },
+    { image: istarterImg, name: "iStarter Smart Irrigation" },
+  ];
+  const softwareProducts = [
+    { image: leadproImg, name: "LeadPro" },
+    { image: bloodbank, name: "Blood Bank Software" },
+    { image: billing, name: "Billing Software" },
+  ];
 
   // Brochures live in /public/brochures so they're served as-is in production.
   // `size` is shown on the card so visitors know before downloading.
@@ -38,7 +41,7 @@ const Gallery = () => {
         <title>Gallery | NeuralArc</title>
         <meta
           name="description"
-          content="A look at NeuralArc's IoT and software products, achievements, and downloadable brochures."
+          content="A look at NeuralArc's IoT and software products and downloadable brochures."
         />
         <link rel="canonical" href="https://www.neuralarc.com/Gallery" />
       </Helmet>
@@ -48,7 +51,7 @@ const Gallery = () => {
       <section className="relative bg-[#2A6EBB] text-white text-center py-20">
         <h1 className="text-4xl md:text-4xl font-bold">Our Gallery</h1>
         <p className="mt-4 text-lg md:text-xl">
-          Explore our IoT innovations, software solutions, achievements, and resources
+          Explore our IoT innovations, software solutions, and resources
         </p>
       </section>
 
@@ -59,16 +62,21 @@ const Gallery = () => {
             IoT Product Showcase
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {iotProducts.map((img, index) => (
+            {iotProducts.map((product, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
+                className="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 overflow-hidden"
               >
-                <img
-                  src={img}
-                  alt={`IoT Product ${index + 1}`}
-                  className="w-full h-64 object-cover"
-                />
+                <div className="h-56 bg-gray-50 flex items-center justify-center p-4">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <div className="py-4 px-4 text-center">
+                  <h3 className="font-semibold text-gray-800">{product.name}</h3>
+                </div>
               </div>
             ))}
           </div>
@@ -82,39 +90,21 @@ const Gallery = () => {
             Software Product Showcase
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {softwareProducts.map((img, index) => (
+            {softwareProducts.map((product, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
+                className="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 overflow-hidden"
               >
-                <img
-                  src={img}
-                  alt={`Software Product ${index + 1}`}
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Achievements */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12">
-            Our Achievements
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {achievements.map((img, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
-              >
-                <img
-                  src={img}
-                  alt={`Achievement ${index + 1}`}
-                  className="w-full h-72 object-cover"
-                />
+                <div className="h-56 bg-gray-50 flex items-center justify-center p-4">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <div className="py-4 px-4 text-center">
+                  <h3 className="font-semibold text-gray-800">{product.name}</h3>
+                </div>
               </div>
             ))}
           </div>
@@ -122,7 +112,7 @@ const Gallery = () => {
       </section>
 
       {/* Brochures */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">
             Download Our Brochures
