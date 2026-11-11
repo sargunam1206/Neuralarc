@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
+import { useIsClient } from "../../utils/useIsClient";
 import { Helmet } from "react-helmet-async";
 import Header from "../Header/Header";
 import Footer from "../Footer";
@@ -13,9 +14,12 @@ const categories = servicesData.filter((s) =>
 
 const Blog = () => {
   // The active category lives in the URL (?category=iot) so it can be linked to.
+  // Applied only after hydration (useIsClient): the pre-rendered page has no
+  // query string, so the first render must show "All" to match it.
   const [searchParams, setSearchParams] = useSearchParams();
+  const isClient = useIsClient();
   const requested = searchParams.get("category");
-  const active = categories.some((c) => c.slug === requested) ? requested : "all";
+  const active = isClient && categories.some((c) => c.slug === requested) ? requested : "all";
 
   const posts =
     active === "all" ? blogData : blogData.filter((post) => post.relatedService === active);
@@ -53,7 +57,7 @@ const Blog = () => {
 
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="Filter articles by topic">
+          <div className="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="Filter articles by topic" data-aos="fade-up">
             <button
               type="button"
               aria-pressed={active === "all"}
@@ -77,7 +81,7 @@ const Blog = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
-              <Link
+              <Link data-aos="fade-up"
                 key={post.slug}
                 to={`/blog/${post.slug}`}
                 className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition"

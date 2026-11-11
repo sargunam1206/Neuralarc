@@ -136,7 +136,7 @@ const ClientReviews = () => {
           {/* Stat row */}
           <div className="grid grid-cols-3 gap-6 mb-14">
             {stats.map((s) => (
-              <div key={s.label} className="bg-white rounded-xl text-center py-5 px-2 shadow-sm">
+              <div key={s.label} className="bg-white rounded-xl text-center py-5 px-2 shadow-sm" data-aos="fade-up">
                 <div className="text-lg md:text-xl font-bold text-[#2A6EBB]">{s.value}</div>
                 <div className="text-xs md:text-sm text-gray-500 mt-1">{s.label}</div>
               </div>
@@ -146,7 +146,7 @@ const ClientReviews = () => {
           {/* Testimonials */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {clientReviews.map((r, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm p-6 flex flex-col">
+              <div key={i} className="bg-white rounded-xl shadow-sm p-6 flex flex-col" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, j) => (
                     <FaStar

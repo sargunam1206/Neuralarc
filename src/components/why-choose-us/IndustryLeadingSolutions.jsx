@@ -72,7 +72,7 @@ const IndustryLeadingSolutions = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Core expertise — intro copy with inline links to each service */}
-          <div className="mb-14">
+          <div className="mb-14" data-aos="fade-up">
             <h2 className="text-2xl font-bold text-[#2A6EBB] mb-4">Our Core Expertise</h2>
             <p className="text-gray-600 text-lg leading-relaxed">
               From connected hardware to intelligent software, NeuralArc's core
@@ -140,7 +140,7 @@ const IndustryLeadingSolutions = () => {
           </div>
 
           {/* Solutions we deliver — enlarged cards with case study links */}
-          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-8">Solutions We Deliver</h2>
+          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-8" data-aos="fade-down">Solutions We Deliver</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {deliverables.map((d, i) => (
               <div
@@ -174,7 +174,7 @@ const IndustryLeadingSolutions = () => {
           </div>
 
           {/* Team — enlarged cards */}
-          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-8">People Behind Our Success</h2>
+          <h2 className="text-2xl font-bold text-[#2A6EBB] mb-8" data-aos="fade-down">People Behind Our Success</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-4">
             {team.map((member, i) => (
               <div
@@ -204,7 +204,7 @@ const IndustryLeadingSolutions = () => {
       </section>
 
       <section className="py-16 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Want to work with our team?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4" data-aos="zoom-in">Want to work with our team?</h2>
         <Link
           to="/contact"
           className="inline-block px-6 py-3 bg-white text-[#E31C24] rounded-md font-semibold hover:bg-gray-100 transition"

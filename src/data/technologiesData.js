@@ -12,7 +12,7 @@ const technologiesData = [
 
     // ---- SEO -------------------------------------------------------------
     metaTitle:
-      "ESP32 & Arduino Development Company | Firmware, IoT & Product Engineering | NeuralArc",
+      "ESP32 & Arduino Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is an ESP32 and Arduino development company in Coimbatore. We build custom ESP32 firmware, Arduino prototypes, WiFi/Bluetooth/BLE IoT devices, MQTT cloud dashboards, OTA updates and low-power battery designs — from prototype to production.",
     keywords: [
@@ -260,7 +260,7 @@ const technologiesData = [
     category: "Microcontrollers & Real-Time",
 
     metaTitle:
-      "STM32 Development Company | Firmware, FreeRTOS, Motor Control & Low-Power Embedded Design | NeuralArc",
+      "STM32 Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is an STM32 firmware development company in Coimbatore. Bare-metal and FreeRTOS firmware, STM32CubeIDE, HAL and LL drivers, DMA-driven peripherals, custom STM32 PCB design, BLDC and PMSM motor control, CAN and RS-485, secure bootloaders, OTA and ultra-low-power designs — from prototype to production.",
     keywords: [
@@ -473,7 +473,7 @@ const technologiesData = [
     category: "Long-Range Wireless",
 
     metaTitle:
-      "LoRa & LoRaWAN Development Company | Long-Range IoT Sensor Nodes, Gateways & Network Servers | NeuralArc",
+      "LoRa & LoRaWAN Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds LoRa and LoRaWAN systems in Coimbatore — custom SX1262 sensor nodes, private LoRaWAN gateways, ChirpStack and The Things Stack network servers, ADR tuning, OTAA security and end-to-end telemetry for agriculture, smart metering, cold chain and industrial monitoring.",
     keywords: [
@@ -681,7 +681,7 @@ const technologiesData = [
     category: "Location & Telematics",
 
     metaTitle:
-      "GPS Tracking Development Company | GNSS Devices, Vehicle Telematics & Fleet Platforms | NeuralArc",
+      "GPS Tracking Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds GPS and GNSS tracking products in Coimbatore — asset trackers, vehicle telematics, u-blox and Quectel GNSS firmware, A-GNSS fast fixes, geofencing, trip and mileage analytics, LTE-M/NB-IoT backhaul and fleet dashboards — from prototype to production.",
     keywords: [
@@ -887,7 +887,7 @@ const technologiesData = [
     category: "Connectivity & Alerts",
 
     metaTitle:
-      "SMS Gateway Development Company | Alerts, OTP, Two-Way Messaging & GSM Modem Integration | NeuralArc",
+      "SMS Gateway Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds SMS gateway and messaging integrations in Coimbatore — transactional alerts, OTP verification, bulk SMS APIs, SMPP bindings, on-device SIM800/SIM7600 GSM modem gateways, delivery-receipt tracking, provider failover and DLT compliance for IoT and business applications.",
     keywords: [
@@ -1091,7 +1091,7 @@ const technologiesData = [
     name: "Node.js",
     category: "Backend & APIs",
     metaTitle:
-      "Node.js Development Company | REST & GraphQL APIs, Real-Time Backends | NeuralArc",
+      "Node.js Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is a Node.js development company in Coimbatore. We build REST and GraphQL APIs, real-time WebSocket services, Express and NestJS backends, microservices, integrations and cloud deployments — from MVP to production scale.",
     keywords: [
@@ -1291,7 +1291,7 @@ const technologiesData = [
     name: "React",
     category: "Frontend & Web Apps",
     metaTitle:
-      "React Development Company | Single-Page Apps, Dashboards & Design Systems | NeuralArc",
+      "React Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is a React development company in Coimbatore. We build single-page applications, admin dashboards, customer portals and design systems with React, Vite, TypeScript and modern state management — from prototype to production.",
     keywords: [
@@ -1491,7 +1491,7 @@ const technologiesData = [
     name: "React Native",
     category: "Cross-Platform Mobile",
     metaTitle:
-      "React Native Development Company | Cross-Platform iOS & Android Apps | NeuralArc",
+      "React Native Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is a React Native development company in Coimbatore. We build cross-platform iOS and Android apps from one codebase — native modules, offline support, push notifications, in-app payments and app store deployment.",
     keywords: [
@@ -1690,7 +1690,7 @@ const technologiesData = [
     name: "JavaScript",
     category: "Web Programming",
     metaTitle:
-      "JavaScript Development Company | Web Apps, APIs & Interactive Front Ends | NeuralArc",
+      "JavaScript Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is a JavaScript development company in Coimbatore. We build interactive web front ends, Node.js APIs and full-stack apps in modern JavaScript and TypeScript — clean, tested code from prototype to production.",
     keywords: [
@@ -1890,7 +1890,7 @@ const technologiesData = [
     name: "HTML5",
     category: "Web Markup & Structure",
     metaTitle:
-      "HTML5 Development Company | Semantic, Accessible, SEO-Ready Markup | NeuralArc",
+      "HTML5 Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds websites and web apps on clean HTML5 in Coimbatore — semantic structure, accessibility, structured data, fast-loading pages and SEO-ready markup that search engines and screen readers both understand.",
     keywords: [
@@ -2089,7 +2089,7 @@ const technologiesData = [
     name: "CSS3",
     category: "Web Styling & Layout",
     metaTitle:
-      "CSS3 Development Company | Responsive Layout, Design Systems & Animation | NeuralArc",
+      "CSS3 Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds responsive, maintainable CSS3 in Coimbatore — Flexbox and Grid layouts, design tokens, dark mode, animation, and cross-browser styling that stays consistent as a product grows.",
     keywords: [
@@ -2288,7 +2288,7 @@ const technologiesData = [
     name: "Bootstrap",
     category: "UI Framework",
     metaTitle:
-      "Bootstrap Development Company | Responsive Websites & Admin Dashboards | NeuralArc",
+      "Bootstrap Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds responsive websites, admin dashboards and web apps with Bootstrap 5 in Coimbatore — custom themes, reusable components, accessibility and a fast path from design to a working, consistent UI.",
     keywords: [
@@ -2487,7 +2487,7 @@ const technologiesData = [
     name: "Tailwind CSS",
     category: "Utility-First CSS",
     metaTitle:
-      "Tailwind CSS Development Company | Custom Design Systems & Fast UI Builds | NeuralArc",
+      "Tailwind CSS Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds product UIs with Tailwind CSS in Coimbatore — utility-first components, a tokenised design system, dark mode, responsive layouts and a fast path from Figma to a maintainable front end.",
     keywords: [
@@ -2686,7 +2686,7 @@ const technologiesData = [
     name: "WordPress",
     category: "CMS & Content Sites",
     metaTitle:
-      "WordPress Development Company | Custom Themes, Plugins & WooCommerce | NeuralArc",
+      "WordPress Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is a WordPress development company in Coimbatore. We build custom themes and plugins, WooCommerce stores, headless WordPress front ends, and fast, secure, SEO-ready sites — plus maintenance and speed optimisation.",
     keywords: [
@@ -2885,7 +2885,7 @@ const technologiesData = [
     name: "Express.js",
     category: "Node.js Web Framework",
     metaTitle:
-      "Express.js Development Company | REST APIs & Node.js Backends | NeuralArc",
+      "Express.js Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds Express.js backends in Coimbatore — REST APIs, middleware pipelines, authentication, database integration, file handling and third-party integrations, with tests and a deploy pipeline for production.",
     keywords: [
@@ -3084,7 +3084,7 @@ const technologiesData = [
     name: "MySQL",
     category: "Relational Database",
     metaTitle:
-      "MySQL Development Company | Schema Design, Query Tuning & Scaling | NeuralArc",
+      "MySQL Development Company | NeuralArc",
     metaDescription:
       "NeuralArc does MySQL database work in Coimbatore — schema design, indexing and query optimisation, migrations, replication, backups and performance troubleshooting for web and mobile app back ends.",
     keywords: [
@@ -3283,7 +3283,7 @@ const technologiesData = [
     name: "SQLite",
     category: "Embedded Database",
     metaTitle:
-      "SQLite Development Company | On-Device, Offline & Edge Databases | NeuralArc",
+      "SQLite Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds with SQLite in Coimbatore — on-device storage for mobile and desktop apps, offline-first sync, embedded databases for IoT and edge devices, and local-first architectures done right.",
     keywords: [
@@ -3481,7 +3481,7 @@ const technologiesData = [
     name: "Firebase",
     category: "App Backend & Realtime",
     metaTitle:
-      "Firebase Development Company | Auth, Firestore, Realtime & Cloud Functions | NeuralArc",
+      "Firebase Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds on Firebase in Coimbatore — Authentication, Firestore and Realtime Database, Cloud Functions, Cloud Messaging, Storage and Hosting — for web and mobile apps that need a backend fast without running servers.",
     keywords: [
@@ -3680,7 +3680,7 @@ const technologiesData = [
     name: "CodeIgniter",
     category: "PHP Framework",
     metaTitle:
-      "CodeIgniter Development Company | PHP Web Apps, Admin Panels & APIs | NeuralArc",
+      "CodeIgniter Development Company | NeuralArc",
     metaDescription:
       "NeuralArc is a CodeIgniter development company in Coimbatore. We build PHP web applications, admin panels, CRMs and REST APIs on CodeIgniter 4 — plus upgrades from CodeIgniter 3 and long-term maintenance.",
     keywords: [
@@ -3877,7 +3877,7 @@ const technologiesData = [
     name: "GitHub",
     category: "Version Control & DevOps",
     metaTitle:
-      "GitHub Workflow & CI/CD Setup | Version Control, Actions & Code Review | NeuralArc",
+      "GitHub Workflow & CI/CD Setup | NeuralArc",
     metaDescription:
       "NeuralArc sets up GitHub properly for teams in Coimbatore — branching strategy, pull-request and code-review workflow, GitHub Actions CI/CD pipelines, protected branches, releases and repository migration.",
     keywords: [
@@ -4075,7 +4075,7 @@ const technologiesData = [
     name: "Selenium",
     category: "Test Automation",
     metaTitle:
-      "Selenium Test Automation Company | E2E Suites, Cross-Browser & CI | NeuralArc",
+      "Selenium Test Automation Company | NeuralArc",
     metaDescription:
       "NeuralArc builds Selenium test automation in Coimbatore — end-to-end suites with the Page Object Model, cross-browser and cross-device testing on Selenium Grid, CI integration and flaky-test cleanup.",
     keywords: [
@@ -4273,7 +4273,7 @@ const technologiesData = [
     name: "Spring",
     category: "Java Enterprise Framework",
     metaTitle:
-      "Spring Boot Development Company | Java APIs, Microservices & Enterprise Backends | NeuralArc",
+      "Spring Boot Development Company | NeuralArc",
     metaDescription:
       "NeuralArc builds Java backends with Spring Boot in Coimbatore — REST APIs, microservices, Spring Security, Spring Data JPA, messaging, batch jobs and cloud deployment for enterprise-grade systems.",
     keywords: [
@@ -4465,92 +4465,6 @@ const technologiesData = [
 
 export default technologiesData;
 
-// Maps a technology name as it appears in a case study / service / product
-// "Technology" list to its dedicated page path. Returns null when there is no
-// page for that technology yet, so callers can render it as plain text.
-const normalizeTech = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
-const techPageSlugByName = {
-  // ESP32 / Arduino
-  esp32arduino: "esp32-arduino",
-  esp32andarduino: "esp32-arduino",
-  arduinoesp32: "esp32-arduino",
-  esp32: "esp32-arduino",
-  arduino: "esp32-arduino",
-  esp32espidf: "esp32-arduino",
-  espidf: "esp32-arduino",
-  // STM32
-  stm32: "stm32",
-  // LoRa / LoRaWAN
-  lora: "lora",
-  lorawan: "lora",
-  loralorawan: "lora",
-  // GPS / GNSS tracking
-  gps: "gps-tracking",
-  gnss: "gps-tracking",
-  gpstracking: "gps-tracking",
-  gpsgnss: "gps-tracking",
-  gpsgnsstracking: "gps-tracking",
-  // SMS gateway
-  smsgateway: "sms-gateway",
-  sms: "sms-gateway",
-  smsgatewaymessaging: "sms-gateway",
-  // Node.js
-  nodejs: "nodejs",
-  node: "nodejs",
-  nodejsdevelopment: "nodejs",
-  // React
-  react: "react",
-  reactjs: "react",
-  // React Native
-  reactnative: "react-native",
-  // JavaScript
-  javascript: "javascript",
-  js: "javascript",
-  vanillajavascript: "javascript",
-  typescript: "javascript",
-  // HTML5
-  html5: "html5",
-  html: "html5",
-  // CSS3
-  css3: "css3",
-  css: "css3",
-  // Bootstrap
-  bootstrap: "bootstrap",
-  bootstrap5: "bootstrap",
-  // Tailwind CSS
-  tailwindcss: "tailwind-css",
-  tailwind: "tailwind-css",
-  // WordPress
-  wordpress: "wordpress",
-  woocommerce: "wordpress",
-  // Express.js
-  expressjs: "express-js",
-  express: "express-js",
-  // MySQL
-  mysql: "mysql",
-  // SQLite
-  sqlite: "sqlite",
-  sqlite3: "sqlite",
-  // Firebase
-  firebase: "firebase",
-  firestore: "firebase",
-  // CodeIgniter
-  codeigniter: "codeigniter",
-  codeigniter4: "codeigniter",
-  // GitHub
-  github: "github",
-  githubactions: "github",
-  git: "github",
-  // Selenium
-  selenium: "selenium",
-  seleniumwebdriver: "selenium",
-  // Spring
-  spring: "spring",
-  springboot: "spring",
-};
-
-export const getTechPagePath = (techName) => {
-  const slug = techPageSlugByName[normalizeTech(techName)];
-  return slug ? `/technologies/${slug}` : null;
-};
+// Re-exported for existing imports; new code should import from ./techPaths.
+export { getTechPagePath } from "./techPaths";

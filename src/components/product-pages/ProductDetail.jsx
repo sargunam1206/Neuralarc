@@ -5,9 +5,10 @@ import productsData from "../../data/productsData";
 import servicesData from "../../data/servicesData";
 import caseStudiesData from "../../data/caseStudiesData";
 import { getTechIcon } from "../../utils/techIcons";
-import { getTechPagePath } from "../../data/technologiesData";
+import { getTechPagePath } from "../../data/techPaths";
 import Header from "../Header/Header";
 import Footer from "../Footer";
+import NotFound from "../../pages/NotFound";
 
 // Same mapping used on the service pages, in reverse — only categories with
 // a real, evidenced matching service get a cross-link.
@@ -21,18 +22,12 @@ const ProductDetail = () => {
   const { slug } = useParams();
   const product = productsData.find((p) => p.slug === slug);
 
-  if (!product) {
-    return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-bold">Product not found</h2>
-      </div>
-    );
-  }
+  if (!product) return <NotFound />;
 
   const relatedService = servicesData.find(
     (s) => s.slug === serviceSlugByCategory[product.category]
   );
-  const caseStudy = caseStudiesData.find((cs) => cs.relatedProduct === product.slug);
+  const caseStudies = caseStudiesData.filter((cs) => cs.relatedProduct === product.slug);
 
   // Every real content block, in display order, kept only if it actually
   // applies to this product — then given alternating white/gray backgrounds
@@ -144,19 +139,25 @@ const ProductDetail = () => {
         </>
       ),
     },
-    caseStudy && {
+    // One case study keeps the original layout; several (e.g. MicroLab's
+    // booking platform and chatbot) are listed one after another.
+    caseStudies.length > 0 && {
       key: "case-study",
       content: (
-        <>
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">Case Study: {caseStudy.title}</h2>
-          <p className="text-gray-600 mb-6">{caseStudy.challenge}</p>
-          <Link
-            to={`/case-studies/${caseStudy.slug}`}
-            className="text-[#E31C24] font-semibold hover:underline"
-          >
-            Read the full case study →
-          </Link>
-        </>
+        <div className="space-y-12">
+          {caseStudies.map((cs) => (
+            <div key={cs.slug}>
+              <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">Case Study: {cs.title}</h2>
+              <p className="text-gray-600 mb-6">{cs.challenge}</p>
+              <Link
+                to={`/case-studies/${cs.slug}`}
+                className="text-[#E31C24] font-semibold hover:underline"
+              >
+                Read the full case study →
+              </Link>
+            </div>
+          ))}
+        </div>
       ),
     },
   ].filter(Boolean);
@@ -190,7 +191,7 @@ const ProductDetail = () => {
             {product.image ? (
               <img
                 src={product.image}
-                alt={product.name}
+                alt={`${product.name}${product.tagline ? ` — ${product.tagline}` : ""} by NeuralArc`}
                 className="rounded-xl shadow-xl border-4 border-white bg-white w-full h-64 object-contain"
               />
             ) : (
@@ -205,13 +206,13 @@ const ProductDetail = () => {
 
       {sections.map((s, i) => (
         <section key={s.key} className={`py-16 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-          <div className="max-w-7xl mx-auto px-6">{s.content}</div>
+          <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">{s.content}</div>
         </section>
       ))}
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4" data-aos="zoom-in">
           Interested in {product.name}?
         </h2>
         <Link

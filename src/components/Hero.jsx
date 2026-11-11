@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-3xl px-6 space-y-6" data-aos="zoom-in">
         {/* Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
-          NeuralArc — IoT, AI & Software Development, Built in Coimbatore
+          NeuralArc — IoT Development Company in Coimbatore
         </h1>
 
         {/* Subheading */}

@@ -1,12 +1,12 @@
 import product1 from "../assets/images/product-iot1.jpg";
 import bloodbank from "../assets/images/bloodbank.jpeg";
 import purchase from "../assets/images/purchase.jpeg";
-import tracker from "../assets/Products/product1.png";
+import tracker from "../assets/Products/product1.jpg";
 import billing from "../assets/images/billing.jpeg";
-import expanseTracker from "../assets/images/expanse_app.png";
-import kadaiImg from "../assets/images/Kadai.png";
+import expanseTracker from "../assets/images/expanse_app.jpg";
+import kadaiImg from "../assets/images/Kadai.jpg";
 import microlabImg from "../assets/images/Microlab.png";
-import leadproImg from "../assets/images/LeadPro.png";
+import leadproImg from "../assets/images/LeadPro.jpg";
 import agriSensorNodeImg from "../assets/images/agri/smart-agri-sensor-node.jpg";
 import istarterImg from "../assets/images/agri/istarter-mobile-app.jpg";
 

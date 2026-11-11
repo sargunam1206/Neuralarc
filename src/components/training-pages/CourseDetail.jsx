@@ -15,6 +15,7 @@ import {
 
 import Header from "../Header/Header";
 import Footer from "../Footer";
+import NotFound from "../../pages/NotFound";
 import TrainingEnrollModal from "../TrainingEnrollModal";
 import { getCourseBySlug } from "../../data/trainingData";
 
@@ -83,20 +84,7 @@ const CourseDetail = () => {
     return () => observer.disconnect();
   }, [course]);
 
-  if (!course) {
-    return (
-      <>
-        <Header />
-        <div className="max-w-3xl mx-auto px-6 py-24 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-3">Course not found</h1>
-          <Link to="/TrainingList" className="text-[#2A6EBB] font-semibold">
-            Browse all training programs →
-          </Link>
-        </div>
-        <Footer />
-      </>
-    );
-  }
+  if (!course) return <NotFound />;
 
   const canonical = `${SITE}/training/${course.slug}`;
   const enrollProgram = {
@@ -195,7 +183,7 @@ const CourseDetail = () => {
 
       {/* ---------- INFO BAR ---------- */}
       <section className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up">
           <div className="flex items-start gap-3">
             <FaCertificate className="w-6 h-6 text-[#2A6EBB] mt-0.5 flex-shrink-0" />
             <div>
@@ -255,7 +243,7 @@ const CourseDetail = () => {
 
       {/* ---------- ABOUT ---------- */}
       <section id="about" className="scroll-mt-40 bg-white py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12" data-aos="fade-up">
           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">
             About this course
           </h2>
@@ -322,7 +310,7 @@ const CourseDetail = () => {
 
       {/* ---------- OUTCOMES ---------- */}
       <section id="outcomes" className="scroll-mt-40 bg-gray-50 py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center" data-aos="fade-up">
           <div>
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8 leading-tight">
               {course.outcomes.heading}
@@ -348,7 +336,7 @@ const CourseDetail = () => {
 
       {/* ---------- REVIEWS: WHY NEURALARC ---------- */}
       <section id="reviews" className="scroll-mt-40 bg-white py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-10 text-center">
             Why people choose NeuralArc for their career
           </h2>
@@ -403,7 +391,7 @@ const CourseDetail = () => {
 
       {/* ---------- FINAL CTA ---------- */}
       <section className="bg-[#0B1B2B] text-white py-16 lg:py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-3xl mx-auto px-6 text-center" data-aos="zoom-in">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-4">
             {course.finalCta.heading}
           </h2>

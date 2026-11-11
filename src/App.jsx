@@ -1,37 +1,39 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import React, { lazy, Suspense, useEffect } from "react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// import MainLayout from "./layouts/MainLayout";
-import Home from "./pages/Home";
-import Services from "./components/Services";
-import Productes from "./components/Productes";
-import TrainingList from "./components/TrainingList";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import TermsOfService from "./pages/TermsOfService";
-import PrivacyNotice from "./pages/PrivacyNotice";
-import Gallery from "./components/Gallery";
+// The router itself lives in the entry files: BrowserRouter in main.jsx for
+// the browser, StaticRouter in entry-server.jsx for build-time pre-rendering.
 
+// Home is loaded up front (most visits land there); every other page is split
+// into its own chunk and loaded on demand.
+import Home from "./pages/Home";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 import ScrollToTop from "./components/ScrollToTop";
-import ServiceDetail from "./components/service-pages/ServiceDetail";
-import ProductDetail from "./components/product-pages/ProductDetail";
-import TechnologyDetail from "./components/technology-pages/TechnologyDetail";
-import CourseDetail from "./components/training-pages/CourseDetail";
-import Blog from "./components/blog/Blog";
-import BlogPost from "./components/blog/BlogPost";
-import CaseStudies from "./components/CaseStudies";
-import CaseStudyDetail from "./components/case-study-pages/CaseStudyDetail";
-import IndustryLeadingSolutions from "./components/why-choose-us/IndustryLeadingSolutions";
-import OurJourney from "./components/why-choose-us/OurJourney";
-import ClientReviews from "./components/why-choose-us/ClientReviews";
-import GlobalReachPage from "./components/why-choose-us/GlobalReachPage";
 
-
-
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PrivacyNotice = lazy(() => import("./pages/PrivacyNotice"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Services = lazy(() => import("./components/Services"));
+const Productes = lazy(() => import("./components/Productes"));
+const TrainingList = lazy(() => import("./components/TrainingList"));
+const Gallery = lazy(() => import("./components/Gallery"));
+const ServiceDetail = lazy(() => import("./components/service-pages/ServiceDetail"));
+const ProductDetail = lazy(() => import("./components/product-pages/ProductDetail"));
+const TechnologyDetail = lazy(() => import("./components/technology-pages/TechnologyDetail"));
+const CourseDetail = lazy(() => import("./components/training-pages/CourseDetail"));
+const Blog = lazy(() => import("./components/blog/Blog"));
+const BlogPost = lazy(() => import("./components/blog/BlogPost"));
+const CaseStudies = lazy(() => import("./components/CaseStudies"));
+const CaseStudyDetail = lazy(() => import("./components/case-study-pages/CaseStudyDetail"));
+const IndustryLeadingSolutions = lazy(() => import("./components/why-choose-us/IndustryLeadingSolutions"));
+const OurJourney = lazy(() => import("./components/why-choose-us/OurJourney"));
+const ClientReviews = lazy(() => import("./components/why-choose-us/ClientReviews"));
+const GlobalReachPage = lazy(() => import("./components/why-choose-us/GlobalReachPage"));
 
 function App() {
 
@@ -42,10 +44,13 @@ function App() {
     });
   }, []);
   return (
-    <Router>
+    <>
        {/* WhatsApp Floating Icon – shows on all pages */}
       <ScrollToTop />
       <WhatsAppFloat />
+      {/* Pre-rendered pages show their HTML immediately; the fallback only
+          appears on client-side navigation while a page chunk downloads. */}
+      <Suspense fallback={<div className="min-h-screen" />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
@@ -69,8 +74,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-notice" element={<PrivacyNotice />} />
+          {/* Any other URL (e.g. old .php pages): friendly 404 instead of a blank page */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
-    </Router>
+      </Suspense>
+    </>
   );
 }
 

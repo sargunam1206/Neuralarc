@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header/Header";
 import { Helmet } from "react-helmet-async";
 import { Link, useSearchParams } from "react-router-dom";
+import { useIsClient } from "../utils/useIsClient";
 import { FaFlask } from "react-icons/fa";
 
 import productsData from "../data/productsData";
@@ -22,11 +23,14 @@ const orderedProducts = [
 
 const ProducteList = () => {
   // ?category=IoT (etc.) opens a tab directly, so other pages can link to it.
+  // The URL tab is applied only after hydration (useIsClient) so the first
+  // render matches the pre-rendered "All" page; a clicked tab then wins.
   const [searchParams] = useSearchParams();
+  const isClient = useIsClient();
   const requested = searchParams.get("category");
-  const [activeCategory, setActiveCategory] = useState(
-    categories.includes(requested) ? requested : "All"
-  );
+  const [chosenCategory, setActiveCategory] = useState(null);
+  const activeCategory =
+    chosenCategory ?? (isClient && categories.includes(requested) ? requested : "All");
   const [selectedProduct, setSelectedProduct] = useState(null);
   useEffect(() => {
   document.body.style.overflow = selectedProduct ? "hidden" : "auto";
@@ -62,12 +66,12 @@ useEffect(() => {
       <section className="py-15 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Section Heading */}
-          <h2 className="text-4xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-8" data-aos="fade-down">
+          <h1 className="text-4xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-8" data-aos="fade-down">
             Our Products
-          </h2>
+          </h1>
 
           {/* Tabs */}
-          <div className="flex justify-center gap-4 md:gap-6 mb-12 flex-wrap">
+          <div className="flex justify-center gap-4 md:gap-6 mb-12 flex-wrap" data-aos="fade-up">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -87,7 +91,7 @@ useEffect(() => {
           {/* Product Grid */}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
   {filteredProducts.map((product) => (
-    <div
+    <div data-aos="fade-up"
       key={product.id}
       className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
     >

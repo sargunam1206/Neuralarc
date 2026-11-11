@@ -5,10 +5,11 @@ import productsData from "../../data/productsData";
 import blogData from "../../data/blogData";
 import caseStudiesData from "../../data/caseStudiesData";
 import { getTechIcon } from "../../utils/techIcons";
-import { getTechPagePath } from "../../data/technologiesData";
+import { getTechPagePath } from "../../data/techPaths";
 import Header from "../Header/Header";
 import Footer from "../Footer";
 import { Helmet } from "react-helmet-async";
+import NotFound from "../../pages/NotFound";
 
 
 const ServiceDetail = () => {
@@ -38,13 +39,7 @@ const ServiceDetail = () => {
   const relatedCaseStudies = caseStudiesData.filter((cs) => cs.relatedService === slug);
   const contactLink = `/contact?service=${slug}`;
 
-  if (!service) {
-    return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-bold">Service not found</h2>
-      </div>
-    );
-  }
+  if (!service) return <NotFound />;
 
   // Each real content block, in display order. Filtered to only the ones
   // that actually apply to this service, then given alternating white/gray
@@ -93,7 +88,9 @@ const ServiceDetail = () => {
       maxWidth: "max-w-7xl",
       content: (
         <>
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">Key Features</h2>
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">
+            {service.featuresHeading || "Key Features"}
+          </h2>
           {/* Five features would leave one orphan in a 4-column grid, so use 3 then 5 columns. */}
           <div
             className={`grid sm:grid-cols-2 gap-8 ${
@@ -137,7 +134,9 @@ const ServiceDetail = () => {
         maxWidth: "max-w-7xl",
         content: (
           <>
-            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">Industries We Serve</h2>
+            <h2 className="text-3xl font-bold text-[#2A6EBB] mb-10 text-center">
+              {service.industriesHeading || "Industries We Serve"}
+            </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {service.industries.map((industry) => (
                 <div key={industry.title} className="bg-white rounded-xl shadow p-6">
@@ -326,13 +325,13 @@ const ServiceDetail = () => {
             (sections.length - 1 - i) % 2 === 0 ? "bg-gray-50" : "bg-white"
           }`}
         >
-          <div className={`${s.maxWidth} mx-auto px-6`}>{s.content}</div>
+          <div className={`${s.maxWidth} mx-auto px-6`} data-aos="fade-up">{s.content}</div>
         </section>
       ))}
 
       {/* CTA — same treatment as the product pages */}
       <section className="py-16 px-6 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4" data-aos="zoom-in">
           Ready to start your {service.title} project?
         </h2>
         <Link

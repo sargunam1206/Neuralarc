@@ -4,7 +4,7 @@ import servicesData from "../data/servicesData";
 import productsData from "../data/productsData";
 import blogData from "../data/blogData";
 import { getTechIcon } from "../utils/techIcons";
-import { getTechPagePath } from "../data/technologiesData";
+import { getTechPagePath } from "../data/techPaths";
 
 // Homepage spotlight for IoT — the company's core focus. Everything here is
 // pulled from the existing data files so it stays in sync with the IoT
@@ -121,7 +121,7 @@ const HomeIoT = () => {
                 <div className="w-full sm:w-2/5 shrink-0 bg-gray-50 flex items-center justify-center p-4 h-56 sm:h-auto">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={`${product.name} — ${product.tagline || "IoT device"} by NeuralArc`}
                     className="max-w-full max-h-full sm:max-h-64 object-contain rounded-lg"
                     loading="lazy"
                   />

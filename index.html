@@ -2,14 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-<link rel="icon" type="image/png" href="/logos/Logo-icon.png" />
-    
+    <!-- Square icons: Google Search only shows a favicon that is 1:1 and a
+         multiple of 48px, and also checks /favicon.ico. -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2A6EBB" />
+    <!-- Page-specific title/description/canonical/social tags are injected
+         here per route at build time by scripts/prerender.mjs. -->
     <title>NeuralArc</title>
+
+    <!-- Font loaded with <link> instead of a CSS @import, so the browser fetches
+         it in parallel with the app CSS rather than only after parsing it. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    />
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://www.neuralarc.com/#organization",
       "name": "NeuralArc",
       "legalName": "NeuralArc Global Private Limited",
       "url": "https://www.neuralarc.com",
@@ -28,17 +47,24 @@
           "@type": "ContactPoint",
           "telephone": "+91-95978-42418",
           "contactType": "customer service"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+91-98765-43210",
-          "contactType": "customer service"
         }
       ],
+      "email": "neuralarcteam@gmail.com",
       "sameAs": [
         "https://www.linkedin.com/company/neuralarc-global-private-limited/",
         "https://www.instagram.com/neuralarc_global"
       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.neuralarc.com/#website",
+      "name": "NeuralArc",
+      "url": "https://www.neuralarc.com",
+      "publisher": { "@id": "https://www.neuralarc.com/#organization" },
+      "inLanguage": "en-IN"
     }
     </script>
   </head>

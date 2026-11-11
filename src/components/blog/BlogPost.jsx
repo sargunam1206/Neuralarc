@@ -5,18 +5,13 @@ import Footer from "../Footer";
 import blogData from "../../data/blogData";
 import productsData from "../../data/productsData";
 import servicesData from "../../data/servicesData";
+import NotFound from "../../pages/NotFound";
 
 const BlogPost = () => {
   const { slug } = useParams();
   const post = blogData.find((p) => p.slug === slug);
 
-  if (!post) {
-    return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-bold">Article not found</h2>
-      </div>
-    );
-  }
+  if (!post) return <NotFound />;
 
   const relatedProducts = productsData.filter((p) =>
     (post.relatedProducts || []).includes(p.slug)
@@ -51,7 +46,7 @@ const BlogPost = () => {
       <article className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
           {post.sections.map((section, i) => (
-            <div key={i}>
+            <div key={i} data-aos="fade-up">
               <h2 className="text-2xl font-bold text-[#2A6EBB] mb-3">
                 {section.heading}
               </h2>
@@ -64,7 +59,7 @@ const BlogPost = () => {
           ))}
 
           {relatedService && (
-            <div className="pt-6 border-t">
+            <div className="pt-6 border-t" data-aos="fade-up">
               <Link
                 to={`/services/${relatedService.slug}`}
                 className="text-[#E31C24] font-semibold hover:underline"
@@ -75,7 +70,7 @@ const BlogPost = () => {
           )}
 
           {relatedProducts.length > 0 && (
-            <div className="pt-6 border-t">
+            <div className="pt-6 border-t" data-aos="fade-up">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Related products
               </h3>

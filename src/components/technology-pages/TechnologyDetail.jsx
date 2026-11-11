@@ -7,6 +7,7 @@ import { FaChevronDown, FaArrowRight, FaExternalLinkAlt, FaPlay, FaBook, FaFileA
 import technologiesData from "../../data/technologiesData";
 import Header from "../Header/Header";
 import Footer from "../Footer";
+import NotFound from "../../pages/NotFound";
 
 const SITE = "https://www.neuralarc.com";
 
@@ -187,20 +188,7 @@ const TechnologyDetail = () => {
   const { slug } = useParams();
   const tech = technologiesData.find((t) => t.slug === slug);
 
-  if (!tech) {
-    return (
-      <>
-        <Header />
-        <div className="text-center py-24">
-          <h1 className="text-2xl font-bold text-gray-900">Technology not found</h1>
-          <Link to="/" className="text-[#2A6EBB] font-semibold mt-4 inline-block">
-            Back to home
-          </Link>
-        </div>
-        <Footer />
-      </>
-    );
-  }
+  if (!tech) return <NotFound />;
 
   const canonical = `${SITE}/technologies/${tech.slug}`;
   const faqJsonLd = {
@@ -253,7 +241,7 @@ const TechnologyDetail = () => {
 
       {/* Intro split */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
           <div>
             <p className="text-xs font-semibold tracking-[0.2em] text-[#E31C24] mb-3">
               {tech.introEyebrow}
@@ -276,7 +264,7 @@ const TechnologyDetail = () => {
 
       {/* Blog (external) */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#E31C24] mb-3">
             {tech.blog.eyebrow}
           </p>
@@ -288,7 +276,7 @@ const TechnologyDetail = () => {
 
       {/* Case study (external) */}
       <section className="py-16 bg-[#0B1B2B] text-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#5AA9E6] mb-3">
             {tech.caseStudy.eyebrow}
           </p>
@@ -307,7 +295,7 @@ const TechnologyDetail = () => {
 
       {/* Everything you need to know — 3 resource cards (external) */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#E31C24] mb-3">EXPLORE MORE</p>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10">
             Everything you need to know
@@ -329,7 +317,7 @@ const TechnologyDetail = () => {
 
       {/* Journey accordion — each item links out (external) */}
       <section className="py-16 bg-[#0B1B2B] text-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#5AA9E6] mb-3">
             {tech.journey.eyebrow}
           </p>
@@ -355,7 +343,7 @@ const TechnologyDetail = () => {
       {/* Dedicated report — email-gated download */}
       {DOWNLOADS_ENABLED && (
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
           <div>
             <p className="text-xs font-semibold tracking-[0.2em] text-[#E31C24] mb-3">
               {tech.report.eyebrow}
@@ -389,7 +377,7 @@ const TechnologyDetail = () => {
 
       {/* FAQ — 10 keyword-tagged questions */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#E31C24] mb-3 text-center">FAQS</p>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center">
             {tech.name} — Frequently Asked Questions
@@ -413,7 +401,7 @@ const TechnologyDetail = () => {
 
       {/* Media row — video (external), e-book & report (email-gated) */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6" data-aos="fade-up">
           {/* With downloads off only the video card is left, so centre it. */}
           <div className={DOWNLOADS_ENABLED ? "grid sm:grid-cols-3 gap-6" : "grid max-w-md mx-auto"}>
             {/* Watch video */}
@@ -490,7 +478,7 @@ const TechnologyDetail = () => {
 
       {/* Get in touch CTA */}
       <section className="py-16 bg-[#0B1B2B] text-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
           <p className="text-xs font-semibold tracking-[0.2em] text-[#5AA9E6] mb-3">LET'S TALK</p>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Have a {tech.name} project in mind?

@@ -14,7 +14,7 @@ const Training = () => {
   return (
     <section className="py-15 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-2">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#2A6EBB] mb-2" data-aos="fade-down">
           Training &amp; Certification Programs
         </h2>
         <p className="text-center text-gray-600 mb-12">
@@ -23,7 +23,7 @@ const Training = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {featured.map((course) => (
-            <Link
+            <Link data-aos="fade-up"
               key={course.id}
               to={`/training/${course.slug}`}
               aria-label={`View ${course.title} and enroll`}

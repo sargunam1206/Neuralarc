@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import worldMap from "../../assets/images/world-map.png";
+import worldMap from "../../assets/images/world-map.jpg";
 import Header from "../Header/Header";
 import Footer from "../Footer";
 
@@ -47,14 +47,14 @@ const GlobalReachPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Map */}
-          <div className="bg-gray-50 rounded-2xl shadow-sm p-6 mb-8">
+          <div className="bg-gray-50 rounded-2xl shadow-sm p-6 mb-8" data-aos="zoom-in">
             <img src={worldMap} alt="World map showing NeuralArc's global reach" className="w-full h-auto" />
           </div>
 
           {/* Stat row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-14">
             {stats.map((s) => (
-              <div key={s.label} className="bg-gray-50 rounded-xl text-center py-5 px-2 shadow-sm">
+              <div key={s.label} className="bg-gray-50 rounded-xl text-center py-5 px-2 shadow-sm" data-aos="fade-up">
                 <div className="text-xl md:text-2xl font-bold text-[#2A6EBB]">{s.value}</div>
                 <div className="text-xs md:text-sm text-gray-500 mt-1">{s.label}</div>
               </div>
@@ -62,7 +62,7 @@ const GlobalReachPage = () => {
           </div>
 
           {/* Our Presence */}
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Our Presence</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4" data-aos="fade-down">Our Presence</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {countries.map((c) => {
               const body = (
@@ -75,7 +75,7 @@ const GlobalReachPage = () => {
                 </>
               );
               return c.caseStudy ? (
-                <Link
+                <Link data-aos="fade-up"
                   key={c.name}
                   to={`/case-studies/${c.caseStudy}`}
                   className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4 hover:bg-[#2A6EBB]/10 transition"
@@ -83,7 +83,7 @@ const GlobalReachPage = () => {
                   {body}
                 </Link>
               ) : (
-                <div key={c.name} className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4">
+                <div key={c.name} className="flex items-center gap-3 bg-gray-50 rounded-lg px-5 py-4" data-aos="fade-up">
                   {body}
                 </div>
               );
@@ -93,7 +93,7 @@ const GlobalReachPage = () => {
       </section>
 
       <section className="py-16 bg-gradient-to-r from-[#2A6EBB] to-[#E31C24] text-white text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Have a project outside India?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4" data-aos="zoom-in">Have a project outside India?</h2>
         <Link
           to="/contact"
           className="inline-block px-6 py-3 bg-white text-[#E31C24] rounded-md font-semibold hover:bg-gray-100 transition"

@@ -30,7 +30,7 @@ const CaseStudies = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudiesData.map((cs) => (
-              <Link
+              <Link data-aos="fade-up"
                 key={cs.slug}
                 to={`/case-studies/${cs.slug}`}
                 className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition"

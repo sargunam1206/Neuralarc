@@ -19,10 +19,10 @@ const Home = () => {
 <>
 
 <Helmet>
-  <title>NeuralArc | IoT, AI & Software Development Company in Coimbatore</title>
+  <title>NeuralArc | IoT Development Company in Coimbatore — IoT, AI & Software</title>
   <meta
     name="description"
-    content="NeuralArc builds IoT hardware, AI/ML systems, and custom software from Coimbatore — connected devices, cloud dashboards, and full-stack development for growing businesses."
+    content="NeuralArc is an IoT development company in Coimbatore — custom IoT solutions that integrate connected hardware, firmware, cloud dashboards and software, plus AI/ML and full-stack development."
   />
   <link rel="canonical" href="https://www.neuralarc.com/" />
 </Helmet>

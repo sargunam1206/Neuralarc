@@ -2,14 +2,14 @@
 // dynamic course detail page (/training/:slug). Add, remove, or edit a course
 // here — the listing cards and the detail pages update automatically.
 
-import imgML from "../assets/images/Aemilst_Machine_Learning.png.png";
-import imgIoT from "../assets/images/IoT_Development.png.png";
-import imgPy from "../assets/images/Python_FullStack.png.png";
-import imgMern from "../assets/images/MERNFull-Stack.png.png";
-import imgData from "../assets/images/DataAnalytics.png.png";
-import imgMobile from "../assets/images/MobileAppDevelopment.png.png";
-import imgCloud from "../assets/images/CloudComputing.png.png";
-import imgUiux from "../assets/images/UIUXDesign.png.png";
+import imgML from "../assets/images/Aemilst_Machine_Learning.jpg";
+import imgIoT from "../assets/images/IoT_Development.jpg";
+import imgPy from "../assets/images/Python_FullStack.jpg";
+import imgMern from "../assets/images/MERNFull-Stack.jpg";
+import imgData from "../assets/images/DataAnalytics.jpg";
+import imgMobile from "../assets/images/MobileAppDevelopment.jpg";
+import imgCloud from "../assets/images/CloudComputing.jpg";
+import imgUiux from "../assets/images/UIUXDesign.jpg";
 
 // Shared placeholder visual for the detail-page "Outcomes" section until
 // dedicated art is supplied. The hero uses each course's own `image`.

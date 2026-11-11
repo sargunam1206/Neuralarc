@@ -27,7 +27,7 @@ const PrivacyNotice = () => (
 
         <div className="space-y-8">
           {privacySections.map((s) => (
-            <div key={s.heading}>
+            <div key={s.heading} data-aos="fade-up">
               <h2 className="text-lg font-bold text-gray-900 mb-2">{s.heading}</h2>
               <p className="text-gray-600 leading-relaxed">{s.body}</p>
             </div>

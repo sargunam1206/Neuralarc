@@ -3,16 +3,17 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import { FaDownload, FaFilePdf } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import companyPortfolio from "../data/companyPortfolio";
 
 // Example images (replace with your real product + achievements images)
-import product1 from "../assets/Products/product1.png";
-import product2 from "../assets/Products/product2.png";
-import product3 from "../assets/Products/product3.png";
-import product4 from "../assets/Products/product4.png";
+import product1 from "../assets/Products/product1.jpg";
+import product2 from "../assets/Products/product2.jpg";
+import product3 from "../assets/Products/product3.jpg";
+import product4 from "../assets/Products/product4.jpg";
 
-import software1 from "../assets/Products/product4.png";
-import software2 from "../assets/Products/product4.png";
-import software3 from "../assets/Products/product4.png";
+import software1 from "../assets/Products/product4.jpg";
+import software2 from "../assets/Products/product4.jpg";
+import software3 from "../assets/Products/product4.jpg";
 
 import award1 from "../assets/images/team3.jpg";
 import award2 from "../assets/images/team2.jpg";
@@ -27,7 +28,7 @@ const Gallery = () => {
   // `size` is shown on the card so visitors know before downloading.
   const brochures = [
     { name: "Company Profile", file: "/brochures/neuralarc-company-profile.pdf", size: "115 KB" },
-    { name: "Company Portfolio", file: "/brochures/neuralarc-portfolio.pdf", size: "18.7 MB" },
+    { name: "Company Portfolio", file: companyPortfolio.file, size: "18.7 MB" },
     { name: "Smart Agriculture Solution", file: "/brochures/neuralarc-smart-agriculture-solution.pdf", size: "5.7 MB" },
     { name: "Blood Bank Software Brochure", file: "/brochures/blood-bank-software-brochure.pdf", size: "870 KB" },
   ];
@@ -55,12 +56,12 @@ const Gallery = () => {
       {/* IoT Products */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12">
+          <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12" data-aos="fade-down">
             IoT Product Showcase
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {iotProducts.map((img, index) => (
-              <div
+              <div data-aos="zoom-in" data-aos-delay={index * 100}
                 key={index}
                 className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
               >
@@ -78,12 +79,12 @@ const Gallery = () => {
       {/* Software Products */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-[#E31C24] mb-12">
+          <h2 className="text-3xl font-bold text-center text-[#E31C24] mb-12" data-aos="fade-down">
             Software Product Showcase
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {softwareProducts.map((img, index) => (
-              <div
+              <div data-aos="zoom-in" data-aos-delay={index * 100}
                 key={index}
                 className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
               >
@@ -101,12 +102,12 @@ const Gallery = () => {
       {/* Achievements */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12">
+          <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-12" data-aos="fade-down">
             Our Achievements
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {achievements.map((img, index) => (
-              <div
+              <div data-aos="zoom-in" data-aos-delay={index * 100}
                 key={index}
                 className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
               >
@@ -124,12 +125,12 @@ const Gallery = () => {
       {/* Brochures */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8">
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-8" data-aos="fade-down">
             Download Our Brochures
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {brochures.map((doc, index) => (
-              <a
+              <a data-aos="fade-up" data-aos-delay={index * 100}
                 key={index}
                 href={doc.file}
                 download

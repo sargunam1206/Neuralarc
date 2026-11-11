@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import product1 from "../assets/images/product-iot1.jpg";
 import bloodbank from "../assets/images/bloodbank.jpeg";
 import purchase from "../assets/images/purchase.jpeg";
-import tracker from "../assets/Products/product1.png";
+import tracker from "../assets/Products/product1.jpg";
 
 const productsData = [
   {

@@ -12,8 +12,6 @@ const TrainingEnrollModal = ({ program, onClose }) => {
   });
   const [status, setStatus] = useState("");
 
-  if (!program) return null;
-
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -65,6 +63,9 @@ useEffect(() => {
   window.addEventListener("keydown", handleEsc);
   return () => window.removeEventListener("keydown", handleEsc);
 }, [onClose]);
+
+  // After the hooks, so they run in the same order on every render.
+  if (!program) return null;
 
 
 

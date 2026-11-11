@@ -158,12 +158,12 @@ const TrainingList = () => {
 
           {/* Testimonials */}
           <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
+            <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10" data-aos="fade-down">
               What Our Learners Say
             </h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {testimonials.map((t, i) => (
-                <div
+                <div data-aos="fade-up"
                   key={i}
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition"
                 >
@@ -177,12 +177,12 @@ const TrainingList = () => {
 
           {/* FAQ */}
           <div>
-            <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10">
+            <h2 className="text-3xl font-bold text-center text-[#2A6EBB] mb-10" data-aos="fade-down">
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
               {faqs.map((f, idx) => (
-                <div key={idx} className="bg-white rounded-xl shadow-md p-4">
+                <div key={idx} className="bg-white rounded-xl shadow-md p-4" data-aos="fade-up" data-aos-delay={idx * 80}>
                   <button
                     type="button"
                     className="w-full flex justify-between items-center text-left"

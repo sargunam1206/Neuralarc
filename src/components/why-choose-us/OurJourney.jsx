@@ -31,7 +31,7 @@ const OurJourney = () => {
 
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4">Our Journey</h2>
+          <h2 className="text-3xl font-bold text-[#2A6EBB] mb-4" data-aos="fade-down">Our Journey</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-10">
             Over the years we&apos;ve built more than 25 products across IoT
             hardware, mobile apps, and business software — each one solving a
@@ -48,7 +48,7 @@ const OurJourney = () => {
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {journeyProducts.map((p) => (
-              <Link
+              <Link data-aos="fade-up"
                 key={p.slug}
                 to={`/products/${p.slug}`}
                 className="flex items-center gap-4 bg-white rounded-xl shadow p-5 hover:shadow-lg transition"
@@ -67,7 +67,7 @@ const OurJourney = () => {
               </Link>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-10" data-aos="fade-up">
             <Link to="/Productes" className="text-[#E31C24] font-semibold hover:underline">
               View All Products →
             </Link>

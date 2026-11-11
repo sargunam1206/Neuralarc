@@ -1,12 +1,16 @@
-import csTRemo from "../assets/images/CS-1.png.png";
-import csMicrolab from "../assets/images/CS-2.png.png";
-import csLeadPro from "../assets/images/CS-3.png.png";
-import csBloodBank from "../assets/images/CS-4.PNG.png";
-import csPurchase from "../assets/images/CS-5.PNG.png";
-import csKadai from "../assets/images/CS-6.PNG.png";
+import csTRemo from "../assets/images/CS-1.jpg";
+import csMicrolab from "../assets/images/CS-2.jpg";
+import csLeadPro from "../assets/images/CS-3.jpg";
+import csBloodBank from "../assets/images/CS-4.jpg";
+import csPurchase from "../assets/images/CS-5.jpg";
+import csKadai from "../assets/images/CS-6.jpg";
 import csSmartAgri from "../assets/images/agri/smart-agri-soil-moisture-analytics.jpg";
 import csEnvMonitoring from "../assets/images/agri/environmental-monitoring-system.jpg";
 import csVentilator from "../assets/images/agri/smart-ambu-bag-ventilator.jpg";
+import csMicrolabChatbot from "../assets/images/case-studies/microlab-chatbot-architecture.jpg";
+
+// Optional `diagram` ({ src, alt, caption }): a full-width architecture image
+// shown on the case study page, which opens full size when tapped.
 
 const caseStudiesData = [
   {
@@ -96,6 +100,29 @@ const caseStudiesData = [
     technologies: ["Node.js", "Express.js", "MySQL", "Firebase"],
     outcome:
       "Patients get a live ETA instead of an estimated call-back window, and lab staff get an assignment and tracking system that replaces manual coordination with something both sides can see.",
+  },
+  {
+    slug: "microlab-ai-support-chatbot",
+    title: "AI Support Chatbot for MicroLab",
+    subtitle: "How we built the MicroLab chatbot",
+    image: csMicrolabChatbot,
+    relatedProduct: "microlab",
+    relatedService: "app-development",
+    metaTitle: "MicroLab AI Chatbot Case Study | NeuralArc",
+    metaDescription:
+      "How NeuralArc built an AI-powered text and voice support chatbot for the MicroLab Flutter app, using Node.js, MySQL, Redis and OpenAI GPT-3.5.",
+    challenge:
+      "MicroLab customers regularly need help with the same things — booking a service, checking a booking's status, finding a technician, or getting answers to common questions. Handling every one of these by phone or by hunting through app screens is slow, and many customers would rather just ask, by typing or by speaking.",
+    approach:
+      "We built a support chatbot into the MicroLab Flutter app that accepts both text and voice. Every request goes over HTTPS to a Node.js and Express API gateway that handles JWT authentication, request validation, rate limiting and session management, then routes it to the right flow: general Q&A, patient lookup, booking, FAQ retrieval or a voice response. The core pipeline detects the user's intent and extracts details such as patient ID, service type and date, cleans up the query, and retrieves relevant context from MicroLab's MySQL database — customers, bookings, services, technicians, availability and FAQs. It then builds a prompt with that context and the business rules, sends it to OpenAI GPT-3.5, and post-processes the reply into a clean response with links, actions and quick replies. Voice questions are converted with speech-to-text and answered back with text-to-speech, and frequently asked questions, session data and API responses are cached in Redis for fast replies.",
+    technologies: ["Flutter", "Node.js", "Express.js", "OpenAI GPT-3.5", "MySQL", "Redis", "Speech-to-Text", "Text-to-Speech"],
+    diagram: {
+      src: csMicrolabChatbot,
+      alt: "MicroLab chatbot architecture: Flutter app, Node.js and Express API gateway, chatbot processing pipeline, MySQL data layer, Redis cache, and external services for GPT-3.5, speech-to-text and text-to-speech",
+      caption: "End-to-end architecture of the MicroLab chatbot, from the Flutter app through the API gateway and processing pipeline to the data layer and external AI services.",
+    },
+    outcome:
+      "The chatbot is live in the MicroLab app. Customers can type or speak a question and get an answer grounded in MicroLab's own data — their bookings, available services, technicians and schedules, and the FAQ knowledge base — with spoken questions answered by voice. Common questions are served quickly from the Redis cache, and every conversation is kept in chat session logs.",
   },
   {
     slug: "leadpro-centralizing-lead-management",

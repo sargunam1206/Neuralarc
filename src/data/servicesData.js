@@ -2,10 +2,14 @@ const servicesData = [
 {
   slug: "iot",
   title: "IoT Solutions",
-  h1: "IoT Development Company in Coimbatore",
-  metaTitle: "IoT Development Company in Coimbatore | NeuralArc",
+  // Primary SEO target for the site: "IoT Solutions in Coimbatore". The home
+  // page targets "IoT Development Company in Coimbatore" so the two don't compete.
+  h1: "IoT Solutions in Coimbatore",
+  metaTitle: "IoT Solutions in Coimbatore | Custom & Industrial IoT | NeuralArc",
   metaDescription:
-    "NeuralArc designs and deploys IoT hardware and cloud systems from Coimbatore — sensor to gateway to dashboard, built on ESP32, STM32, LoRa, and Raspberry Pi.",
+    "Custom and industrial IoT solutions in Coimbatore — NeuralArc designs IoT monitoring systems end to end, from sensor and gateway to cloud dashboard, on ESP32, STM32, LoRa and Raspberry Pi.",
+  featuresHeading: "IoT Monitoring Solutions — Key Features",
+  industriesHeading: "Industrial IoT Solutions & Industries We Serve",
   shortDescription:
     "Smart automation and connected devices for industries & homes.",
   // Short selling points shown at the top of the IoT page and the homepage IoT section.
@@ -149,7 +153,7 @@ longDescription:
   slug: "embedded-software-development",
   title: "Embedded Software Development",
   h1: "Embedded & Firmware Development in Coimbatore",
-  metaTitle: "Embedded & Firmware Development Services | NeuralArc",
+  metaTitle: "Embedded Firmware & IoT Hardware Integration | NeuralArc",
   metaDescription:
     "NeuralArc writes embedded firmware for ESP32 (ESP-IDF) and STM32 devices — sensor integration, wireless connectivity, low-power battery designs, offline store-and-forward and secure device-to-cloud data transfer.",
   shortDescription: "Firmware for connected, low-power embedded devices.",
@@ -455,9 +459,9 @@ longDescription:
 {
   slug: "app-development",
   title: "Mobile App Development",
-  metaTitle: "Mobile App Development | NeuralArc",
+  metaTitle: "Mobile & IoT App Development | NeuralArc",
   metaDescription:
-    "NeuralArc builds cross-platform and native Android & iOS apps using Flutter, React Native, and Firebase.",
+    "NeuralArc builds cross-platform and native Android & iOS apps using Flutter, React Native, and Firebase — including IoT application development such as the iStarter motor-control app.",
   shortDescription: "Scalable Android & iOS applications.",
   faqs: [
     {

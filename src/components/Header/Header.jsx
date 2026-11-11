@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaDownload } from "react-icons/fa";
 import logo from "../../assets/images/Logo.png";
 import servicesData from "../../data/servicesData";
+import companyPortfolio from "../../data/companyPortfolio";
 
 const resourcesItems = [
   { title: "Blog", to: "/blog" },
@@ -99,7 +100,7 @@ const Header = () => {
 
           {/* Desktop Menu — from lg up; tablets use the hamburger menu, since
               seven items plus the CTA don't fit alongside the logo below 1024px. */}
-          <ul className="hidden lg:flex text-base xl:text-lg space-x-5 xl:space-x-10 font-medium text-[#1E1E1E] relative items-center">
+          <ul className="hidden lg:flex text-base xl:text-lg space-x-5 xl:space-x-7 font-medium text-[#1E1E1E] relative items-center">
             <li>
               <NavLink
                 to="/"
@@ -235,8 +236,19 @@ const Header = () => {
             </li>
           </ul>
 
-          {/* CTA */}
-          <div className="hidden lg:block">
+          {/* CTA — the Company Profile download shows as an icon-only button
+              at 1024–1279px so it fits beside the links, full text from xl up. */}
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+            <a
+              href={companyPortfolio.file}
+              download={companyPortfolio.downloadName}
+              title="Download Company Profile"
+              aria-label="Download Company Profile"
+              className="inline-flex items-center gap-2 bg-white text-[#2A6EBB] border border-[#2A6EBB] px-3 xl:px-4 py-2 rounded-md hover:bg-[#2A6EBB] hover:text-white transition whitespace-nowrap"
+            >
+              <FaDownload className="w-3.5 h-3.5" aria-hidden="true" />
+              <span className="hidden xl:inline">Company Profile</span>
+            </a>
             <NavLink
               to="/contact"
               className="bg-[#E31C24] text-white px-4 py-2 rounded-md hover:bg-red-700 transition whitespace-nowrap"
@@ -384,6 +396,16 @@ const Header = () => {
             >
               About
             </NavLink>
+
+            <a
+              href={companyPortfolio.file}
+              download={companyPortfolio.downloadName}
+              className="flex items-center justify-center gap-2 bg-white text-[#2A6EBB] border border-[#2A6EBB] px-4 py-2 rounded-md hover:bg-[#2A6EBB] hover:text-white transition mt-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <FaDownload className="w-3.5 h-3.5" aria-hidden="true" />
+              Company Profile
+            </a>
 
             <NavLink
               to="/contact"

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useIsClient } from "../utils/useIsClient";
 import { Helmet } from "react-helmet-async";
 import emailjs from "emailjs-com";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
@@ -11,7 +12,7 @@ import LegalModal from "../components/LegalModal";
 import countryCodes, { flagEmoji } from "../data/countryCodes";
 import servicesData from "../data/servicesData";
 import { termsSections, privacySections, LEGAL_LAST_UPDATED } from "../data/legalContent";
-import worldMap from "../assets/images/world-map.png";
+import worldMap from "../assets/images/world-map.jpg";
 
 // Aggregate client rating shown on the left. Edit these values as needed.
 const RATING = { score: 4.9, outOf: 5, reviews: "120+" };
@@ -37,7 +38,7 @@ const RatingStars = ({ score }) => {
 const initialForm = {
   firstName: "",
   lastName: "",
-  service: "",
+  service: null, // null = not chosen yet, so ?service= from the URL applies
   subject: "",
   email: "",
   country: "IN",
@@ -53,13 +54,16 @@ const fieldClass = `${controlBase} w-full`;
 const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5";
 
 const Contact = () => {
-  // Service pages link here as /contact?service=<slug> to pre-select the service.
+  // Service pages link here as /contact?service=<slug> to pre-select the
+  // service. The pre-rendered page has no query string, so the URL value is
+  // only applied once hydration is done (useIsClient) to avoid a mismatch.
   const [searchParams] = useSearchParams();
+  const isClient = useIsClient();
   const requestedService = searchParams.get("service");
-  const [form, setForm] = useState(() => ({
-    ...initialForm,
-    service: servicesData.some((s) => s.slug === requestedService) ? requestedService : "",
-  }));
+  const urlService =
+    isClient && servicesData.some((s) => s.slug === requestedService) ? requestedService : "";
+  const [form, setForm] = useState(initialForm);
+  const service = form.service ?? urlService;
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
   const [legal, setLegal] = useState(null); // null | "terms" | "privacy"
@@ -74,8 +78,8 @@ const Contact = () => {
 
     const dial = countryCodes.find((c) => c.iso2 === form.country)?.dial || "";
     const serviceTitle =
-      servicesData.find((s) => s.slug === form.service)?.title ||
-      (form.service === "other" ? "Other" : "");
+      servicesData.find((s) => s.slug === service)?.title ||
+      (service === "other" ? "Other" : "");
 
     // The EmailJS template has no service field, so it rides along in the
     // subject and message rather than needing a template change.
@@ -107,7 +111,7 @@ const Contact = () => {
       )
       .then(() => {
         setStatus("✅ Thanks — your message has been sent. We'll be in touch soon.");
-        setForm(initialForm);
+        setForm({ ...initialForm, service: "" });
       })
       .catch(() =>
         setStatus("❌ Something went wrong. Please try again or email us directly.")
@@ -163,7 +167,7 @@ const Contact = () => {
           </div>
 
           {/* ---------- RIGHT: form ---------- */}
-          <div className="relative bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
+          <div className="relative bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8" data-aos="fade-left">
             <h2 className="text-2xl font-bold text-gray-900">Connect with us</h2>
             <div className="w-10 h-1 bg-[#2A6EBB] rounded-full mt-2 mb-6" />
 
@@ -212,7 +216,7 @@ const Contact = () => {
                 <select
                   id="service"
                   name="service"
-                  value={form.service}
+                  value={service}
                   onChange={handleChange}
                   className={`${fieldClass} bg-white`}
                 >
@@ -373,7 +377,7 @@ const Contact = () => {
 
       {/* ---------- MAP ---------- */}
       <section className="bg-gray-50 py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12" data-aos="fade-up">
           <h2 className="text-2xl md:text-3xl font-extrabold text-center text-gray-900 mb-8">
             Visit Our Office
           </h2>
